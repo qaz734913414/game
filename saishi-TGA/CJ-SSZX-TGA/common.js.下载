@@ -1,0 +1,310 @@
+//drop menu
+// $('.btn-drop-menu').on('click', function(){
+//     if($(this).hasClass('close')){
+//         $(this).removeClass('close');
+//         $('.m-navigation-page').removeClass('show');
+//         setTimeout(function(){
+//             $('.m-navigation-page').hide();
+//         }, 800);
+//         $('.btn-choose-game').show();
+//     } else {
+//         $('.m-navigation-page').show();
+//         $(this).addClass('close');
+//         setTimeout(function(){
+//             $('.m-navigation-page').addClass('show');
+//         }, 100);
+//         $('.btn-choose-game').hide();
+//     }
+// });
+function pgvClick(tag){if(typeof(pgvSendClick) == 'function'){pgvSendClick({hottag:tag});}}
+
+function isPC() {
+    var o = navigator.userAgent;
+    if(o.indexOf("iPhone")!=-1||o.indexOf("iPad")!=-1||o.indexOf("iPod")!=-1||o.indexOf("Android")!=-1){
+        return false;
+    }
+    return true;
+}
+function newGetJSON(url, callback, method){
+    $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        jsonpCallback : method,
+        success: function (data) {
+            callback(data);
+        }
+    });
+}
+function getQuery(name) {
+   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+   var r = window.location.search.substr(1).match(reg);
+   if (r!=null) return (r[2]); return null;
+}
+var wxAppid = 'wx1a147f3fd48dd9ba';
+var ua = navigator.userAgent.toLowerCase();
+window._info_ = {
+    isWechat: (ua.indexOf('micromessenger') != -1),
+    isQQ: (ua.indexOf("qq/") != -1),
+    isSafari: (ua.indexOf("safari/") != -1),
+    isMQQbrowser: (ua.indexOf("mqqbrowser/") != -1),
+    isUC: (ua.indexOf("ucbrowser") != -1),
+    isAndroid: (ua.indexOf("android") != -1),
+    isPC: isPC()
+};
+
+var commonFn = {
+    dealData: function (d, rowCount) {
+        var items = [];
+        var data = d.slice(0);
+        var flag = 0;
+        var len = data.length;
+        fillcount = len % rowCount;
+        for (var i = 0; i < fillcount; i++) {data.push(0);}
+        while(data.length) {
+            items[flag] = data.splice(0, rowCount);
+            flag++;
+        }
+        return items;
+    },
+    setTitle: function(title) {
+        document.title = title;
+        if (_info_.isWechat) {
+            var $iframe = $('<iframe style="height:0;width:0;opacity:0;" src="http://tag.qq.com/a/favicon.ico"></iframe>').on('load', function() {
+                setTimeout(function() {
+                    $iframe.off('load').remove();
+                }, 0);
+            }).appendTo($('body'));
+        }
+    }
+};
+// var isRealSafari = (_info_.isSafari && !_info_.isMQQbrowser);
+
+// 视频播放弹层
+var layerVideo = {
+    player: null,
+    video: null,
+    $closeBtn: null,
+    $layer: null,
+    init: function () {
+        layerVideo.$closeBtn = $('#jLayerClose').on('click', function () {
+            layerVideo.hide();
+        });
+        layerVideo.$layer = $('#jVideoLayer').on('touchmove', function (e) {
+            e.preventDefault();
+        });
+        if (_info_.isPC) {
+            layerVideo.$layer.addClass('pc');
+        } else {
+            var winWidth = $(window).width();
+            var $wrap = $('#jVideoWrap');
+            var wrapHeight = winWidth * 0.55;
+            $wrap.height(wrapHeight).css('margin-top', wrapHeight / -2 + 'px');
+        }
+
+    },
+    show: function (vid) {
+        if (livePlayer && liveStatus) {
+            // 先暂停顶部视频播放
+            livePlayer.pause && livePlayer.pause();
+        }
+        if (_info_.isPC) {
+            $('#video-box').css('visibility','hidden');
+        }
+        if (!_info_.isMQQbrowser) {
+            if (!layerVideo.video) {
+                layerVideo.video = new tvp.VideoInfo();
+                layerVideo.player = new tvp.Player();
+            }
+            var playerConfig = {
+                width: '100%',
+                height: '100%',
+                video: layerVideo.video,
+                modId: 'jVideoWrap',
+                autoplay: true
+            };
+            layerVideo.video.setVid(vid);
+            layerVideo.player.create(playerConfig);
+        } else {
+            var vTpl = '<iframe class="layer-video-iframe" src="' + window.location.protocol + '//v.qq.com/iframe/player.html?vid='+vid+'&auto=1&tiny=0" frameborder="0"></iframe>';
+            $('#jVideoWrap').html(vTpl);
+        }
+        layerVideo.$layer.show();
+    },
+    hide: function () {
+        if (_info_.isPC) {
+            $('#video-box').css('visibility','visible');
+        }
+        $('#jVideoWrap').html('');
+        layerVideo.$layer.hide();
+    }
+};
+var qqBrowserTempTpl = '';
+var liveVideo = null;
+var livePlayer = null;
+var liveStatus = 0;
+var networkType = '';
+function checkVideo() {
+    if (liveStatus && networkType == 'wifi') {
+        // wifi情况下直接播放
+        livePlayer.play();
+    }
+}
+function initFirstVideo(boxId, type, vid) {
+    if (!_info_.isMQQbrowser) {
+        var isInit = 0;
+        liveVideo  = new tvp.VideoInfo();
+        livePlayer = new tvp.Player();
+        var playerConfig = {
+            width: '100%',
+            height: '100%',
+            video: liveVideo,
+            modId: 'video-box',
+            oninited: function () {
+                liveStatus = 1;
+                checkVideo();
+            }
+            // autoplay: true
+        };
+        // pc端直接播
+        if (_info_.isPC) {
+            playerConfig.autoplay = true;
+        }
+        switch(type){
+            case '1': {  //直播
+                liveVideo.setChannelId(vid);
+                playerConfig.type = 1;
+                playerConfig.isLiveFlashShowCfg = true;
+                playerConfig.isLiveFlashShowConfigBtn = true;
+                playerConfig.autoplay = true;
+                break;
+            }
+            default:{ //点播
+                liveVideo.setVid(vid);
+                break;
+            }
+        }
+        function createVideo() {
+            if (!isInit) {
+                livePlayer.create(playerConfig);
+                isInit = 1;
+            }
+        }
+        // 防止返回的情况没有执行onload导致视频不出来
+        setTimeout(function () {
+            createVideo();
+        }, 2000);
+        window.onload = function () {
+            createVideo();
+        };
+    } else {
+        switch(type){
+            case '1':{  //直播
+                var p = 'cnlid=' + vid;
+                break;
+            }
+            default:{ //点播
+                var p = 'vid=' + vid;
+                break;
+            }
+        }
+        var vTpl = '<iframe class="video-iframe" src="' + window.location.protocol + '//v.qq.com/iframe/player.html?'+p+'&tiny=0" frameborder="0"></iframe>';
+        qqBrowserTempTpl = vTpl;
+        $('#' + boxId).html(vTpl);
+    }
+}
+seajs.use(['util', 'tmpl'], function (util, template) {
+    var href = window.location.href;
+    var isIndex = (href.indexOf('index.html') != -1 || href.indexOf('pc_index.html') != -1);
+    // 日期处理方法
+    template.helper('dealtime', function (date) {
+        return date.split(' ')[0];
+    });
+    // 视频时长处理方法
+    template.helper('duration', function (t) {
+        t = parseInt(t);
+        if (isNaN(t)) {return '';}
+        var min = parseInt(t / 60);
+        var sec = parseInt(t % 60);
+        function addZero(num) {
+            return num < 10 ? '0' + num : num;
+        }
+        return addZero(min) + ':' + addZero(sec);
+    });
+    var query = util.qs.getUrlParams();
+
+    var defaultParams = {};
+    if (query['ADTAG']) {
+        defaultParams.ADTAG = query['ADTAG'];
+    }
+    if (query['tga']) {
+        defaultParams.tga = query['tga'];
+    }
+    if (isIndex) {
+        defaultParams.tga = 1;
+    }
+
+    /**
+     * 跳转函数封装
+     *
+     * @param  {string} path   访问路径
+     * @param  {Object} params 请求参数
+     */
+    window.goToPage = function (path, params) {
+      var _url = getPath(path, params);
+      var o=navigator.userAgent;
+      if(o.indexOf("iPhone")!=-1||o.indexOf("iPad")!=-1||o.indexOf("iPod")!=-1||o.indexOf("Android")!=-1){
+      	window.location.href = _url;
+      }else{
+      	window.open(_url);
+      }
+    };
+    /**
+     * 生成跳转连接
+     *
+     * @param  {string} path   访问路径
+     * @param  {Object} params 请求参数
+     */
+    window.getPath = function(path, params) {
+        var queryParams = $.extend(params || {}, defaultParams);
+        return path + '?' + util.qs.stringify(queryParams);
+    };
+
+    window.initShare = function (wx, opts, timelineTitle, link) {
+        var params = {ADTAG:'fx'};
+        if (!isIndex) {
+            params.game = query['game'] || '';
+        }
+        var url = link || location.origin + location.pathname + '?' + util.qs.stringify(params);
+        var defaultOpts = {
+            title: '', // 分享标题
+            desc: '', // 分享描述
+            link: url, // 分享链接
+            imgUrl: '' // 分享图标
+        };
+        var config = $.extend(true, defaultOpts, opts);
+
+        // var options = $.extend({}, defaultOpts, opts);
+        //分享到朋友
+        wx.onMenuShareAppMessage(config);
+        //分享到手Q
+        wx.onMenuShareQQ(config);
+        //分享到QZone
+        wx.onMenuShareQZone(config);
+        //分享到微博（默认是不需要的，可根据情况使用）
+        wx.onMenuShareWeibo(config);
+
+        var momConfig = {
+            title: timelineTitle || opts.title, // 分享标题
+            desc: opts.desc, // 分享描述
+            link: url, // 分享链接
+            imgUrl: opts.imgUrl // 分享图标
+        };
+        //分享到朋友圈
+        wx.onMenuShareTimeline(momConfig);
+
+    };
+
+});
+/* Copyright (c) 2010-2013 Marcus Westin */
+(function(e){function o(){try{return r in e&&e[r]}catch(t){return!1}}var t={},n=e.document,r="localStorage",i="script",s;t.disabled=!1,t.version="1.3.17",t.set=function(e,t){},t.get=function(e,t){},t.has=function(e){return t.get(e)!==undefined},t.remove=function(e){},t.clear=function(){},t.transact=function(e,n,r){r==null&&(r=n,n=null),n==null&&(n={});var i=t.get(e,n);r(i),t.set(e,i)},t.getAll=function(){},t.forEach=function(){},t.serialize=function(e){return JSON.stringify(e)},t.deserialize=function(e){if(typeof e!="string")return undefined;try{return JSON.parse(e)}catch(t){return e||undefined}};if(o())s=e[r],t.set=function(e,n){return n===undefined?t.remove(e):(s.setItem(e,t.serialize(n)),n)},t.get=function(e,n){var r=t.deserialize(s.getItem(e));return r===undefined?n:r},t.remove=function(e){s.removeItem(e)},t.clear=function(){s.clear()},t.getAll=function(){var e={};return t.forEach(function(t,n){e[t]=n}),e},t.forEach=function(e){for(var n=0;n<s.length;n++){var r=s.key(n);e(r,t.get(r))}};else if(n.documentElement.addBehavior){var u,a;try{a=new ActiveXObject("htmlfile"),a.open(),a.write("<"+i+">document.w=window</"+i+'><iframe src="/favicon.ico"></iframe>'),a.close(),u=a.w.frames[0].document,s=u.createElement("div")}catch(f){s=n.createElement("div"),u=n.body}var l=function(e){return function(){var n=Array.prototype.slice.call(arguments,0);n.unshift(s),u.appendChild(s),s.addBehavior("#default#userData"),s.load(r);var i=e.apply(t,n);return u.removeChild(s),i}},c=new RegExp("[!\"#$%&'()*+,/\\\\:;<=>?@[\\]^`{|}~]","g");function h(e){return e.replace(/^d/,"___$&").replace(c,"___")}t.set=l(function(e,n,i){return n=h(n),i===undefined?t.remove(n):(e.setAttribute(n,t.serialize(i)),e.save(r),i)}),t.get=l(function(e,n,r){n=h(n);var i=t.deserialize(e.getAttribute(n));return i===undefined?r:i}),t.remove=l(function(e,t){t=h(t),e.removeAttribute(t),e.save(r)}),t.clear=l(function(e){var t=e.XMLDocument.documentElement.attributes;e.load(r);for(var n=0,i;i=t[n];n++)e.removeAttribute(i.name);e.save(r)}),t.getAll=function(e){var n={};return t.forEach(function(e,t){n[e]=t}),n},t.forEach=l(function(e,n){var r=e.XMLDocument.documentElement.attributes;for(var i=0,s;s=r[i];++i)n(s.name,t.deserialize(e.getAttribute(s.name)))})}try{var p="__storejs__";t.set(p,p),t.get(p)!=p&&(t.disabled=!0),t.remove(p)}catch(f){t.disabled=!0}t.enabled=!t.disabled,typeof module!="undefined"&&module.exports&&this.module!==module?module.exports=t:typeof define=="function"&&define.amd?define(t):e.store=t})(Function("return this")());
+/*  |xGv00|f870b1698ccf83c8bb9e2c7954f602f2 */

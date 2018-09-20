@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TGA大奖赛-腾讯游戏</title>
+    <style >
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        a{
+            color:#000;
+        }
+        div{
+            display:block;
+        }
+        body {
+            background: #e9e9e9;
+        }
+        #ost_box{
+            width:100%;
+            height:40px;
+            background-color:#fff;
+            color:#464646;
+            font-size:12px;
+            font-family:Tahoma,simsun;
+            border:1px solid #c9c9c9;
+            border-width:1px 0;
+            position:absolute;
+            z-index:8000;
+        }
+        #ost_box .ost_inner{
+            width:980px;
+            padding:0 5px;
+            margin:0 auto;
+            position:relative;
+            line-height:40px;
+        }
+        .ost_inner .ost_big {
+            width:970px;
+            height:185px;
+            padding:0 3px 3px;
+            border-bottom:1px solid #eee;
+            background:#fff;
+            position:absolute;
+            top:0;
+            left:50%;
+            margin:0 0 0 -488px;
+        }
+        .ost_inner .ost_logo{
+            background:url("CJ-SSZX-TGA/ost-bg.png") no-repeat;
+            width:205px;
+            padding:0 15px 0 0;
+            background-position:0 -40px;
+            position:relative;
+            z-index: 10001;
+            float:left;
+        }
+        .ost_logo .ost_blank{
+            display:block;
+            height:100%;
+            color:#000;
+            text-indent:-500px;
+        }
+        .ost_inner .ost_ad{
+            width:230px;
+            height:100%;
+            float:left;
+        }
+        .ost_inner .ost_total{
+            width:220px;
+            background-position:-143px -120px;
+            margin-left:10px;
+            float:right;
+        }
+        .ost_total a{
+            color: #464646;
+            font-size:12px;
+            font-weight:400;
+        }
+        .ost_total .ost_czsh{
+            float:left;
+            width:118px;
+            background:url(CJ-SSZX-TGA/logo.png) 0 12px no-repeat;
+            text-indent:20px;
+            cursor:pointer;
+        }
+        .ost_czsh a:hover {
+            color: #ff4e00;
+        }
+        .ost_total .ost_title{
+            font-size:12px;
+            font-weight:400;
+            height:40px;
+            line-height:40px;
+            cursor:pointer;
+            overflow: hidden;
+            display: block;
+            text-indent: 0!important;
+        }
+        .ost_title .ost_icon{
+            width:11px;
+            height:11px;
+            background-position:-150px -134px;
+            margin-left:5px;
+            background:url(CJ-GLZX-newsest/ost-bg.png) no-repeat;
+            display:inline-block;
+            vertical-align:middle;
+            font-size: .1em;
+        }
+        .live-inner {
+            position:relative;
+            top:20px;
+            z-index:2;
+            height:729px;
+            padding-top:584px;
+            background:url(CJ-SSZX-TGA/8698ccf39e10dac9902209376f1be5c7.jpg) center top no-repeat;
+        }
+       .m-content {
+            width:1000px;
+            margin:0 auto;
+            position:relative;
+            z-index:1;
+        }
+        .m-content .box-wrap {
+            width:978px;
+            height:549px;
+            background:url(CJ-SSZX-TGA/v_border.png) no-repeat;
+            position:relative;
+            margin:0 auto;
+            padding:11px 10px 10px 12px;
+        }
+        .box-wrap .video-main {
+            position:relative;
+            z-index:1;
+            width:100%;
+            height:100%;
+        }
+        .m-content .txt-wrap {
+            width:995px;
+            height:131px;
+            background:url(CJ-SSZX-TGA/v_match.png) no-repeat;
+            margin:10px auto 0;
+            position:relative;
+        }
+        .txt-wrap .txt-cont {
+            position:absolute;
+            left:150px;
+            top:42px;
+            width:680px;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+        }
+        .txt-wrap .txt-cont p {
+            font-size:24px;
+            line-height:50px;
+            color:#fff;
+        }
+        #game-cont {
+            background:#0a0526 url(CJ-SSZX-TGA/cs_bg_game.png) center top no-repeat;
+        }
+        #game-cont .video-box {
+            padding:100px 0 90px;
+            background:url(CJ-SSZX-TGA/cs_cont_bg.png) center top repeat,url(CJ-SSZX-TGA/cs_cont_bg2.png) center bottom no-repeat;
+        }
+        .m-content  .Vtitle {
+            margin-bottom:65px;
+            width:993px;
+            height:82px;
+            background-position:-1033px -122px;
+            display:block;
+            text-indent:-9999px;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            font-size:100%;
+        }
+        .m-content  .video-list {
+            overflow:hidden;
+            margin-left:-35px;
+            padding-bottom:10px;
+        }
+        .video-list .video {
+            width:294px;
+            float:left;
+            margin:0 0 20px 45px;
+        }
+        .video-list .video .item {
+            display:block;
+            cursor:pointer;
+            text-align:center;
+        }
+        .video-list .video .cover {
+            display:block;
+            width:300px;
+            height:168px;
+            position:relative;
+            overflow:hidden;
+            padding:1px;
+        }
+        .video-list .video .item, .Vicon-play:hover .cover {
+            background-repeat: no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+        }
+        .video .item:hover .cover .Vicon-play, .video .item:hover .cover time, .video .item:hover .cover .mask {
+            display: none;
+        }
+        .video .item:hover .video-name {
+            color: #ffcc6a;
+        }
+        .video .cover img {
+            display:block;
+            width:100%;
+            vertical-align:top;
+        }
+        .video .cover time {
+            position:absolute;
+            left:0;
+            width:100%;
+            line-height:20px;
+            font-size:17px;
+            color:#ffcc6a;
+            text-align:center;
+            top:50%;
+            margin:32px 0 0;
+            z-index:2;
+        }
+        .cover .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: #000;
+            opacity: 0.6;
+        }
+        .Vicon-play {
+            position: absolute;
+            width:85px;
+            height:85px;
+            background-position:-1033px -515px;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            top:50%;
+            left:50%;
+            margin:-58px 0 0 -42px;
+            z-index:2;
+         }
+        .video .video-name {
+            display:block;
+            text-align:left;
+            color:#9da1ac;
+            font-size:16px;
+            line-height:20px;
+            height:40px;
+            margin:5px 0;
+            overflow:hidden;
+        }
+        .video .video-info {
+            font-size:14px;
+            display:block;
+            line-height:21px;
+            color:#b4b4b4;
+            text-align:left;
+            position:relative;
+            height:21px;
+        }
+        .video .video-info .type {
+            position:absolute;
+            right:0;
+            top:0;
+        }
+         .btn-more {
+            display:block;
+            height:29px;
+            width:82px;
+            color:#9296a2;
+            font-size:16px;
+            line-height:29px;
+            margin-left:auto;
+            text-align:left;
+            clear:both;
+        }
+        .btn-more:hover {
+            color:#e0b461;
+        }
+        .news-box {
+            padding:120px 0;
+        }
+        .m-content .Ntitle {
+            margin-bottom:65px;
+            width:993px;
+            height:82px;
+            background-position:-20px -224px;
+            display:block;
+            text-indent:-9999px;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            font-size:100%;
+        }
+        .m-content .news-list {
+            width:980px;
+            height:372px;
+            margin:0 auto;
+            padding-bottom:15px;
+        }
+        .newsItem{
+            width:980px;
+            height:142px;
+        }
+        .newsItem a{
+           display:block;
+        }
+
+        .newsItem .news-img {
+            float:left;
+            margin-right:30px;
+            width:248px;
+            height:140px;
+            padding:1px;
+            background-position:-1355px -325px;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+        }
+        .newsItem img {
+            display:block;
+            width:248px;
+            height:140px;
+        }
+        .newsItem .news-name {
+            display:block;
+            color:#fff;
+            font-size:18px;
+            line-height:20px;
+            padding-top:8px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        .newsItem .news-cont {
+            display:block;
+            font-size:16px;
+            line-height:22px;
+            color:#9da1ac;
+            margin-top:25px;
+            height:44px;
+            overflow:hidden;
+        }
+        .newsItem .news-info {
+            display:block;
+            font-size:16px;
+            line-height:22px;
+            color:#9da1ac;
+            margin-top:20px;
+        }
+        .news-list .list{
+            margin:55px auto 0;
+        }
+        .list li{
+            overflow:hidden;
+            font-size:16px;
+            color:#9da1ac;
+            line-height:20px;
+            margin-bottom:15px;
+        }
+        .list li:hover a{
+            color:#ffcc6a;
+        }
+        .list li:hover span{
+            color:#ffcc6a;
+        }
+        .list li .name {
+            width:670px;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
+            float:left;
+            color:#9da1ac;
+        }
+        .list li .info{
+            float:right;
+            color: #9da1ac;
+        }
+        #game-cont .team-box{
+            background:url(CJ-SSZX-TGA/cs_cont_bg.png) center top repeat,url(CJ-SSZX-TGA/cs_cont_bg2.png) center bottom no-repeat;
+            padding:120px 0;
+        }
+
+        .m-content .Ttitle{
+            margin-bottom:60px;
+            width: 993px;
+            height: 81px;
+            background-position: -20px -326px;
+            display: block;
+            text-indent: -9999px;
+            background-repeat: no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            font-size: 100%;
+            font-weight:normal;
+        }
+        .team-box .game_star {
+            display:block;
+            width: 800px;
+            margin: 0 auto;
+        }
+        #game-cont .intro-box {
+            padding:120px 0 110px;
+        }
+        .Ititle {
+            margin-bottom:47px;
+            width:993px;
+            height:82px;
+            background-position:-20px -122px;
+            display:block;
+            text-indent:-9999px;
+            background-repeat: no-repeat;
+            background-image: url(CJ-SSZX-TGA/i-spr.png);
+        }
+        .intro-box .Icontent {
+            width:946px;
+            margin:0 auto;
+            font-size:16px;
+            background:url(CJ-SSZX-TGA/i-line.png) left top no-repeat;
+            padding-top:10px;
+        }
+        .Icontent .intro-txt {
+            font-size:16px;
+            line-height:22px;
+            color:#9da1ac;
+            margin-bottom:28px;
+            position:relative;
+        }
+        .Icontent h4 {
+            font-size: 16px;
+            line-height: 22px;
+            color: #9da1ac;
+            margin-top: 38px;
+            position: relative;
+            background:url(CJ-SSZX-TGA/i-line.png) left top no-repeat;
+            padding-top:10px;
+        }
+        .Icontent ul li {
+            font-size:16px;
+            line-height:22px;
+            color:#9da1ac;
+        }
+        #game-cont .partner-box {
+            padding:100px 0;
+        }
+        .Ptitle {
+            margin-bottom:20px;
+            width:992px;
+            height:82px;
+            background-position:-1035px -20px;
+            display:block;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            text-indent: -9999px;
+        }
+        .partner-box .logo-box {
+            font-size: 0;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        .logo-box .first_logo {
+            width: 910px;
+        }
+        .logo-box .logo3 {
+            width: 380px;
+        }
+        .logo-box li{
+            display:inline-block;
+            width:290px;
+            position:relative;
+            border-bottom:1px solid #292529;
+            padding-bottom:20px;
+            padding-top:20px;
+        }
+        .logo-box li img {
+            display:block;
+            margin:0 auto;
+        }
+        .first_logo span {
+            margin-top:10px;
+        }
+        .logo-box li span {
+            display:block;
+            text-align:center;
+            font-size:22px;
+            color:#9095a0;
+            line-height:26px;
+        }
+        .Ztitle {
+            margin-bottom:87px;
+            width:995px;
+            height:82px;
+            background-position:-20px -20px;
+            display:block;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            text-indent:-9999px;
+        }
+        .cooperation-box {
+            padding-bottom:38px;
+            background:#0a0b30 url(CJ-SSZX-TGA/partner-bg.jpg) center bottom no-repeat;
+
+        }
+        .cooperation-box .back-to-top {
+            width:68px;
+            height:68px;
+            background-position:-1138px -515px;
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            z-index:100;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+        }
+        .Ctitle {
+            margin-bottom:20px;
+            width:993px;
+            height:81px;
+            background-position:-1033px -224px;
+            display:block;
+            background-repeat:no-repeat;
+            background-image:url(CJ-SSZX-TGA/i-spr.png);
+            text-indent:-9999px;
+        }
+        .hz_logo_wrap {
+            display:block;
+            margin:0 auto;
+            width:1000px;
+        }
+        #footer {
+            width:100%;
+            height:110px;
+            text-align:center;
+            font-size:12px;
+            line-height:20px;
+            color:#8690a7;
+            background:#020420;
+            padding-top:40px;
+            overflow:hidden;
+        }
+        .foot-cont {
+            margin:0 auto;
+            padding-top:10px;
+            width:1000px;
+        }
+        .foot-cont a {
+            color:#8690a7;
+            text-decoration:none;
+        }
+        .foot-cont .e{
+            font-size:10px;
+        }
+        .foot-cont a:hover {
+            text-decoration:underline;
+        }
+        .V-boxs{
+            position:absolute;
+            z-index:9999;
+            left:50%;
+            top:1450px;
+            margin-top:0;
+            margin-left:-400px;
+        }
+        .PicVideos{
+            position:fixed;
+            left:20%;
+            top:10%;
+            width:800px;
+            height:450px;
+            z-index:9999;
+        }
+        .Vcloser {
+            width:75px;
+            height:75px;
+            background:url(CJ-SSZX-TGA/close.jpg);
+            position:fixed;
+            right:15.3%;
+            top:10%;
+            line-height:2000px;
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="V_box" class="V-boxs" style="display:none;">
+        <div id="mod-player">
+            <video id="picVideos1" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/s06675bdylk.p712.1.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos2" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/g0667gl9813.p712.1.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos3" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/j0667ed9c5h.p712.1.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos4" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/l0667euywrr.p712.1.mp4" type="video/mp4" >
+            </video>
+            <video id="picVideos5" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/p0667dl8kjk.p712.1.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos6" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/g0666r8rhge.p712.1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <a id="dia-close" class="Vcloser" href="javascript:void(0);" title="关闭">×</a>
+    </div>
+    <div id="ost_box">
+        <ul class="ost_inner">
+            <li class="ost_logo">
+                <a href="//game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav target= _blank"  class="ost_blank" title="腾讯游戏logo">腾讯游戏logo</a>
+            </li>
+            <li id="ost_g" class="ost_ad">
+                <img id="ost_go" src="CJ-SSZX-TGA/1573749985933637065153025711123040.1530257132.5ba217652c7be0612541cbb8a1d913c8.230x40_6361.jpg"/>
+            </li>
+            <div id="ost_d" class="ost_big" style="display:none;">
+                <a href="http://ac.o2.qq.com/php/click.php?loc_id=119_0d8e2b9df01ce2966bb5d8dd52e865e1&amp;
+                info_data=HhppS1tYhho2yY2eZhZh0-VnkWLIQbMGhUzjaeiPSwP5JMHBpvlEJxq-8bBIvlMkmdpUDvHCcAsel35lWaoyWpWZKJDHsQq8GYqlta1gn2QtTd7Femf_miUOqcazaUFsRlVbAQofsrdxfodj4g9DifGM_PnN_D1okapiWKjAmJwosgCz0QtGTUC1bwU2jAbWcYvorcj8BMSxFQsz6E3bFXdPZ2gE56R9RLn2cr8kMy47S65Ypmd_1oD8nPN6zdahhPlHl1mSj2kJ6oNh6uUknygN59p1z-lt6DIyCF3abtYhvAFlVgbf4ucqefGLO55NcqHSc4-0yVhG-DaKk-MEqLsZFnRON_DGoJyRzDPDWRlWTMFOHpDR9LIq14FtDX-gCcMG7c7EJo4M17FsirabRi1jNkUYPMYK-IGRrNZd7zVcDnxPi-qKjyptgFeN42k4g9dOEngv1YJxmVSv2Xm2uQ"
+                   target="_blank">
+                    <img class="ost_nb" src="CJ-SSZX-TGA/71393217633543671530257002970185.1530257026.f235c874788c3f7404e13589c7307a0a.970x185_77897.png" width="970" height="185" alt="">
+                </a>
+            </div>
+            <li class="ost_total">
+                <h3 class="ost_czsh">
+                    <a target="_blank" href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+                </h3>
+                <div class="ost_title">
+                    腾讯游戏排行榜
+                    <p class="ost_icon"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="live_box">
+        <div class="live-inner">
+            <div class="m-content">
+                <div class="box-wrap">
+                    <div class="video-main">
+                        <embed wmode="direct" flashvars="vid=124238403&amp;vurl=http://zb.v.qq.com:1863/?progid=124238403&amp;sktype=live&amp;funCnlInfo=TenVideo_FlashLive_GetChannelInfo&amp;funTopUrl=TenVideo_FlashLive_GetTopUrl&amp;funLogin=TenVideo_FlashLive_IsLogin&amp;funOpenLogin=TenVideo_FlashLive_OpenLogin&amp;funSwitchPlayer=TenVideo_FlashLive_SwitchPlayer&amp;host=http%3A%2F%2Ftga.qq.com%2Fmatch%2F2018%2Fpc_game.html%3Fgame%3Dpg%26tga%3D1&amp;txvjsv=2.0&amp;showcfg=1&amp;share=1&amp;full=1&amp;autoplay=1&amp;p=false" src="http://imgcache.qq.com/minivideo_v1/vd/res/TencentPlayerLive.swf?max_age=86400&amp;v=20140714" quality="high" name="tenvideo_flash_player_1531044381953" id="tenvideo_flash_player_1531044381953" bgcolor="#000000" width="100%" height="100%" align="middle" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/">
+                    </div>
+                </div>
+                <div class="txt-wrap">
+                    <div class="txt-cont">
+                        <p>【预告】5月26日 16:00-22:00 5月厦门站月赛</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="game-cont">
+        <div class="video-box">
+            <div class="m-content">
+                <h3 class="Vtitle">视频中心</h3>
+                <ul class="video-list">
+                    <li class="video">
+                        <a href="javascript:void(0);"  id="picPlays1" class="item">
+                            <span class="cover">
+                                <img src="CJ-SSZX-TGA/050e58ab41a6f4b2934f49a49383f51e.jpg"/>
+                                <time>00:52</time>
+                                <span class="mask"></span>
+                                <i class="Vicon-play"></i>
+                            </span>
+                            <span class="video-name">绝地求生刺激战场WE战队赛后采访</span>
+                            <span class="video-info">
+                                <span>2018-05-27</span>
+                                <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="video">
+                        <a href="javascript:void(0);" id="picPlays2" class="item">
+                            <span class="cover">
+                                <img src="CJ-SSZX-TGA/5b94467de188d49677427a771afe39f3.jpg"/>
+                                <time>01:48</time>
+                                <span class="mask"></span>
+                                <i class="Vicon-play"></i>
+                            </span>
+                            <span class="video-name">绝地求生刺激战场JcPower战队赛后采访</span>
+                            <span class="video-info">
+                                <span>2018-05-27</span>
+                                <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="video">
+                        <a href="javascript:void(0);" id="picPlays3" class="item">
+                            <span class="cover">
+                                <img src="CJ-SSZX-TGA/6120e1e9471b25e7ab0ee8dbe9ad791d.jpg"/>
+                                <time>02:15</time>
+                                <span class="mask"></span>
+                                <i class="Vicon-play"></i>
+                            </span>
+                            <span class="video-name">【冠军零距离】AG战队绝地求生刺激战场冠军</span>
+                            <span class="video-info">
+                                <span>2018-05-27</span>
+                                <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="video">
+                        <a href="javascript:void(0);" id="picPlays4" class="item">
+                            <span class="cover">
+                                <img src="CJ-SSZX-TGA/258345da6e762cb366eeb8877e48f8cf.jpg"/>
+                                <time>02:10</time>
+                                <span class="mask"></span>
+                                <i class="Vicon-play"></i>
+                            </span>
+                            <span class="video-name">【集锦】绝地求生刺激战场 螳螂捕蝉黄雀在后</span>
+                            <span class="video-info">
+                                <span>2018-05-27</span>
+                                <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="video">
+                        <a href="javascript:void(0);" id="picPlays5" class="item">
+                            <span class="cover">
+                                <img src="CJ-SSZX-TGA/fe342d4541dbcdba0cc03d260d8189fe.jpg"/>
+                                <time>02:31</time>
+                                <span class="mask"></span>
+                                <i class="Vicon-play"></i>
+                            </span>
+                            <span class="video-name">【TOP 10】绝地求生刺激战场 一己之力团灭</span>
+                            <span class="video-info">
+                                <span>2018-05-27</span>
+                                <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="video">
+                        <a href="javascript:void(0);" id="picPlays6" class="item">
+                            <span class="cover">
+                                <img src="CJ-SSZX-TGA/fa8e273a38e41fc28f044e2d51cb2d2e.jpg"/>
+                                <time>57:23</time>
+                                <span class="mask"></span>
+                                <i class="Vicon-play"></i>
+                            </span>
+                            <span class="video-name">刺激战场 TGA大奖赛 竞技赛 第4场</span>
+                            <span class="video-info">
+                                <span>2018-05-27</span>
+                                <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <a href="javascript:void(0);" class="btn-more">更多视频&nbsp;></a>
+            </div>
+        </div>
+        <div class="news-box">
+            <div class="m-content">
+                <h3 class="Ntitle">最新资讯</h3>
+                <div class="news-list">
+                    <div class="newsItem">
+                        <a href="">
+                            <div class="news-img">
+                                <img src="CJ-SSZX-TGA/632ef9eb68a8a30dc67d9bb8036b2157.png"/>
+                            </div>
+                            <span class="news-name">【图集】TGA大奖赛 《绝地求生：刺激战场》现场精彩图集</span>
+                            <span class="news-cont">&nbsp;</span>
+                            <span class="news-info">
+                                    <span>2018-05-27</span>
+                                    <span>|</span>
+                                    <span class="type">绝地求生：刺激战场</span>
+                            </span>
+                        </a>
+                    </div>
+                    <ul class="list">
+                        <li>
+                            <a href="" class="name">【战报】绝地求生刺激战场5月月赛：先发致胜 AG稳健“吃鸡”</a>
+                            <span class="info">
+                                <span>2018-05-27</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="" class="name">【战报】绝地求生：刺激战场4月月赛：绝处逢生 DR逆袭登顶</a>
+                            <span class="info">
+                                <span>2018-04-28</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="" class="name">【图集】办一场吃鸡手游赛事的成本有多大？TGA大奖赛厦门站为你解答</a>
+                            <span class="info">
+                                <span>2018-04-01</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="" class="name">【采访】TGA3月刺激现场首个冠军产生 Snake教你怎么快速吃鸡</a>
+                            <span class="info">
+                                <span>2018-04-01</span>
+                            </span>
+                        </li>
+                        <li>
+                            <a href="" class="name">【战报】TGA 刺激战场三月月赛：Snake稳健发挥 总分1555夺冠</a>
+                            <span class="info">
+                                <span>2018-04-01</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="" class="btn-more">更多资讯&nbsp;></a>
+           </div>
+        </div>
+        <div class="team-box">
+            <div class="m-content">
+                <h3 class="Ttitle">解说团队</h3>
+            </div>
+            <img src="CJ-SSZX-TGA/c39d43b5077a2197be181100f2edc378.png" class="game_star"/>
+        </div>
+        <div class="intro-box">
+            <div class="m-content">
+                <h3 class="Ititle">赛事介绍</h3>
+                <div class="Icontent">
+                    <p class="intro-txt">TGA大奖赛是一项基于腾讯游戏竞技平台（简称：TGA）的重要品牌赛事，
+                        是腾讯游戏为广大玩家打造的一场覆盖全年的大型综合性体育竞技盛会。
+                        赛事全面整合了腾讯游戏旗下众多竞技产品和单项赛事，将线上赛事和线下赛事进行有机融合，
+                        形成了一套专业、完善的赛事体系，每年总参赛人数达数千万之众，成为国内规模最大、
+                        最具全民参与性的专业电竞赛事。
+                    </p>
+                    <p class="intro-txt">
+                        腾讯光子工作室群自研大作，正版战斗特训手游《绝地求生：刺激战场》！虚幻4引擎次世代完美画质，
+                        重现端游视听感受；8000M×8000M实景地图，全面自由施展战术；百人竞技,真实射击手感；好友一键组队，
+                        语音开黑；给您带来一场刺激的竞技体验。
+                    </p>
+                    <p class="intro-txt">
+                        《绝地求生：刺激战场》3月份起成为2018年TGA大奖赛正式比赛项目，首站比赛将于3月31日在福建厦门举行。
+                        届时20支职业战队将在同一块赛场汇集，在激烈的战场比拼，争夺最终的冠军荣耀。
+                    </p>
+                    <h4>赛事奖金</h4>
+                    <ul>
+                        <li>线下月赛：冠军—50000元，亚军—30000元，季军—20000元、殿军—10000元</li>
+                        <li>半年总决赛：冠军—200000元，亚军—100000元，季军—80000元、殿军—50000元</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="partner-box">
+            <div class="m-content">
+                <h3 class="Ptitle">赞助商</h3>
+                <ul class="logo-box">
+                    <li class="first_logo">
+                        <img src="CJ-SSZX-TGA/cs_logo01.png" width="510" height="150" alt="机械革命">
+                        <span>冠名赞助商</span>&gt;
+                    </li>
+                    <li>
+                        <img src="CJ-SSZX-TGA/cs_logo02.png" width="270" height="100" alt="达尔优">
+                        <span>特约赞助商</span>
+                        <i></i>
+                    </li>
+                    <li class="logo3">
+                        <img src="CJ-SSZX-TGA/cs_logo03.png" width="330" height="100" alt="努比亚手机">
+                        <span>特约赞助商</span>
+                        <i></i>
+                    </li>
+                    <li class="logo4">
+                        <img src="CJ-SSZX-TGA/cs_logo04.png" width="200" height="100" alt="乐虎">
+                        <span>特约赞助商</span>
+                    </li>
+                </ul>
+                <h3 class="Ztitle">指定直播平台</h3>
+                <img src="CJ-SSZX-TGA/cs_live_logo.png" width="1000" height="240" alt="指定直播平台">
+            </div>
+        </div>
+        <div class="cooperation-box">
+            <div class="m-content">
+                <h3 class="Ctitle">媒体合作</h3>
+                <img src="CJ-SSZX-TGA/hzhb_logo_wrap.png" width="1000" height="270" alt="指定直播平台" class="hz_logo_wrap">
+            </div>
+            <a href="#" class="back-to-top" id="backToTop" style="display:inline;top:147px;"></a>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="foot-cont">
+            <p>
+                <a href="http://ieg.tencent.com/">腾讯互动娱乐</a>
+                   |
+                <a href="http://www.qq.com/contract.shtml">服务条款</a>
+                   |
+                <a href="https://e.tencent.com/">广告服务</a>
+                   |
+                <a href="http://game.qq.com/hr/">腾讯游戏招聘</a>
+                   |
+                <a href="http://service.qq.com/">腾讯游戏客服</a>
+                   |
+                <a href="http://tgact.qq.com/">游戏活动</a>
+                   |
+                <a href="http://game.qq.com/gnav/">游戏地图</a>
+                   |
+                <a href="http://game.qq.com/portal2010/business.htm">商务合作</a>
+                   |
+                <a href="http://www.qq.com/">腾讯网</a>
+                   |
+                <a href="http://www.qq.com/map/">网站导航</a>
+            </p>
+            <p class="e">COPYRIGHT © 1998 – 2018 TENCENT. ALL RIGHTS RESERVED.</p>
+            <p><a href="//www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯公司 版权所有</a></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="TGA.js"></script>
+</body>
+</html>
