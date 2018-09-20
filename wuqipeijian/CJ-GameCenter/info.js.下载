@@ -1,0 +1,144 @@
+var resultData;
+var _info = null;
+//渲染二级菜单
+function tab_str(tn, ss, id){
+    var str = '';
+    var $labContainer = $("#lab-conainer"+id);
+    $labContainer.html('');
+    for(var i = 0; i< tn.length; i++){
+        var name = tn[i].lx_b5[0].mc_94;
+        if(i == 0){
+            str += '<div class="item curt" data-curt="1" onclick="PTTSendClick(\'btn\',\'point' + tn[i].lx_b5[0]['dx_2a'][0]['wqid_75'] + '\',\'' + name + '\')">'+ name +'</div>'
+        }
+        else str += '<div class="item" data-curt="0" onclick="PTTSendClick(\'btn\',\'point' + tn[i].lx_b5[0]['dx_2a'][0]['wqid_75'] + '\',\'' + name + '\')">'+ name +'</div>'
+    }
+    $labContainer.html(str);
+    // 二级菜单点击
+    $('.lab .item').on('click',function(){
+        var $body = $('html, body');
+        var $self = $(this);
+        var idx = $self.index();
+        var $linkId = $('#'+ss+idx);
+        var curtState = $self.attr('data-curt');
+        var offsetTop = $linkId.offset().top;
+        if (curtState == 1) return false;
+        $self.addClass('curt')
+            .attr('data-curt', 1)
+            .siblings()
+            .removeClass('curt')
+            .attr('data-curt', 0);
+        $body.animate({scrollTop: offsetTop}, 600, 'swing');
+    });
+}
+//渲染详细内容
+function info_str(infos, key, id){
+        var strTitle = '';
+        var strCont = '';
+        var infoData = resultData[infos];
+        $("#section-container"+id).html('');
+        for(var i = 0; i< infoData.length; i++){
+            strTitle = '<li class="section" id="'+infos+i+'"><div class="title"><div class="big_tit">'+ infoData[i].lx_b5[0].mc_94+'</div><div class="line_1"></div></div><ul class="wrap"></ul></li>';
+            strCont = '';
+            for(var j = 0; j< infoData[i].lx_b5[0].dx_2a.length; j++){
+                var param = 'id='+infoData[i].lx_b5[0].dx_2a[j].wqid_75;
+                var linkUrl = './ziliao_detail1.shtml?'+param;
+                var name = infoData[i].lx_b5[0].dx_2a[j].mc_94;
+                var imgUrl = infoData[i].lx_b5[0].dx_2a[j].tp_93;
+                strCont += ('<li><a href="'+linkUrl+'" title="'+name+'" onclick="PTTSendClick(\'link\',\'' + key+infoData[i].lx_b5[0].dx_2a[j].wqid_75 + '\',\'' + name + '\')"><div class="cover"><img src="'+imgUrl+'"></div><div class="info"><div class="fl name">'+name+'</div><div class="fr detail">\u8be6\u60c5</div></div></a></li>');
+            }
+            $('#section-container'+id).append(strTitle);
+            $('#'+infos+i+' .wrap').append(strCont);
+        }
+}
+
+// 地图查看
+function showMapIcon(mapId,iconBtn,iconId){
+    $(iconBtn).on('click',function(){
+        var _this = $(this);
+        if(_this.hasClass('show')){
+            _this.removeClass('show');
+            $(iconId).css('display','none');
+        }
+        else{
+            _this.addClass('show');
+            $(iconId).css('display','block');
+        }
+        if($(mapId+' .p1').hasClass('show')||$(mapId+' .p2').hasClass('show')||$(mapId+' .p3').hasClass('show')||$(mapId+' .p4').hasClass('show')||$(mapId+' .btn2').hasClass('show')){
+            $(mapId+' .btn1').addClass('show');
+            $(mapId+' .btn1').html('\u9690\u85cf\u5168\u90e8');
+        }
+        else{  
+            $(mapId+' .btn1').removeClass('show');
+            $(mapId+' .btn1').html('\u663e\u793a\u5168\u90e8');
+        }
+    })
+}
+// 显示/隐藏全部
+function showMapAll(mapId,iconBtn){
+    $(iconBtn).on('click',function(){
+        var _this = $(this);
+        if(_this.hasClass('show')){
+            _this.removeClass('show');
+            _this.html('\u663e\u793a\u5168\u90e8');
+            $(mapId+' .map-icon,'+mapId+' .map-grid').css('display','none');
+            $(mapId+' .btn2,'+mapId+' .p1,'+mapId+' .p2,'+mapId+' .p3,'+mapId+' .p4').removeClass('show');
+            $(mapId+' .btn2').html('\u663e\u793a\u7f51\u683c');
+        }
+        else{
+            _this.addClass('show');
+            _this.html('\u9690\u85cf\u5168\u90e8');
+            $(mapId+' .map-icon,'+mapId+' .map-grid').css('display','block');
+            $(mapId+' .btn2,'+mapId+' .p1,'+mapId+' .p2,'+mapId+' .p3,'+mapId+' .p4').addClass('show');
+            $(mapId+' .btn2').html('\u9690\u85cf\u7f51\u683c');
+        }
+    })
+}
+// 显示/隐藏网格
+function showGrid(mapId,iconBtn){
+    $(iconBtn).on('click',function(){
+        var _this = $(this);
+        if(_this.hasClass('show')){
+            _this.removeClass('show');
+            _this.html('\u663e\u793a\u7f51\u683c');
+            $(mapId+' .map-grid').css('display','none');
+        }
+        else{
+            _this.addClass('show');
+            _this.html('\u9690\u85cf\u7f51\u683c');
+            $(mapId+' .map-grid').css('display','block');
+        }
+        if($(mapId+' .map_detail .p1').hasClass('show')||$(mapId+' .map_detail .p2').hasClass('show')||$(mapId+' .map_detail .p3').hasClass('show')||$(mapId+' .map_detail .p4').hasClass('show')||$(mapId+' .map_detail .btn2').hasClass('show')){
+            $(mapId+' .map_detail .btn1').addClass('show');
+            $(mapId+' .map_detail .btn1').html('\u9690\u85cf\u5168\u90e8');
+        }
+        else{  
+            $(mapId+' .map_detail .btn1').removeClass('show');
+            $(mapId+' .map_detail .btn1').html('\u663e\u793a\u5168\u90e8');
+        }
+    })
+}
+showMapIcon('.map_info1','.map_info1 .p1','.map_info1 .map-icon1');
+showMapIcon('.map_info1','.map_info1 .p2','.map_info1 .map-icon2');
+showMapIcon('.map_info1','.map_info1 .p3','.map_info1 .map-icon3');
+showMapIcon('.map_info1','.map_info1 .p4','.map_info1 .map-icon4');
+showMapIcon('.map_info2','.map_info2 .p1','.map_info2 .map-icon1');
+showMapIcon('.map_info2','.map_info2 .p2','.map_info2 .map-icon2');
+showMapIcon('.map_info2','.map_info2 .p3','.map_info2 .map-icon3');
+showMapIcon('.map_info2','.map_info2 .p4','.map_info2 .map-icon4');
+showMapAll('.map_info1','.map_info1 .btn1');
+showMapAll('.map_info2','.map_info2 .btn1');
+showGrid('.map_info1','.map_info1 .btn2');
+showGrid('.map_info2','.map_info2 .btn2');
+
+//地图切换
+$('#lab-conainer5 .item').on('click',function(){
+    var i = $(this).prevAll().length;
+    var _val = $(this).html();
+    $(this).addClass('curt').siblings().removeClass('curt');
+    $(this).parent().next().find('.big_tit').html(_val);
+    $(this).parent().next().next().find('.map_info').eq(i).show().siblings().hide();
+})
+
+
+
+

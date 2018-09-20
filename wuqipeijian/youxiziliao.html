@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏资料</title>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        a{
+            color:#000;
+        }
+        div{
+            display:block;
+        }
+        body {
+            background: #e9e9e9;
+        }
+        #ost_box{
+            width:100%;
+            height:40px;
+            background-color:#fff;
+            color:#464646;
+            font-size:12px;
+            font-family:Tahoma,simsun;
+            border:1px solid #c9c9c9;
+            border-width:1px 0;
+            position:absolute;
+            z-index:8000;
+        }
+        #ost_box .ost_inner{
+            width:980px;
+            padding:0 5px;
+            margin:0 auto;
+            position:relative;
+            line-height:40px;
+        }
+        .ost_inner .ost_big {
+            width:970px;
+            height:185px;
+            padding:0 3px 3px;
+            border-bottom:1px solid #eee;
+            background:#fff;
+            position:absolute;
+            top:0;
+            left:50%;
+            margin:0 0 0 -488px;
+        }
+        .ost_inner .ost_logo{
+            background:url("CJ-GameCenter/ost-bg.png") no-repeat;
+            width:205px;
+            padding:0 15px 0 0;
+            background-position:0 -40px;
+            position:relative;
+            z-index: 10001;
+            float:left;
+        }
+        .ost_logo .ost_blank{
+            display:block;
+            height:100%;
+            color:#000;
+            text-indent:-500px;
+        }
+        .ost_inner .ost_ad{
+            width:230px;
+            height:100%;
+            float:left;
+        }
+        .ost_inner .ost_total{
+            width:220px;
+            background-position:-143px -120px;
+            margin-left:10px;
+            float:right;
+        }
+        .ost_total a{
+            color: #464646;
+            font-size:12px;
+            font-weight:400;
+        }
+        .ost_total .ost_czsh{
+            float:left;
+            width:118px;
+            background:url(CJ-GameCenter/logo.png) 0 12px no-repeat;
+            text-indent:20px;
+            cursor:pointer;
+        }
+        .ost_czsh a:hover {
+            color: #ff4e00;
+        }
+        .ost_total .ost_title{
+            font-size:12px;
+            font-weight:400;
+            height:40px;
+            line-height:40px;
+            cursor:pointer;
+            overflow: hidden;
+            display: block;
+            text-indent: 0!important;
+        }
+        .ost_title .ost_icon{
+            width:11px;
+            height:11px;
+            background-position:-150px -134px;
+            margin-left:5px;
+            background:url(CJ-GameCenter/ost-bg.png) no-repeat;
+            display:inline-block;
+            vertical-align:middle;
+            font-size: .1em;
+        }
+        #top_nav{
+            width:100%;
+            height:110px;
+            background:url(CJ-GameCenter/bg-nav.png) no-repeat;
+            position:absolute;
+            top:42px;
+            z-index:9;
+            display:block;
+        }
+        #top_nav .container{
+            width:1200px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        #top_nav .container .top_title{
+            float:left;
+        }
+        .container .top_title .tag{
+            margin-top:10px;
+            margin-right:12px;
+            z-index:9;
+            float:left;
+            width:125px;
+            height:125px;
+        }
+        #top_nav .container .top_title h1{
+            font-size:24px;
+            color:#ffb400;
+            line-height:36px;
+            font-weight:bold;
+            float:left;
+            margin-top:27px;
+        }
+        .top_title h1 span{
+            font-size:14px;
+            color:#ffffff;
+            display:block;
+        }
+        #top_nav .container .nav{
+            float:right;
+            margin-top:34px;
+        }
+        .container .nav a{
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:80px;
+            display:inline-block;/*内联块：和其他a标签在同一行显示*/
+        }
+        .nav a:hover{
+            color:#ffb400;
+        }
+        .nav a:hover span{
+            color:#ffb400;
+        }
+        .nav a span{
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;/*将span（本来是行级标签） 标签设为块级标签独占一行 */
+        }
+        #listpage_head {
+            position:relative;
+            top:42px;
+            width:100%;
+            min-width:1200px;
+            height:348px;
+            background:url(CJ-GameCenter/info-kv.jpg) no-repeat center top;
+            overflow:hidden;
+        }
+        #listpage_head .Page-container {
+            width:1200px;
+            height:100px;
+            margin:0 auto;
+            position:relative;
+            top:170px;
+            z-index:2;
+        }
+        .Page-container .listpage-main{
+            margin:0 auto;
+            width:1040px;
+            height:100px;
+        }
+        .listpage-main .Big-title {
+            width:167px;
+            height:62px;
+            background:url(CJ-GameCenter/info-tit.png) no-repeat;
+        }
+        .listpage-main .local {
+            padding-top:17px;
+            color:#b8b8b8;
+            font-size:16px;
+            line-height:20px;
+        }
+        .listpage-main .local a {
+            color: #b8b8b8;
+            text-decoration: underline;
+        }
+        .listpage-main .local a:hover {
+            color: #e8a026;
+        }
+        #ziliao_list {
+            position:relative;
+            top:45px;
+            margin:0 auto;
+            width:1120px;
+
+        }
+        #ziliao_list .ziliao_tab {
+            position:relative;
+            width:100%;
+            height:50px;
+            margin-bottom:20px;
+            border-bottom:2px solid #b6b6b6;
+        }
+        #ziliao_list .ziliao_tab .item {
+            float:left;
+            margin-right:80px;
+            width:66px;
+            height:100%;
+        }
+        #ziliao_list .ziliao_tab .item a {
+            display: block;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            line-height: 50px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .item a:hover, .tab .item .wuqi {
+            color: #ffb007;
+        }
+       .ziliao_tab .item .wuqi{
+             color: #ffb007;
+         }
+       .active {
+            left:0;
+            bottom:-2px;
+            position:absolute;
+            width:66px;
+            height:2px;
+            background:#ffb007;
+       }
+        #ziliao_list #block_list1{
+            width:1120px;
+            height:2997px;
+        }
+        #ziliao_list #block_list2{
+            width:1120px;
+            height:2722px;
+        }
+        #ziliao_list #block_list3{
+            width:1120px;
+            height:2397px;
+        }
+        .block_list .section{
+            width:1120px;
+            height:352px;
+        }
+        .section .small-title {
+            position:relative;
+            width:100%;
+            height:85px;
+        }
+        .small-title .tit {
+            font-size:30px;
+            font-weight:600;
+            line-height:85px;
+            margin:0 23px 0 20px;
+            float:left;
+        }
+        .small-title .line_1 {
+            left:0;
+            top:50%;
+            position:absolute;
+            height:25px;
+            width:3px;
+            margin-top:-12px;
+            background-color:#ffb007;
+        }
+        .section .gun-wrap {
+            width:1140px;
+            height:205px;
+            clear: both;
+            overflow: hidden;
+            margin-right: -20px;
+        }
+        .gun-wrap li {
+            float:left;
+            margin-right:20px;
+            margin-bottom:20px;
+            width:255px;
+            border:5px solid #939393;
+            position:relative;
+
+        }
+        .gun-wrap .cover {
+            width: 255px;
+            height: 130px;
+            text-align: center;
+        }
+        .gun-wrap .cover img {
+            width:auto;
+            height:auto;
+            max-width:100%;
+            max-height:100%;
+        }
+        .gun-wrap .info {
+            height: 45px;
+            background: #bbb;
+        }
+        .gun-wrap .info .fl {
+            height: 45px;
+            line-height: 45px;
+            padding-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 170px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #000;
+            float:left;
+        }
+        .gun-wrap .info .fr {
+            padding-right: 30px;
+            font-size: 16px;
+            font-weight: lighter;
+            background: url(CJ-GameCenter/icon_arrow.png) no-repeat 40px center;
+            height: 100%;
+            line-height: 45px;
+            color: #000;
+            float: right;
+        }
+        .gun-wrap .flag {
+            top: 0;
+            left: -5px;
+            position: absolute;
+            padding-left: 10px;
+            font-size: 18px;
+            font-weight: lighter;
+            width: 88px;
+            height: 24px;
+            line-height: 24px;
+            color: #000;
+            background: url(CJ-GameCenter/icon_flag.png) no-repeat;
+        }
+        .gun-wrap .last {
+            width:263px;
+            height:183px;
+            border:1px solid #ffb007;
+            position:relative;
+            margin-right: 0;
+        }
+        .gun-wrap .last img{
+            width:100%;
+            height:100%;
+        }
+        .gun-wrap .last .info {
+            position: absolute;
+            width:100%;
+            left:0;
+            bottom:0;
+            height:49px;
+            line-height:49px;
+        }
+        .section .lab {
+            width:1120px;
+            height:42px;
+            margin-top: 20px;
+            clear: both;
+            overflow: hidden;
+        }
+        .lab .lab-item {
+            float: left;
+            margin-right: 22px;
+            width: 124px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            color: #bdbdbd;
+            background-color: #8b8b8b;
+        }
+        .lab .lab-item:hover{
+            color: #000;
+            background-color: #ffb007;
+        }
+        #Gun0,#Gun2,#Gun5{
+            width:1120px;
+            height:495px;
+        }
+        .small-title .line_2 {
+            float:left;
+            height: 19px;
+            width: 2px;
+            margin: 33px 10px 0 -10px;
+            background-color: #d9d9d9;
+            overflow: hidden;
+        }
+        .small-title .sub-tit {
+            font-size: 20px;
+            font-weight: lighter;
+            line-height: 85px;
+            color: #969696;
+            float:left;
+        }
+        #Gun1,#Gun3,#Gun4,#Gun6{
+            width:1120px;
+            height:290px;
+        }
+        .foot {
+            position: relative;
+            z-index: 1;
+            height:714px;
+            background:url(CJ-GameCenter/info_car.png) no-repeat top center;
+            top:30px;
+        }
+        .foot .footer_box{
+            position:relative;
+            top:400px;
+            height:454px;
+        }
+        .footer_box .footer_top{
+            height:246px;
+        }
+        .footer_top .foot_container{
+            width: 1200px;
+            height:246px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .foot-code {
+            width: 950px;
+            height:246px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .code_list{
+            width:1200px;
+            height:246px;
+        }
+        .foot-code li {
+            width:175px;
+            float:left;
+            margin-right:83px;
+        }
+        .foot-code li p {
+            font-size:18px;
+            color:#fff;
+            line-height:70px;
+            background:#000;
+            text-align:center;
+            border:1px solid #a07708;
+            position:relative;
+            top:-4px;
+        }
+        .footer_box .footer-botoom{
+            height:138px;
+            position:relative;
+            top:68px;
+            background:#000;
+            color:#ccc;
+        }
+        .bot_cont {
+            width:1200px;
+            height:138px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        .bot_cont .foot-cpright{
+            width:1200px;
+            height:135px;
+            padding-top:15px;
+        }
+        .foot-logos {
+            float:left;
+            display:inline;
+            margin-top:20px;
+            width:335px;
+            height:61px;
+        }
+        .foot-logos-game {
+            background:url(CJ-GameCenter/foot-dark.png);
+            float:left;
+            width:170px;
+            height:35px;
+            text-indent:-999em;
+            overflow:hidden;
+            margin:10px 0 0 10px;
+        }
+        .foot-logos-company {
+            float:left;
+            overflow:hidden;
+            margin:10px 0 0 28px;
+        }
+        .foot-links {
+            margin-top:10px;
+            display:inline;
+            float:right;
+            width:700px;
+            color:#fff;
+            font-size:12px;
+        }
+        .foot-links li{
+            margin-bottom:2px;
+        }
+        .foot-links a {
+            color: #fff;
+        }
+        .foot-sprt {
+            margin:0 2px;
+        }
+        .lab-item.curt{
+            color:#000;
+            background-color:#ffb007;
+        }
+        .map_detail .map_box {
+            position:relative;
+            width:1120px;
+            height:1120px;
+            overflow:hidden;
+        }
+        .map_detail .map_box .map-icon{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index:2;
+            background-repeat:no-repeat;
+        }
+        #map_info1 #map-icon1{
+            background-image:url(CJ-GameCenter/map1_icon1.png);
+        }
+        #map_info1 #map-icon2{
+            background-image:url(CJ-GameCenter/map1_icon2.png);
+        }
+        #map_info1 #map-icon3{
+            background-image:url(CJ-GameCenter/map1_icon3.png);
+        }
+        #map_info1 #map-icon4{
+            background-image:url(CJ-GameCenter/map1_icon4.png);
+        }
+        #map_info2 #map2-icon1 {
+            background-image: url(CJ-GameCenter/map2_icon1.png);
+        }
+        #map_info2 #map2-icon2 {
+            background-image: url(CJ-GameCenter/map2_icon2.png);
+        }
+        #map_info2 #map-icon3 {
+            background-image: url(CJ-GameCenter/map2_icon3.png);
+        }
+        #map_info2 #map-icon4 {
+            background-image: url(CJ-GameCenter/map2_icon4.png);
+        }
+        .map_detail .map_box .map-grid {
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:6;
+            width:100%;
+            height:100%;
+            background:url(CJ-GameCenter/map_grid.png) no-repeat;
+        }
+        .map_detail .operate {
+            background:#fff;
+            padding:5px 20px 45px;
+            border:2px solid #ffb007;
+        }
+        .map_detail .operate p {
+            height:42px;
+            line-height:42px;
+            font-size:18px;
+            color:#bdbdbd;
+        }
+        .map_detail .icon-des {
+            height:57px;
+            padding-top:28px;
+            border-bottom:1px dashed #b5b5b5;
+            font-size:0;
+            text-align:center;
+        }
+        .map_detail .icon-des p {
+            padding:5px;
+            display:inline-block;
+            vertical-align:top;
+            color:#000;
+            font-size:16px;
+            line-height:36px;
+            margin:0 30px;
+            cursor:pointer;
+        }
+        .map_detail .icon-des p i {
+            display:inline-block;
+            vertical-align:top;
+            width:31px;
+            height:24px;
+            margin:7px 9px 0 0;
+            background:url(CJ-GameCenter/icon_map.png) no-repeat;
+            font-style:normal;
+        }
+        .map_detail .icon-des .p1 i {
+            margin-right:0;
+            background-position:0 0;
+        }
+        .map_detail .icon-des .p2 i {
+            margin-right:0;
+            background-position:-35px 0;
+        }
+        .map_detail .icon-des .p3 i {
+            background-position:-70px 0;
+        }
+        .map_detail .icon-des .p4 i {
+            background-position: -113px 0;
+        }
+        .map_detail .icon-des p span {
+            display:inline-block;
+            vertical-align:top;
+            width:20px;
+            height:20px;
+            margin:8px 0 0 10px;
+            background:#dfdfdf;
+        }
+        .map_detail .icon-des p.show b {
+
+        }
+         b {
+            width:16px;
+            height:16px;
+            margin:2px auto 0;
+            background:url(CJ-GameCenter/icon_map_check.png) no-repeat;
+            background-size:100%;
+            font-weight:bold;
+            display:block;
+        }
+        .map_detail .btn-box {
+            padding:30px 0 3px;
+            font-size:0;
+            text-align:center;
+        }
+        .map_detail .btn-box a {
+            display:inline-block;
+            vertical-align:top;
+            width:91px;
+            height:28px;
+            margin:0 45px;
+            color:#000;
+            font-size:16px;
+            line-height:27px;
+            text-align:center;
+            border:1px solid #dedede;
+            border-radius:4px;
+        }
+        .map_detail .btn-box a:hover {
+            color: #000;
+            background: #ffb007;
+            border-color: #ffb007;
+        }
+        .container .nav .nav_yx {
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:110px;
+            display:inline-block;
+        }
+        .nav .nav_yx span {
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;
+        }
+        .nav .nav_yx:hover {
+            color: #ffb400;
+        }
+        .nav .nav_yx:hover span{
+            color:#ffb400;
+        }
+        .tips-player {
+            width:239px;
+            overflow:hidden;
+            top:100px;
+            right:13px;
+            position:absolute;
+            height:150px;
+            z-index:99;
+        }
+        .tips-player ul {
+            float:right;
+            padding:10px 5px;
+            background:#000;
+        }
+        .tips-player .on {
+            color: #fead2c;
+        }
+        .tips-player li {
+            overflow:hidden;
+            height:25px;
+            line-height:25px;
+            font-size:14px;
+            color:#fff;
+            cursor:pointer;
+        }
+        #tips-img1, #tips-img2, #tips-img3, #tips-img4 {
+            padding: 6px;
+            left: 0;
+            position: absolute;
+            background: #fff;
+            line-height: 0;
+            display: none;
+            width: 132px;
+        }
+        .tips-player img {
+            width:100%;
+        }
+        .ips-arrow {
+            width:0;
+            height:0;
+            border-top:10px solid transparent;
+            border-left:20px solid #fff;
+            border-bottom:10px solid transparent;
+            position:absolute;
+            top:57px;
+            right:-19px;
+        }
+        #shouq_arr{
+            top:12px;
+        }
+        #wxgzh_arr{
+            top:36px;
+        }
+        #wxqz_arr{
+            top:62px;
+        }
+        #gfwb_arr{
+            top:87px;
+        }
+        .nav .nav_yx #yx_sub {
+            text-align:center;
+            background:#000;
+            width:80px;
+            overflow:hidden;
+            margin-top:22px;
+            margin-left:20px;
+            position:absolute;
+            padding:20px 0px 20px 0px;
+            z-index:99;
+        }
+        #yx_sub li {
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+        }
+        .nav .nav_yx #yx_sub a {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+     <div id="ost_box">
+         <ul class="ost_inner">
+             <li class="ost_logo">
+                 <a href="//game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav target= _blank"  class="ost_blank" title="腾讯游戏logo">腾讯游戏logo</a>
+             </li>
+             <li id="ost_g"  class="ost_ad">
+                 <img id="ost_go" src="CJ-GameCenter/1896067324696626391152775628723040.1527756287.172727694fd6b6f15e1eb7a7763649a3.230x40_6578.jpg"/>
+             </li>
+             <div id="ost_d" class="ost_big" style="display:none;">
+                 <a href="http://ac.o2.qq.com/php/click.php?loc_id=119_0d8e2b9df01ce2966bb5d8dd52e865e1&amp;
+                info_data=HhppS1tYhho2yY2eZhZh0-VnkWLIQbMGhUzjaeiPSwP5JMHBpvlEJxq-8bBIvlMkmdpUDvHCcAsel35lWaoyWpWZKJDHsQq8GYqlta1gn2QtTd7Femf_miUOqcazaUFsRlVbAQofsrdxfodj4g9DifGM_PnN_D1okapiWKjAmJwosgCz0QtGTUC1bwU2jAbWcYvorcj8BMSxFQsz6E3bFXdPZ2gE56R9RLn2cr8kMy47S65Ypmd_1oD8nPN6zdahhPlHl1mSj2kJ6oNh6uUknygN59p1z-lt6DIyCF3abtYhvAFlVgbf4ucqefGLO55NcqHSc4-0yVhG-DaKk-MEqLsZFnRON_DGoJyRzDPDWRlWTMFOHpDR9LIq14FtDX-gCcMG7c7EJo4M17FsirabRi1jNkUYPMYK-IGRrNZd7zVcDnxPi-qKjyptgFeN42k4g9dOEngv1YJxmVSv2Xm2uQ"
+                    target="_blank">
+                     <img class="ost_nb" src="CJ-GameCenter/71393217633543671530257002970185.1530257026.f235c874788c3f7404e13589c7307a0a.970x185_77897.png" width="970" height="185" alt="">
+                 </a>
+             </div>
+             <li class="ost_total">
+                 <h3 class="ost_czsh">
+                     <a target="_blank" href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+                 </h3>
+                 <div class="ost_title">
+                     腾讯游戏排行榜
+                     <p class="ost_icon"></p>
+                 </div>
+             </li>
+         </ul>
+     </div>
+     <div id="top_nav">
+         <div class="container">
+             <div class="top_title">
+                 <a href="">
+                     <img src="CJ-GameCenter/top-tag.png" class="tag"/>
+                 </a>
+                 <h1>
+                     绝地求生 : 刺激战场
+                     <span>正版战斗特训手游</span>
+                 </h1>
+             </div>
+             <div class="nav">
+                 <a href="../guanwangshouye/shouye.html">
+                     官网首页
+                     <span>HOME</span>
+                 </a>
+                 <a href="../saishizhongxin/saishi.html">
+                     赛事中心
+                     <span>MATCH</span>
+                 </a>
+                 <a href="../shipingzhongxin/shiping.html">
+                     视频中心
+                     <span>VIDEO</span>
+                 </a>
+                 <a href="../zhibozhongxin/zhibo.html">
+                     直播中心
+                     <span>LIVE</span>
+                 </a>
+                 <a href="../gongluezhongxin/gonglue.html">
+                     攻略中心
+                     <span>GAMETIPS</span>
+                 </a>
+                 <div class="nav_yx" id="YXZL">
+                     游戏资料
+                     <span>DATA</span>
+                     <ul  id="yx_sub" style="display:none;">
+                         <li>
+                             <a id="wuqiPJ" href="../wuqipeijian/youxiziliao.html">
+                                 武器配件
+                             </a>
+                         </li>
+                         <li>
+                             <a id="banbenGX" href="../banbengengxin/banbengenxin.html" >
+                                 版本更新
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+                 <a href="javascript:void(0);" id="shequhudong">
+                     社区互动
+                     <span>COMMUNITY</span>
+                     <div class="tips-player" id="tipsPlayer" style="display:none;">
+                         <ul>
+                             <li id="shouQ" class="on">手Q部落</li>
+                             <li id="weixinGZH" class="">微信公众号</li>
+                             <li id="weixinQZ" class="">微信圈子</li>
+                             <li id="guangfangWB" class="">官方微博</li>
+                         </ul>
+                         <p id="tips-img1" style="display:block;">
+                             <img src="../shipingzhongxin/CJ-SPZX/qrcode_sq.jpg" alt="手Q部落">
+                             <i id="shouq_arr" class="ips-arrow"></i>
+                         </p>
+                         <p id="tips-img2" style="display:none;">
+                             <img src="../shipingzhongxin/CJ-SPZX/qrcode_wxqz.jpg" alt="微信公众号">
+                             <i id="wxgzh_arr" class="ips-arrow"></i>
+                         </p>
+                         <p id="tips-img3" style="display:none;">
+                             <img src="../shipingzhongxin/CJ-SPZX/qrcode_wx.jpg" alt="微信圈子">
+                             <i id="wxqz_arr" class="ips-arrow"></i>
+                         </p>
+                         <p id="tips-img4" style="display:none;">
+                             <img src="../shipingzhongxin/CJ-SPZX/qrcode_wb.jpg" alt="官方微博">
+                             <i id="gfwb_arr" class="ips-arrow"></i>
+                         </p>
+                     </div>
+                 </a>
+             </div>
+         </div>
+     </div>
+     <div id="listpage_head">
+         <div class="Page-container">
+             <div class="listpage-main">
+                 <div class="Big-title"></div>
+                 <div class="local">
+                     您的位置：
+                     <a href="../guanwangshouye/shouye.html">首页</a>
+                     <a href="">游戏资料</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div id="ziliao_list">
+         <ul class="ziliao_tab">
+             <li class="item"><a href="javascript:void(0)"class="wuqi" id="WuQi">武器</a></li>
+             <li class="item"><a href="javascript:void(0)" id="PeiJian">配件</a></li>
+             <li class="item"><a href="javascript:void(0)" id="WuZi">物资</a></li>
+             <li class="item"><a href="javascript:void(0)" id="ZaiJu">载具</a></li>
+             <li class="item"><a href="javascript:void(0)" id="DiTu">地图</a></li>
+             <li class="active" id="line"></li>
+         </ul>
+         <div class="list_wrap">
+             <div class="block_list" id="block_list1"style="display:block;">
+                 <ul id="container1">
+                     <li class="section">
+                         <div class="small-title">
+                             <div class="tit">热门武器</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d01e99c5cbae310d8ff7e64737bd7095.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Kar98k</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                     <div class="flag">经典狙击</div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d053c02898ff47542633ee127bebcacb.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">AWM</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                     <div class="flag">最强狙击</div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d26b1008b2650d048c89461c6681598f.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">SCAR-L</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                     <div class="flag">靠谱步枪</div>
+                                 </a>
+                             </li>
+                             <li class="last">
+                                 <a href="">
+                                     <img src="CJ-GameCenter/look_detail.jpg"/>
+                                     <div class="info">
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                         <div class="lab" id="lad_container">
+                             <a href="#buqiang"><div class="lab-item curt" id="buGun" >步枪</div></a>
+                             <a href="#chongfengqiang"><div class="lab-item" id="chongfengGun">冲锋枪</div></a>
+                             <a href="#jujiqiang"><div class="lab-item" id="jujiGun">狙击枪</div></a>
+                             <a href="#sandanqiang"><div class="lab-item" id="sandanGun">霰弹枪</div></a>
+                             <a href="#jiqiang"><div class="lab-item" id="jiGun">机枪</div></a>
+                             <a href="#shouqiang"><div class="lab-item" id="shouGun">手枪</div></a>
+                             <a href="#jinzhanwuqi"><div class="lab-item" id="jinzhanGun">近战武器</div></a>
+                         </div>
+                     </li>
+                     <li class="section" id="Gun0">
+                         <div class="small-title">
+                             <div class="tit" id="buqiang">步枪</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">首选主武器</div>
+                         </div>
+                         <ul class="gun-wrap"style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/2fd291fa20c43d4c8cb67212647369bd.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">AKM</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/67914b7387f6c577ef2d4a93887703fa.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">M16A4</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/c88dad5b8f33ec8e74569317a4d271c2.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">M416</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d26b1008b2650d048c89461c6681598f.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">SCAR-L</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/034a52db2469bcc16bc7094ccd81844e.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Groza</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/5f496c54989d0b3da4e5c63cd38b8f63.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">AUG</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                     <li class="section" id="Gun1">
+                         <div class="small-title">
+                             <div class="tit" id="chongfengqiang">冲锋枪</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">射速专精</div>
+                         </div>
+                         <ul class="gun-wrap"style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/10d019c8d3148e725d87d07ca9450a22.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Micro UZI</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/759035e06d6fb869eed256e6e102c384.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">汤姆逊冲锋枪</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/76069e85d2e3e2c1b5eb55613dea9a18.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">UMP9</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/adc4ae432836629344e9a5c889a77b2d.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Vector</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                     <li class="section" id="Gun2">
+                         <div class="small-title">
+                             <div class="tit" id="jujiqiang">狙击枪</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">远战王者</div>
+                         </div>
+                         <ul class="gun-wrap"style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d053c02898ff47542633ee127bebcacb.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">AWM</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d01e99c5cbae310d8ff7e64737bd7095.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Kar98k</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/acc1377c87b665ed152baedbdedaf370.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">M24</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/15ff1e463896d2b3552a9e2e2a62f8bb.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">VSS</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/e3c9c1b4c0dc1348c36048b00c162ef8.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">SKS</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/74e92698e7e1e276b86259c26e835442.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Mk14</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/eadf3696bfabf5434b58a5a6e89e1384.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">Mini14</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/2f32321bfac5edf1150120dadb9ef5be.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">win94</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                     <li class="section" id="Gun3">
+                         <div class="small-title">
+                             <div class="tit" id="sandanqiang">霰弹枪</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">近战专用</div>
+                         </div>
+                         <ul class="gun-wrap"style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/e05cbbee7d9f8f91028622b38dadc01c.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">S12K</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/8888c5b70e688c9b936109e85815c03a.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">S1897</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/a8002963b40db81fbbabf0f8de51e78d.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">S686</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                     <li class="section" id="Gun4">
+                         <div class="small-title">
+                             <div class="tit" id="jiqiang">机枪</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">火力压制</div>
+                         </div>
+                         <ul class="gun-wrap"style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/f270d12f54b199ffa2f69e3d5e01d6c5.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">M249</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/afed6404b51cc049f6692ad96a3033b3.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">DP-28</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                     <li class="section" id="Gun5">
+                         <div class="small-title">
+                             <div class="tit" id="shouqiang">手枪</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">落地保命</div>
+                         </div>
+                         <ul class="gun-wrap"style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/0c3bca1eba898e2406c82c2dbf06dff7.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">P1911</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/1b7d8ac80db49095f4deaafdd2bfe790.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">P92</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/6ab1ea009ba1d0a6d29a7916b4acc069.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">R1895</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/ba19cdd3706256667fd09ed6078c3121.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">P18C</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/159f69dec364b909187cd185a47542b1.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">R45</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/c4d3534fe75746927d82024fa5305dd1.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">短管霰弹枪</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                     <li class="section" id="Gun6">
+                         <div class="small-title">
+                             <div class="tit" id="jinzhanwuqi">近战武器</div>
+                             <div class="line_1"></div>
+                             <div class="line_2"></div>
+                             <div class="sub-tit">贴身肉搏</div>
+                         </div>
+                         <ul class="gun-wrap">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/8c2ab0cfde5db2d4e73836154cf6580d.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">撬棍</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/140e02a12a51be5a6850a5552f174e3b.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">大砍刀</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/34e2458b2f366ecc63d298ef24ee3840.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">平底锅</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/224da513c90c8daf885be2e3e2e101cc.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">镰刀</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                     </li>
+                 </ul>
+             </div>
+             <div class="block_list" id="block_list2" style="display:none;">
+                 <div class="lab" id="lab_container2" style="height:42px;">
+                     <a href="#woba"><div class="lab-item curt" id="WB">握把</div></a>
+                     <a href="#qiangkou"><div class="lab-item" id="QK">枪口</div></a>
+                     <a href="#danxia"><div class="lab-item" id="DX" >弹匣</div></a>
+                     <a href="#qiangtuo"><div class="lab-item" id="QT">枪托</div></a>
+                     <a href="#miaozhunjing"><div class="lab-item" id="MZJ">瞄准镜</div></a>
+                 </div>
+                 <ul id="section_container2">
+                     <li class="section" style="height:290px;">
+                         <div class="small-title">
+                             <div class="tit" id="woba">握把</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:205px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/9be6cadf2fd3537ef33c880079a7ef12.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">直角前握把（自动步枪，冲锋枪，狙击枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/b506072b61402d12e8363b32dfc22c9d (1).png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">垂直握把（自动步枪，冲锋枪，狙击枪</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:700px;">
+                         <div class="small-title">
+                             <div class="tit" id="qiangkou">枪口</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:615px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/4ffa4615206b9b8ffcb50d7b5c0aa948.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">霰弹枪收束器</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/f2c96d09c836401815b37b4eff522db5.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">枪口补偿器（冲锋枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/9bf54291055cca098022c9003303e590.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">枪口补偿器（狙击枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/e34dd68fc6c8f624a419b9d59ddf4885.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消焰器（冲锋枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/c745bbc71dc26705399025d031542a9b.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消焰器（狙击枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/1fe0c1697144458ffcaa9c1f962caf89.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消音器（冲锋枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/4534fa7f91990a12f850bd43a68148ad.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消音器（狙击枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/b78d22a3a2508c766c03648c45fe11e6.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消音器（手枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/7901eba5ebbc2dabcdd5b0454dabb076.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">枪口补偿器（自动步枪,S12K）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/34e73d82310c1d6a971954ce431099a1.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消焰器（自动步枪，S12K）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/01078e28e96d129bb181bc5f8a0f7cc4.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">消音器（自动步枪，S12K）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:905px;">
+                         <div class="small-title">
+                             <div class="tit" id="danxia">弹匣</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:820px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/b7df08ed8dc16ae250a47e0d2856e006.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">扩容弹夹（手枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/32093acef1140275b18f4c5f69f94e05.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速弹夹（手枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/dc5c07500ee9607adecdb30a8d691c07.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速扩容弹夹(手枪)</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/67dd307d8d3fcdbd10bbe1ed544a87f9.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">扩容弹夹（冲锋枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/1dd2bec362c5c872c77143211561c661.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速弹夹（冲锋枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/61090d73b6925348ddbce88e615c21d4.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速扩容弹夹（冲锋枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/1dfdcaaf2e1b4c0e160bb6e5116037a4.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">扩容弹夹（狙击枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/ba517aaf4b91f590c0dfd5d7d2ef8f6f.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速弹夹（狙击枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/345da0e9bc9a508c8dca6af46e836134.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速扩容弹夹（狙击枪)</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/0c78b99abdb0b866bf2bf643bdc08071.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">子弹袋（霰弹枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/839a7ce94d336b347b53024e6edd548f.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">扩容弹夹（自动步枪，S12K）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/6a7f645f50e5926b07a26ab8e0054376.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速弹夹（自动步枪，S12K）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/00abe5cb6e6965718db1c46a96cd731d.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">快速扩容弹夹（自动步枪，S12K）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/3254c9ed6c03911f6204d71b735574b2.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">子弹袋（Kar98K,Win94）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/0b436d0f0e0c8cad550a6bef61f459c4.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">箭袋（十字弩）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:290px;">
+                         <div class="small-title">
+                             <div class="tit" id="qiangtuo">枪托</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:205px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/097a823af587e7dfb1620bfd292e7053.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">枪托（Micro UZI）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/791d6774d870ce5d632602376c8391b4.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">战术枪托（M416,Vector）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/eec4f6f2bf76305abf2b7af4e73f8124.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">托腮板（狙击步枪）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section">
+                         <div class="small-title">
+                             <div class="tit" id="miaozhunjing">瞄准镜</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/70a69da9e7e0f063dc3622b4318ce687.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">红点瞄准镜</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/4fb90f467b20a670192233154b402b36.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">全息瞄准镜</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/f2bec4a420f5fb2b4acb1b4510c20eb6.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">2倍 瞄准镜</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/f8472f5eff94737072adeecbd043f094.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">4倍 瞄准镜</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/2c3dff8e4fb46c1ada1eaa08671e240c.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">8倍 瞄准镜</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             <div class="block_list" id="block_list3" style="display:none;">
+                 <div class="lab" id="lab_container3" style="height:42px;">
+                     <a href="#toukui"><div class="lab-item curt" id="TK">头盔</div></a>
+                     <a href="#fangdanyi"><div class="lab-item" id="FDY">防弹衣</div></a>
+                     <a href="#yaopin"><div class="lab-item" id="YP">药品</div></a>
+                     <a href="#wuqidanyao"><div class="lab-item" id="WQDY">武器弹药</div></a>
+                     <a href="#touzhiwu"><div class="lab-item" id="TZW">投掷物</div></a>
+                     <a href="#beibao"><div class="lab-item" id="BB">背包</div></a>
+                 </div>
+                 <ul id="section_container3">
+                     <li class="section" style="height:495px;">
+                         <div class="small-title">
+                             <div class="tit" id="toukui">头盔</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/84e1037c7e90a7ebde236e0f74c7e6b9.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">军用头盔 (丛林迷彩) </div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/15d8afc8dfb8936dff51982808be087a.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">军用头盔 (沙漠迷彩) </div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/04a189702055f900dc3da1a3fa7ab3cd.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">摩托车头盔（灰色）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d1b5361f3ca3a4da256d089e99757719.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">摩托车头盔（绿色）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/70405db941dfa34401fa3db1c2465a1e.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">特种部队头盔</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:290px;">
+                         <div class="small-title">
+                             <div class="tit" id="fangdanyi">防弹衣</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:205px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/d7112b83fd0f74223000a1d4ef83b02e.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">军用防弹衣（3级）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/a457450c544f5734a4b0f856309edcaf.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">警用防弹衣（2级）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/68a50f3f37e46a4f723303937c7c0184.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">警用防弹衣（1级）</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:495px;">
+                         <div class="small-title">
+                             <div class="tit" id="yaopin">药品</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/b3d5e1e01e8910e67aacaf9aa7987160.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">绷带</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/dd5a8c0d2d2f4110edebd1bc83f17140.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">医疗箱</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/e444745bfa52d5e3a701f167a290ef63.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">急救包</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/c5241159aa9f8d464ac2a66ee397c6a8.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">止疼药</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/4118e229ba7aeafae63b3d95b59da515.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">能量饮料</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:495px;">
+                         <div class="small-title">
+                             <div class="tit" id="wuqidanyao">武器弹药</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/73e2474eac05b6f94cc47b67132d0718.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">9毫米弹药</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li >
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/919eb984e5ce5df2bce68e55507e3fa1.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">7.62毫米弹药</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/8c6dcf27e6387b6be262a4ca95bd06dd.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">5.56毫米弹药</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/031f379ad84f227ed64e17b9c400a0c9.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">12号口径弹药</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/0e82d81bb61b7c55e2d15c941280b3de.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">.45口径手枪子弹</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/8f77383cf724a3db370e4e6bc9e81f8c.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">.300马格南</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/3318c6b4b4a9e4ed3728a143e497be72.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">弩箭</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:290px;">
+                         <div class="small-title">
+                             <div class="tit" id="touzhiwu">投掷物</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:205px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/e53d70c8e3fb2ada223849d55724f7c0.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">破片手榴弹</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/b66419acbe028ead9a4956f9793bcc54.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">震爆弹</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/1c83f7156a0aea3118b6308e7695d191.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">烟雾弹</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/2f6267d195dc0462188409840b8630c1.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">燃烧瓶</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                     <li class="section" style="height:290px;">
+                         <div class="small-title">
+                             <div class="tit" id="beibao">背包</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:205px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/7ddd2d2fe5fea4528fb4b57941425e93.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">一级包</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/36c69d93c483793832ea458058688ae8.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">二级包</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/de6842ebeea7542cfec394153a4d5578.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">三级包</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             <div class="block_list" id="block_list4" style="display:none;">
+                 <ul id="section_container4">
+                     <li class="section" style="height:495px;">
+                         <div class="small-title">
+                             <div class="tit">载具</div>
+                             <div class="line_1"></div>
+                         </div>
+                         <ul class="gun-wrap" style="height:410px;">
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/f9ea55c5dc23a7b8a7b03d2eccf4ec98.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">蹦蹦</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/5b61ff81ff68c978935bbd477cf4d553.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">轿车</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/62c63e23c74438720bd75e436c036845.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">三轮摩托</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/ac89ac127d34ae274097f2610af10eca.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">两轮摩托车</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/28d43094dfee8ed6f0baf7ad751fdeba.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">船</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="">
+                                     <div class="cover">
+                                         <img src="CJ-GameCenter/1eed7de2558cc3392c3f8dbf48b65b5e.png"/>
+                                     </div>
+                                     <div class="info">
+                                         <div class="fl">越野车</div>
+                                         <div class="fr">详情</div>
+                                     </div>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             <div class="block_list" id="block_list5" style="display:none;">
+                 <div class="lab" id="lab_container5" style="height:42px;">
+                     <div class="lab-item curt" id="gudao">孤岛地图</div>
+                     <div class="lab-item" id="shamo">沙漠地图</div>
+                 </div>
+                 <ul id="section_container5">
+                     <li class="section" id="GD1" style="height:85px; display:block;">
+                         <div class="small-title">
+                             <div class="tit">孤岛地图</div>
+                             <div class="line_1"></div>
+                         </div>
+                     </li>
+                     <li class="section"  id="SM1" style="height:85px; display:none;">
+                         <div class="small-title">
+                             <div class="tit">沙漠地图</div>
+                             <div class="line_1"></div>
+                         </div>
+                     </li>
+                 </ul>
+                 <div class="map_detail">
+                     <div class="map_info" id="map_info1" style="display:block;">
+                         <div class="map_box">
+                             <img src="CJ-GameCenter/map1_img.jpg" alt="地图" width="1120" height="1120">
+                             <div class="map-icon" id="map-icon1"></div>
+                             <div class="map-icon" id="map-icon2"></div>
+                             <div class="map-icon" id="map-icon3"></div>
+                             <div class="map-icon" id="map-icon4"></div>
+                             <div class="map-grid" id="MapGrid"></div>
+                         </div>
+                         <div class="operate">
+                             <p>*免责申明：所有数据来源于玩家自发收集整理，请一切以游戏内参数为准。</p>
+                             <div class="icon-des">
+                                 <p class="p1 show">
+                                     <i></i>
+                                     区域：高级物资
+                                     <span><b id="gou1"></b></span>
+                                 </p>
+                                 <p class="p2 show">
+                                     <i></i>
+                                     区域：中级物资
+                                     <span><b id="gou2"></b></span>
+                                 </p>
+                                 <p class="p3 show">
+                                     <i></i>
+                                     载具：生成几率极高
+                                     <span><b id="gou3"></b></span>
+                                 </p>
+                                 <p class="p4 show">
+                                     <i></i>
+                                     载具：有几率生成
+                                     <span><b id="gou4"></b></span>
+                                 </p>
+                             </div>
+                             <div class="btn-box">
+                                 <a class="btn1 show" id="hideall" href="javascript:;">隐藏全部</a>
+                                 <a class="btn2 show"  id="hidegrid" href="javascript:;">隐藏网格</a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="map_info" id="map_info2" style="display:none;">
+                         <div class="map_box">
+                             <img src="CJ-GameCenter/map2_img.jpg" alt="地图" width="1120" height="1120">
+                             <div class="map-icon" id="map2-icon1"></div>
+                             <div class="map-icon" id="map2-icon2"></div>
+                             <div class="map-icon" id="map2-icon3"></div>
+                             <div class="map-icon" id="map2-icon4"></div>
+                             <div class="map-grid" id="MapGrid2"></div>
+                         </div>
+                         <div class="operate">
+                             <p>*免责申明：所有数据来源于玩家自发收集整理，请一切以游戏内参数为准。</p>
+                             <div class="icon-des">
+                                 <p class="p1 show">
+                                     <i></i>
+                                     区域：高级物资
+                                     <span><b id="Sgou1"></b></span>
+                                 </p>
+                                 <p class="p2 show">
+                                     <i></i>
+                                     区域：中级物资
+                                     <span><b id="Sgou2"></b></span>
+                                 </p>
+                                 <p class="p3 show">
+                                     <i></i>
+                                     载具：生成几率极高
+                                     <span><b id="Sgou3"></b></span>
+                                 </p>
+                                 <p class="p4 show">
+                                     <i></i>
+                                     载具：有几率生成
+                                     <span><b id="Sgou4"></b></span>
+                                 </p>
+                             </div>
+                             <div class="btn-box">
+                                 <a class="btn1 show" id="hideall2" href="javascript:;">隐藏全部</a>
+                                 <a class="btn2 show" id="hidegrid2" href="javascript:;">隐藏网格</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="foot">
+         <div class="footer_box">
+             <div class="footer_top">
+                 <div class="foot_container">
+                     <div class="foot-code">
+                         <ul class="code_list">
+                             <li>
+                                 <img src="CJ-GameCenter/code1.png"style="width:174px;height:174px;"/>
+                                 <p>手Q部落二维码</p>
+                             </li>
+                             <li>
+                                 <img src="CJ-GameCenter/code2.png"style="width:174px;height:174px;"/>
+                                 <p>微信圈子二维码</p>
+                             </li>
+                             <li>
+                                 <img src="CJ-GameCenter/code3.png"style="width:174px;height:174px;"/>
+                                 <p>微信公众号二维码</p>
+                             </li>
+                             <li>
+                                 <img src="CJ-GameCenter/code4.png"style="width:174px;height:174px;"/>
+                                 <p>微博二维码</p>
+                             </li>
+                         </ul>
+
+                     </div>
+                 </div>
+             </div>
+             <div class="footer-botoom">
+                 <div class="bot_cont">
+                     <div class="foot-cpright">
+                         <div class="foot-logos">
+                             <a href="http://ieg.tencent.com/"class="foot-logos-game"></a>
+                             <a href=""class="foot-logos-company">
+                                 <img src="CJ-GameCenter/footer-logo-gz.png"/>
+                             </a>
+                         </div>
+                         <ul class="foot-links">
+                             <li>
+                                 <a href="http://ieg.tencent.com/">腾讯互动娱乐</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://www.qq.com/contract.shtml">服务条款</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="https://e.tencent.com/">广告服务</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://game.qq.com/hr/">腾讯游戏招聘</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://service.qq.com/">腾讯游戏客服</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://tgact.qq.com/">游戏活动</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://game.qq.com/gnav/">游戏地图</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://game.qq.com/portal2010/business.htm">商务合作</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://www.qq.com/">腾讯网</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://www.qq.com/map/">网站导航</a>
+                             </li>
+                             <li><a href="http://www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯公司版权所有</a></li>
+                             <li>COPYRIGHT © 1998 - 2018 TENCENT. ALL RIGHTS RESERVED.</li>
+                             <li>
+                                 <a href="http://www.qq.com/culture.shtml">粤网文[2017]6138-1456号</a>
+                                 <span class="foot-sprt">|</span>
+                                 <a href="http://game.qq.com/culture2.htm">新出网证：（粤）字010号</a>
+                             </li>
+                             <li>本网络游戏适合年满16周岁以上的用户使用；为了您的健康，请合理控制游戏时间。</li>
+                             <li>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <script type="text/javascript" src="GameCenter.js"></script>
+
+</body>
+</html>

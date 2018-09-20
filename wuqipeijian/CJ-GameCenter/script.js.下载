@@ -1,0 +1,46 @@
+$("#tipsPlayer li").mouseover(function () {
+    var idx = $(this).index();
+    $("#tipsPlayer li").removeClass("on").eq(idx).addClass("on")
+    $("#tipsPlayer p").hide().eq(idx).show();
+});
+var cid = 0;
+$("#tipsPlayer").mouseover(function () {
+    $("#tipsPlayer").show();
+});
+$("#tipsPlayer").mouseleave(function () {
+    $("#tipsPlayer").hide();
+});
+$("#playerLink").mouseover(function () {
+    $("#tipsPlayer").show();
+});
+$("#playerLink").mouseout(function () {
+    $("#tipsPlayer").hide();
+});
+
+
+$('.close1').on('click',function () {
+    $('.shadow').hide();
+})
+function wgcPopShow() {
+    $('#wgcPopDiv').show();
+}
+function qgcPopShow() {
+    $('#qgcPopDiv').show();
+}
+function sendPageData(a, b, c, d, e, f) {
+    PTTSendClick(a, b, c);
+    sendclick(d, e, f);
+}
+//点击
+function sendclick(id, type, url) {
+    if (typeof (Gicprp.send) == 'function') {
+        Gicprp.send({
+            'action_type': 'click',
+            'iuName': '<{$rp.name}>',
+            'contentId': id,//此处传入被点击内容的内容id
+            'serviceType': '<{$rp.st}>',
+            'contentType': type,//此处传入被点击内容的内容类型 video 或者是news
+            'url': encodeURIComponent(url)
+        });
+    }
+}
