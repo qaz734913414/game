@@ -1,0 +1,88 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+ol,ul{list-style:none}
+caption,th{text-align:left} 
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''} 
+abbr,acronym{border:0;font-variant:normal}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
+body{font-family: 'Î¢ÈíÑÅºÚ';background: #e9e9e9;padding-top:42px}
+ul,ol,li{list-style: none} 
+.hid{display: block;width: 0;text-indent: -9999px;overflow: hidden}
+.header{height: 240px;background: url(//game.gtimg.cn/images/cjm/web201712/pagebg3.jpg) no-repeat 50% 0;min-width:1200px}
+.glbg{background: url(//game.gtimg.cn/images/cjm/web201712/pagebg.jpg) no-repeat 50% 0}
+.list-page-center{width: 1200px;margin: 0 auto;overflow: hidden;position: relative;} 
+.head-nav{width: 1200px;overflow: hidden;height: 100px}  
+.head-nav ul{padding:14px 0 0 30px;overflow: hidden;width: 1600px;height: 100%;}  
+.head-nav-list .mgr{margin-right: 334px} 
+.head-nav li{float: left;width: 80px;margin-right: 80px;text-align: center;height: 100%;}
+.head-nav a{color: #ffffff;font-size: 18px;display: block;text-decoration: none;height: 100%;transition: 300ms;padding-top:15px}
+.head-nav a:hover,.head-nav a:hover span {color: #d98500} 
+.head-nav span{font-size: 12px;color: #999;display: block;transition: 100ms}
+.head-nav .midli{margin-right: 430px}
+.sp-font{text-indent: -9999px;overflow: hidden;background: url(//game.gtimg.cn/images/cjm/web201712/font.png) no-repeat 50% 0;margin: 16px 0 20px 80px;}
+.page-title-news{background-position: 0 -84px;width: 119px;height: 44px;display: block}
+.page-title-gl{background-position: -1px 0;width: 119px;height: 44px;display: block}
+.page-title-vdo{background-position: 0 -173px;width: 119px;height: 44px;display: block}
+.mbx-nav{color: #b2b2b2;font-size: 12px;padding-left: 80px;padding-bottom: 30px}
+.mbx-nav a{color: #b2b2b2;}
+.mbx-nav a:hover{color: #e8a026}
+.listpage-news-box{background: #e9e9e9;overflow: hidden;min-width:1200px}   
+.news-list{margin: 50px 0 18px 80px;height: 36px;border-bottom: 1px solid #b2b1b1;}
+.news-list li{float: left;color: #333;font-size: 18px;margin-right: 68px;} 
+.news-list ul{width: 1000px}
+.news-list .on,.news-list li:hover{color: #e8a026;font-weight: bold}
+.news-list .on a{color: #e8a026;border-bottom:3px solid #e8a026;}
+.news-list li:hover a{color: #e8a026;}
+.news-list a{color: #333;text-decoration: none;padding-bottom: 9px;display: block;border-bottom: 3px solid transparent;min-width: 52px;transition: 100ms;text-align: center}
+/* .news-list a:hover{color: #e8a026;border-bottom:3px solid #e8a026;} */
+.news-detail{padding: 0 0 0 80px;font-size: 14px;color: #555;min-height: 600px}
+.news-detail ul a{color: #555;vertical-align: middle;width: 830px;overflow: hidden;float: left;height: 60px;line-height: 60px;text-overflow: ellipsis;white-space: nowrap;text-decoration: none}
+.news-detail ul a:hover{color: #e8a026;}
+.news-detail li{clear: both;height: 60px;line-height: 60px;border-bottom: 1px solid #e7e7e7}
+.news-detail p{float: left}
+.news-detail span{float: right}
+.page-num{text-align: center;padding: 30px 0}
+.page-num a{display: inline-block;margin: 0 60px;width: 60px;height: 30px;text-align: center;color: #555;border: 1px solid #9a9a9a;text-decoration: none;line-height: 30px}
+.foot-cpright{font-size: 12px;}
+.newspage-detail{padding: 70px 0 0 27px;}
+.article-box img,.article-box iframe,.article-box video{max-width: 100%;}
+.newspage-detail h1{color: #333;font-size: 32px;text-align: center;margin-bottom: 32px;width: 100%;overflow: hidden}
+.annotation{overflow: hidden;font-size: 12px;color: #666;text-align: center}
+.detail-author{margin-right: 50px;} 
+.detail-date{margin-right: 60px;} 
+.detail-author,.detail-date,.share-box{display: inline-block} 
+.article-box{padding-bottom: 80px;min-height: 500px;padding-top: 50px;line-height: 25px;color: #555}
+.tg-sns{display: inline-block}
+.list-page-center .dis{display: block}
+/*video*/   
+.video-detail{padding: 0 0 0 80px;overflow: hidden}
+.video-list-box{overflow: hidden;min-height: 500px}
+.video-list-box li{float: left;font-size: 14px;color: #333;margin: 0 26px 50px 0}
+.video-list-box li:hover{color: #d98500}
+.link-video{display: block;width: 192px;height: 118px;position: relative}
+.vdo-mask{position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.2)}
+.ico-play{background: url(//game.gtimg.cn/images/cjm/web201712/sp.png) no-repeat; position: absolute;z-index: 2;top: 50%;left: 50%;background-position: -319px -108px;width: 57px;height: 57px;margin: -26px 0 0 -26px}
+.video-title{height: 38px;overflow: hidden;width: 192px;padding-top: 4px}
+.sdg-video-box{border: 3px solid #000;background: #332d27;width: 800px;height: 450px;position: relative;color: #787777;display: none;position: fixed;left: 50%;top: 50%;z-index: 99;}
+.fixlink{position: fixed;bottom:100px;right: 100px;z-index: 100}
+.btn-video-close{width: 75px;height: 75px;background: url(//game.gtimg.cn/images/cjm/web201712/close.jpg);position: absolute;right: -75px;top: 0;position: absolute;right: -75px;top: -2px;line-height: 2000px;overflow: hidden;}
+.vido-page{text-align: center;padding: 30px 0;}
+.vido-page a{width: 20px;height: 22px;border:1px solid #dddddd;text-align: center;line-height: 22px;text-decoration:none;display: inline-block;margin: 0 8px;font-size: 12px;color: #959595;border-radius: 2px}
+.vido-page .laypage_next,.vido-page  .laypage_prev{width: 52px;}
+.vido-page span{padding: 0 10px;display: inline-block;font-size: 12px;color: #959595}
+/*head-qrcode*/
+.tips-player{width: 235px;overflow: hidden;top: 75px;right: 30px;position:absolute;height: 150px;display: none}
+.tips-player img{width: 100%;}
+.tips-player ul{float: right}
+.tips-player li{overflow: hidden;height: 22px;line-height: 22px;font-size: 14px;color: #fff;cursor: pointer}
+.tips-player .on{color: #fead2c;}
+.tips-img1,.tips-img2,.tips-img3,.tips-img4{padding: 6px;left: 0;position: absolute;background: #fff;line-height: 0;display: none;width: 132px;}
+.tips-img1{display: block}
+.ips-arrow{  width: 0;  height: 0;border-top: 10px solid transparent;border-left: 20px solid #fff;   border-bottom: 10px solid transparent;position: absolute;top: 57px;right: -19px;}
+.tips-img1 .ips-arrow{top: -2px}
+.tips-img2 .ips-arrow{top: 24px} 
+.tips-img3 .ips-arrow{top: 44px}
+.tips-img4 .ips-arrow{top: 68px}
+.listpage-doujin-listbox #cnv0 a {width: 100px}

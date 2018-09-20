@@ -1,0 +1,143 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+body {font:12px/1.5 '\5FAE\8F6F\96C5\9ED1';padding-top:42px;text-align:justify;}
+a {text-decoration:none;overflow:hidden;color: #000;}
+.article-box a{color:none;text-decoration:underline;}
+.article-box a:hover{color:none;text-decoration:underline;}
+a:hover {text-decoration:underline;text-decoration:none;}
+a:focus {outline-style:none; -moz-outline-style: none;}
+i{ font-style:normal;}
+address,caption,cite,code,dfn,em,strong,th,var{font-weight:normal;font-style:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
+q:before,q:after{content:'';}
+fieldset,img,abbr,acronym{border:0;}
+li{margin: 0 ;padding: 0;}
+/* top_nav css */
+.container{width: 1200px;margin: 0 auto;position: relative;z-index:2;}
+.top-title{float: left;}
+.nav{float: right;margin-top: 34px;}
+.top-title .tag{margin-top: 10px;margin-right: 12px; z-index: 9;float: left}
+.top-title h1{font-size: 24px;color: #ffb400;line-height: 36px; font-weight: bold;float: left;margin-top: 27px;}
+.top-title h1 span{font-size: 14px;color: #ffffff;display: block;}
+.top-nav{width:100%;min-width: 1200px; height: 110px;background: url(//game.gtimg.cn/images/cjm/web201801/bg-nav.png) no-repeat;position: absolute;top: 42px;z-index: 9}
+.nav a{font-size: 16px;color: #ffffff;text-align: center;width: 115px;height: 110px; display: inline-block;}
+.nav a:hover{color: #ffb400}
+.nav a:hover span{color:#ffb400 }
+.nav a span{font-size: 10px;color: #515151;font-weight: 550;display: block;}
+
+
+
+/* 活动下拉导航 */
+.tips-player{width: 239px;overflow: hidden;top: 100px;right: 13px;position:absolute;height: 150px;display: none;z-index: 99;}
+.tips-player img{width: 100%}
+.tips-player ul{float: right; padding:10px 5px;background: #000;}
+.tips-player li{overflow: hidden;height: 25px;line-height: 25px;font-size: 14px;color: #fff;cursor: pointer}
+.tips-player .on{color: #fead2c;}
+.tips-img1,.tips-img2,.tips-img3,.tips-img4{padding: 6px;left: 0;position: absolute;background: #fff;line-height: 0;display: none;width: 132px}
+.tips-img1{display: block}
+.ips-arrow{  width: 0;  height: 0;border-top: 10px solid transparent;border-left: 20px solid #fff;   border-bottom: 10px solid transparent;position: absolute;top: 57px;right: -19px;}
+.tips-img1 .ips-arrow{top: 12px}
+.tips-img2 .ips-arrow{top: 36px}
+.tips-img3 .ips-arrow{top: 62px}
+.tips-img4 .ips-arrow{top: 87px}  
+.ctr{width: 1200px;position: relative;margin: 0 auto}
+/*侧栏导航*/ 
+.slide-munu{width: 146px;position: fixed;top: 268px;right: 10px;z-index: 99;}
+.slide-munu .code{display: block;margin: 0 auto;border: 5px solid #000;}
+.slide-munu .btn{border: 1px solid #000;width: 115px;display: block;margin: 0 auto;}
+.slide-munu .btn a{color:#000;font-size: 14px; width: 100%;height: 39px;border-bottom: 2px solid #000;display: block;text-align: center;line-height: 39px;background: #ffcc00;}
+.slide-munu .btn .gift-btn{height: 66px;background: url(//game.gtimg.cn/images/cjm/web201801/fresh/menu-bottom.png) no-repeat top center;}
+/*列表页头部*/
+.listpage-head{ width: 100%; min-width: 1200px; height: 348px; background: url(//game.gtimg.cn/images/cjm/web201801/info-kv.jpg) no-repeat center top; overflow: hidden; }
+.listpage-head .listpage-head-main{ margin: 170px 0 0 80px; }
+.listpage-head .tit{ width: 167px; height: 62px; background: url(//game.gtimg.cn/images/cjm/web201801/info-tit.png) no-repeat; }
+.newsbg .tit{  background: url(//game.gtimg.cn/images/cjm/web201801/news-tit.png) no-repeat; }
+.videobg .tit{  background: url(//game.gtimg.cn/images/cjm/web201801/video-tit.png) no-repeat; }
+.glbg .tit{  background: url(//game.gtimg.cn/images/cjm/web201801/gl-tit.png) no-repeat; }
+.doujin .tit{  background: url(//game.gtimg.cn/images/cjm/web201801/doujin-tit.png) no-repeat; }
+ 
+.listpage-head .local{ padding-top: 17px; color: #b8b8b8; font-size: 16px; line-height: 20px; }
+.listpage-head .local a{ color: #b8b8b8; text-decoration: underline; }
+.listpage-head .local a:hover{ color: #e8a026; }
+
+/* footer css */
+.footer-top{margin-bottom: 100px;}
+.foot-code{width: 947px;margin:0 auto; overflow: hidden}
+.foot-code ul{width:1200px;display: block;}
+.foot-code li{width: 174px;float: left;margin-right: 83px;}
+.foot-code li img{width: 174px;height: 174px;display: block;}
+.foot-code li p{font-size: 18px;color: #fff;line-height: 70px;background: #000;text-align: center;border: 1px solid #a07708;}
+
+/*foot-cpright*/
+.foot{background:#000;margin:0 20px;color:#ccc;width: 100%;margin: 0 auto}
+.foot-dark{ background: #000; }
+.foot-cpright{padding: 15px 0}
+.foot-cpright:after {content:'\20';display:block;height:0;line-height:0;visibility:hidden;clear:both;}
+.foot-sprt{margin:0 2px;}
+.foot-logos {float:left;display:inline;margin-top: 20px;}
+.foot-logos-game{float:left;width:170px;height:35px;text-indent:-999em;overflow:hidden;margin:10px 0 0 10px;background:url("//ossweb-img.qq.com/images/sy/template2014/foot-light.png");}
+/* 通常为暗底版白色logo，需要亮底暗版logo可加类名*/
+.foot-dark .foot-logos-game{background:url("//ossweb-img.qq.com/images/sy/template2014/foot-dark.png");}
+/*合作公司logo，需要时可自行添加*/ 
+.foot-logos-company {float:left;overflow:hidden;margin:10px 0 0 28px;}
+.browser-tips{font-size: 14px;color: #fff;width: 100%;padding: 3px 0; background: #444; text-align: center;font-weight: bold;z-index: 999; position: absolute;top: 0;}
+/*foot-info*/
+.foot-links{color: #fff;font-size: 12px}
+.foot-info{padding:50px 0;letter-spacing: -4px;word-spacing: -4px;font-size:0;}
+.foot-info li{display:inline-block;*display:inline;zoom:1;vertical-align:top;letter-spacing: normal;word-spacing: normal;font-size:14px}
+.foot-info .gzweixin{width:255px;padding-right:60px}
+.foot-info .tips{width:325px;padding-right:60px}
+.foot-info .coop{width:260px;}  
+.foot-info .coop-list li{display:block;} 
+.foot-links {display:inline;float:right;width:700px;} 
+.foot-links a{color:#fff}  
+.foot-logo{width: 770px;margin:0 auto ;display: block;padding: 20px 0 50px;}
+.foot-logo .middle{margin: 0 70px;}
+.sprite {display:inline-block;*zoom:1;*display: inline; overflow:hidden; background-repeat: no-repeat;background-image:url(//game.gtimg.cn/images/cjm/web201801/icon.png);}
+.icon-androide{width: 17px;height: 19px;background-position: -656px -307px;vertical-align: middle;}
+.icon-iphone{width: 18px;height: 20px;background-position: -686px -304px;vertical-align: middle;}
+.icon-xbxly{width: 15px;height: 19px;background-position: -951px -318px;vertical-align: middle;}
+.btn-download-androide {width:177px; height:46px; background-position: -727px -316px;font-size: 16px; text-align: center;line-height: 46px;text-indent: 37px;}
+.btn-download-iphone {width:177px; height:46px;background-position: -727px -259px;  font-size: 16px;text-align: center;line-height: 46px;text-indent: 37px;}
+.btn-download-pc {width:177px; height:46px; background-position: -727px -372px;font-size: 16px;text-align: center;line-height: 46px;text-indent: 37px;}
+/* 主题样式 在其他页面调用时打开注释 */
+/* .sprite {display:inline-block;*zoom:1;*display: inline; overflow:hidden; background-repeat: no-repeat;background-image:url(//game.gtimg.cn/images/cjm/web201801/icon.png);}
+.top-theme{width: 442px;height: 123px;background-position: -195px -267px;margin: 60px auto 54px;display: block;} 
+.theme {width:624px; height:220px; background-position: 0 0}
+.head-play {width:107px; height:105px; background-position: -644px 0;animation:myfirst 1.5s infinite;
+    -webkit-animation:myfirst 3s infinite; /* Safari and Chrome }*/
+    @keyframes myfirst
+    {
+        0%{transform: scale(0.9);}
+        50%{transform: scale(1);}
+        100%{transform: scale(0.9);}
+    }
+    
+    @-webkit-keyframes myfirst /* Safari and Chrome */
+    {
+        0%{transform: scale(0.9);}
+        50%{transform: scale(1);}
+        100%{transform: scale(0.9);}
+    }
+.pop_style_app .pop_hd h4{font-size:14px;}
+.pop_style_app{border:3px solid #917200;background:#1e1915;width:390px;position:relative;color:#787777; display:none; position:fixed;left:50%;top:50%;z-index:99;}
+.pop_style_app .pop_box{background:#1e1915;margin:1px;height:100%;padding-top: 20px;padding-bottom: 80px; position: relative;}
+.pop_style_app .pop_hd{font-size:24px;line-height:36px;text-align:center;color:#ffd400;padding:18px 0}
+.pop_style_app .pop_hd h3{font-weight:normal;font-size:24px;}
+.pop_style_app .pop_hd h4{font-size:18px;line-height:30px;font-weight:normal;}
+.pop_style_app .pop_app{display:block;width: 200px;margin: 0 auto;}
+.pop_style_app .pop_close{width: 66px; height: 66px;background: url("//game.gtimg.cn/images/cjm/cp/web201801/sprites.png") -259px -198px;position: absolute;right: -69px;top: -4px;}   
+/*match*/
+.match-nav a{width: 100px;height: 38px;position: relative;}
+.match-nav .nav{float: left}
+.match-nav .nav a{width: 100px;height: 38px;position: relative}
+.match-nav .nav a span{width: 60px;height: 2px;background: #ffb400;position: absolute;bottom: 0;left: 50%;margin-left: -30px;display: none}
+.match-nav .nav a:hover span{display: block}
+.shadow{position: fixed;left: 0;top: 0;width:100%;height: 100%;background: rgba(0,0,0,.7);z-index: 10}
+.wgcpop{width: 306px;height: 333px;position: fixed;margin: auto;left: 0;right: 0;top: 0;bottom: 0;background: rgba(49,63,81,.5);padding-top: 38px;box-sizing: border-box;line-height: 100%;}
+.wgcpop div{width: 217px;height: 217px;border:4px solid #cab25d;margin: 0 auto;border-radius: 3px;}
+.wgcpop div img{width: 100%;height: 100%;}
+.wgcpop p{color: #dceafd;text-align: center;font-size: 18px;margin-top: 7px;line-height: 27px;}
+.close1{position: absolute;right:6px;top: 7px;background: url(//game.gtimg.cn/images/cjm/match/close1.png) no-repeat;width: 33px;height: 32px;cursor: pointer;}

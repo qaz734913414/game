@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频中心</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            text-decoration:none;
+        }
+        a{
+            color:#000;
+        }
+        div{
+            display:block;
+        }
+        body {
+            background: #e9e9e9;
+        }
+        #ost_box{
+            width:100%;
+            height:40px;
+            background-color:#fff;
+            color:#464646;
+            font-size:12px;
+            position:absolute;
+            z-index:8000;
+        }
+        #ost_box .ost_inner{
+            width:980px;
+            padding:0 5px;
+            margin:0 auto;
+            position:relative;
+            line-height:40px;
+        }
+        .ost_inner .ost_big {
+            width:970px;
+            height:185px;
+            padding:0 3px 3px;
+            border-bottom:1px solid #eee;
+            background:#fff;
+            position:absolute;
+            top:0;
+            left:50%;
+            margin:0 0 0 -488px;
+        }
+        .ost_inner .ost_logo{
+            background:url("CJ-SPZX/ost-bg.png") no-repeat;
+            width:205px;
+            padding:0 15px 0 0;
+            background-position:0 -40px;
+            position:relative;
+            z-index: 10001;
+            float:left;
+        }
+        .ost_logo .ost_blank{
+            display:block;
+            height:100%;
+            color:#000;
+            text-indent:-500px;
+        }
+        .ost_inner .ost_ad{
+            width:230px;
+            height:100%;
+            float:left;
+        }
+        .ost_inner .ost_total{
+            width:220px;
+            background-position:-143px -120px;
+            margin-left:10px;
+            float:right;
+        }
+        .ost_total a{
+            color: #464646;
+            font-size:12px;
+            font-weight:400;
+        }
+        .ost_total .ost_czsh{
+            float:left;
+            width:118px;
+            background:url(CJ-SPZX/logo.png) 0 12px no-repeat;
+            text-indent:20px;
+            cursor:pointer;
+        }
+        .ost_czsh a:hover {
+            color: #ff4e00;
+        }
+        .ost_total .ost_title{
+            font-size:12px;
+            font-weight:400;
+            height:40px;
+            line-height:40px;
+            cursor:pointer;
+            overflow: hidden;
+            display: block;
+            text-indent: 0!important;
+        }
+        .ost_title .ost_icon{
+            width:11px;
+            height:11px;
+            background-position:-150px -134px;
+            margin-left:5px;
+            background:url(CJ-SPZX/ost-bg.png) no-repeat;
+            display:inline-block;
+            vertical-align:middle;
+            font-size: .1em;
+        }
+        #top_nav{
+            width:100%;
+            height:110px;
+            background:url(CJ-SPZX/bg-nav.png) no-repeat;
+            position:absolute;
+            top:42px;
+            z-index:9;
+            display:block;
+        }
+        #top_nav .container{
+            width:1200px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        #top_nav .container .top_title{
+            float:left;
+        }
+        .container .top_title .tag{
+            margin-top:10px;
+            margin-right:12px;
+            z-index:9;
+            float:left;
+            width:125px;
+            height:125px;
+        }
+        #top_nav .container .top_title h1{
+            font-size:24px;
+            color:#ffb400;
+            line-height:36px;
+            font-weight:bold;
+            float:left;
+            margin-top:27px;
+        }
+        .top_title h1 span{
+            font-size:14px;
+            color:#ffffff;
+            display:block;
+        }
+        #top_nav .container .nav{
+            float:right;
+            margin-top:34px;
+        }
+        .container .nav a{
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:80px;
+            display:inline-block;/*内联块：和其他a标签在同一行显示*/
+        }
+        .nav a:hover{
+            color:#ffb400;
+        }
+        .nav a:hover span{
+            color:#ffb400;
+        }
+        .nav a span{
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;/*将span（本来是行级标签） 标签设为块级标签独占一行 */
+        }
+        #listpage_head {
+            position:relative;
+            top:42px;
+            width:100%;
+            min-width:1200px;
+            height:348px;
+            background:url(CJ-SPZX/info-kv.jpg) no-repeat center top;
+            overflow:hidden;
+        }
+        #listpage_head .Page-container {
+            width:1200px;
+            height:100px;
+            margin:0 auto;
+            position:relative;
+            top:170px;
+            z-index:2;
+        }
+        .Page-container .listpage-main{
+            margin:0 auto;
+            width:1040px;
+            height:100px;
+        }
+        .listpage-main .Big-title {
+            width:167px;
+            height:62px;
+            background:url(CJ-SPZX/video-tit.png) no-repeat;
+        }
+        .listpage-main .local {
+            padding-top:17px;
+            color:#b8b8b8;
+            font-size:16px;
+            line-height:20px;
+        }
+        .listpage-main .local a {
+            color:#b8b8b8;
+            text-decoration:underline;
+        }
+        .listpage-main .local a:hover {
+            color:#e8a026;
+        }
+        #listpage_box {
+            background:#e9e9e9;
+            overflow:hidden;
+            min-width:1200px;
+        }
+        #listpage_box .listpage-center {
+            width:1200px;
+            margin:0 auto;
+            overflow:hidden;
+            position:relative;
+        }
+        .listpage-center .news-list {
+            margin:50px 0 18px 80px;
+            height:36px;
+            border-bottom:1px solid #b2b1b1;
+        }
+        .news-list ul{
+            width:1000px;
+        }
+        .news-list .on, .news-list a:hover {
+            color:#e8a026;
+            font-weight:bold;
+        }
+        .news-list li {
+            float:left;
+            font-size:18px;
+            margin-right:68px;
+            color:#333;
+        }
+        .news-list .on {
+            color:#e8a026;
+            border-bottom:3px solid #e8a026;
+        }
+        .news-list a {
+            color:#333;
+            padding-bottom:9px;
+            display:block;
+            border-bottom:3px solid transparent;
+            min-width:52px;
+            transition:100ms;
+            text-align:center;
+        }
+        .listpage-center .video-detail {
+            padding:0 0 0 80px;
+            overflow:hidden;
+        }
+        .video-detail .video-list {
+            overflow:hidden;
+            min-height:500px;
+        }
+        .video-list li {
+            float:left;
+            font-size:14px;
+            color:#333;
+            margin:0 26px 50px 0;
+        }
+        .video-list li:hover {
+            color: #d98500;
+        }
+        .link-video {
+            display: block;
+            width: 192px;
+            height: 118px;
+            position: relative;
+        }
+        .video-title {
+            height: 38px;
+            overflow: hidden;
+            width: 192px;
+            padding-top: 4px;
+        }
+        .ico-play {
+            background:url(CJ-SPZX/sp.png) no-repeat;
+            position:absolute;
+            z-index:2;
+            top:50%;
+            left:50%;
+            background-position:-319px -108px;
+            width:57px;
+            height:57px;
+            margin:-26px 0 0 -26px;
+        }
+        .page-num {
+            text-align:center;
+            padding:30px 0;
+        }
+        .page-num a {
+            display:inline-block;
+            margin:0 60px;
+            width:60px;
+            height:30px;
+            text-align:center;
+            color:#555;
+            border:1px solid #9a9a9a;
+            line-height:30px;
+        }
+        .footer-botoom{
+            height:150px;
+            position:relative;
+            background:#000;
+            color:#ccc;
+        }
+        .bot_cont {
+            width:1200px;
+            height:138px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        .bot_cont .foot-cpright{
+            width:1200px;
+            height:135px;
+            padding-top:15px;
+        }
+        .foot-logos {
+            float:left;
+            display:inline;
+            margin-top:20px;
+            width:335px;
+            height:61px;
+        }
+        .foot-logos-game {
+            background:url(CJ-SPZX/foot-dark.png);
+            float:left;
+            width:170px;
+            height:35px;
+            text-indent:-999em;
+            overflow:hidden;
+            margin:10px 0 0 10px;
+        }
+        .foot-logos-company {
+            float:left;
+            overflow:hidden;
+            margin:10px 0 0 28px;
+        }
+        .foot-links {
+            margin-top:10px;
+            display:inline;
+            float:right;
+            width:700px;
+            color:#fff;
+            font-size:12px;
+        }
+        .foot-links li{
+            margin-bottom:2px;
+        }
+        .foot-links a {
+            color: #fff;
+        }
+        .foot-sprt {
+            margin:0 2px;
+        }
+        .V-boxs{
+            position:absolute;
+            z-index:9999;
+            left:50%;
+            top:1450px;
+            margin-top:0;
+            margin-left:-400px;
+        }
+        .PicVideos{
+            position:fixed;
+            left:20%;
+            top:10%;
+            width:800px;
+            height:450px;
+            z-index:9999;
+        }
+        .Vcloser {
+            width:75px;
+            height:75px;
+            background:url(CJ-SPZX/close.jpg);
+            position:fixed;
+            right:15.3%;
+            top:10%;
+            line-height:2000px;
+            overflow:hidden;
+        }
+        .container .nav .nav_yx {
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:110px;
+            display:inline-block;
+        }
+        .nav .nav_yx span {
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;
+        }
+        .nav .nav_yx:hover {
+            color: #ffb400;
+        }
+        .nav .nav_yx:hover span{
+            color:#ffb400;
+        }
+        .tips-player {
+            width:239px;
+            overflow:hidden;
+            top:100px;
+            right:13px;
+            position:absolute;
+            height:150px;
+            z-index:99;
+        }
+        .tips-player ul {
+            float:right;
+            padding:10px 5px;
+            background:#000;
+        }
+        .tips-player .on {
+            color: #fead2c;
+        }
+        .tips-player li {
+            overflow:hidden;
+            height:25px;
+            line-height:25px;
+            font-size:14px;
+            color:#fff;
+            cursor:pointer;
+        }
+        #tips-img1, #tips-img2, #tips-img3, #tips-img4 {
+            padding: 6px;
+            left: 0;
+            position: absolute;
+            background: #fff;
+            line-height: 0;
+            display: none;
+            width: 132px;
+        }
+        .tips-player img {
+            width:100%;
+        }
+        .ips-arrow {
+            width:0;
+            height:0;
+            border-top:10px solid transparent;
+            border-left:20px solid #fff;
+            border-bottom:10px solid transparent;
+            position:absolute;
+            top:57px;
+            right:-19px;
+        }
+        #shouq_arr{
+            top:12px;
+        }
+        #wxgzh_arr{
+            top:36px;
+        }
+        #wxqz_arr{
+            top:62px;
+        }
+        #gfwb_arr{
+            top:87px;
+        }
+        .nav .nav_yx #yx_sub {
+            text-align:center;
+            background:#000;
+            width:80px;
+            overflow:hidden;
+            margin-top:22px;
+            margin-left:20px;
+            position:absolute;
+            padding:20px 0px 20px 0px;
+            z-index:99;
+        }
+        #yx_sub li {
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+        }
+        .nav .nav_yx #yx_sub a {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="V_box" class="V-boxs" style="display:none;">
+        <div id="mod-player">
+            <video id="picVideos1" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0700jnngst.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos2" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/e0707axu2vh.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos3" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/w0707i7mn74.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos4" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/z0707smjevr.m701.mp4" type="video/mp4" >
+            </video>
+            <video id="picVideos5" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/a07042ru5h2.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos6" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0703f7ur8f.p702.1.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos7" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/d0703zwf08v.mp4" type="video/mp4" >
+            </video>
+            <video id="picVideos8" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/a07042ru5h2.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos9" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0703f7ur8f.p702.1.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos10" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/n0700sc4l6g.mp4" type="video/mp4">
+            </video>
+        </div>
+        <a id="dia-close" class="Vcloser" href="javascript:void(0);" title="关闭">×</a>
+    </div>
+
+    <div id="ost_box">
+        <ul class="ost_inner">
+            <li class="ost_logo">
+                <a href="//game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav target= _blank"  class="ost_blank" title="腾讯游戏logo">腾讯游戏logo</a>
+            </li>
+            <li id="ost_g"  class="ost_ad">
+                <img id="ost_go" src="CJ-SPZX/1896067324696626391152775628723040.1527756287.172727694fd6b6f15e1eb7a7763649a3.230x40_6578.jpg"/>
+            </li>
+            <div id="ost_d" class="ost_big" style="display:none;">
+                <a href="http://ac.o2.qq.com/php/click.php?loc_id=119_0d8e2b9df01ce2966bb5d8dd52e865e1&amp;
+                info_data=HhppS1tYhho2yY2eZhZh0-VnkWLIQbMGhUzjaeiPSwP5JMHBpvlEJxq-8bBIvlMkmdpUDvHCcAsel35lWaoyWpWZKJDHsQq8GYqlta1gn2QtTd7Femf_miUOqcazaUFsRlVbAQofsrdxfodj4g9DifGM_PnN_D1okapiWKjAmJwosgCz0QtGTUC1bwU2jAbWcYvorcj8BMSxFQsz6E3bFXdPZ2gE56R9RLn2cr8kMy47S65Ypmd_1oD8nPN6zdahhPlHl1mSj2kJ6oNh6uUknygN59p1z-lt6DIyCF3abtYhvAFlVgbf4ucqefGLO55NcqHSc4-0yVhG-DaKk-MEqLsZFnRON_DGoJyRzDPDWRlWTMFOHpDR9LIq14FtDX-gCcMG7c7EJo4M17FsirabRi1jNkUYPMYK-IGRrNZd7zVcDnxPi-qKjyptgFeN42k4g9dOEngv1YJxmVSv2Xm2uQ"
+                   target="_blank">
+                    <img class="ost_nb" src="CJ-SPZX/71393217633543671530257002970185.1530257026.f235c874788c3f7404e13589c7307a0a.970x185_77897.png" width="970" height="185" alt="">
+                </a>
+            </div>
+            <li class="ost_total">
+                <h3 class="ost_czsh">
+                    <a target="_blank" href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+                </h3>
+                <div class="ost_title">
+                    腾讯游戏排行榜
+                    <p class="ost_icon"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="top_nav">
+        <div class="container">
+            <div class="top_title">
+                <a href="">
+                    <img src="CJ-SPZX/top-tag.png" class="tag"/>
+                </a>
+                <h1>
+                    绝地求生 : 刺激战场
+                    <span>正版战斗特训手游</span>
+                </h1>
+            </div>
+            <div class="nav">
+                <a href="../guanwangshouye/shouye.html">
+                    官网首页
+                    <span>HOME</span>
+                </a>
+                <a href="../saishizhongxin/saishi.html">
+                    赛事中心
+                    <span>MATCH</span>
+                </a>
+                <a href="../shipingzhongxin/shiping.html">
+                    视频中心
+                    <span>VIDEO</span>
+                </a>
+                <a href="../zhibozhongxin/zhibo.html">
+                    直播中心
+                    <span>LIVE</span>
+                </a>
+                <a href="../gongluezhongxin/gonglue.html">
+                    攻略中心
+                    <span>GAMETIPS</span>
+                </a>
+                <div class="nav_yx" id="YXZL">
+                    游戏资料
+                    <span>DATA</span>
+                    <ul  id="yx_sub" style="display:none;">
+                        <li>
+                            <a id="wuqiPJ" href="../wuqipeijian/youxiziliao.html">
+                                武器配件
+                            </a>
+                        </li>
+                        <li>
+                            <a id="banbenGX" href="../banbengengxin/banbengenxin.html" >
+                                版本更新
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" id="shequhudong">
+                    社区互动
+                    <span>COMMUNITY</span>
+                    <div class="tips-player" id="tipsPlayer" style="display:none;">
+                        <ul>
+                            <li id="shouQ" class="on">手Q部落</li>
+                            <li id="weixinGZH" class="">微信公众号</li>
+                            <li id="weixinQZ" class="">微信圈子</li>
+                            <li id="guangfangWB" class="">官方微博</li>
+                        </ul>
+                        <p id="tips-img1" style="display:block;">
+                            <img src="CJ-SPZX/qrcode_sq.jpg" alt="手Q部落">
+                            <i id="shouq_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img2" style="display:none;">
+                            <img src="CJ-SPZX/qrcode_wxqz.jpg" alt="微信公众号">
+                            <i id="wxgzh_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img3" style="display:none;">
+                            <img src="CJ-SPZX/qrcode_wx.jpg" alt="微信圈子">
+                            <i id="wxqz_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img4" style="display:none;">
+                            <img src="CJ-SPZX/qrcode_wb.jpg" alt="官方微博">
+                            <i id="gfwb_arr" class="ips-arrow"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="listpage_head">
+        <div class="Page-container">
+            <div class="listpage-main">
+                <div class="Big-title"></div>
+                <div class="local">
+                    您的位置：
+                    <a href="../guanwangshouye/shouye.html">首页</a>
+                    >
+                    <a href="">视频中心</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="listpage_box">
+        <div class="listpage-center">
+            <div class="news-list">
+                <ul>
+                    <li><a href="javascript:void(0)" class="on" id="Vzuixin">最新</a></li>
+                    <li><a href="javascript:void(0)" id="Vzonghe">综合</a></li>
+                    <li><a href="javascript:void(0)" id="Vxinshou">新手</a></li>
+                    <li><a href="javascript:void(0)" id="Vjiqiao">技巧</a></li>
+                    <li><a href="javascript:void(0)" id="Vquwei">趣味</a></li>
+                    <li><a href="javascript:void(0)" id="Vzhubo">主播</a></li>
+                    <li><a href="javascript:void(0)" id="Vbaike">百科</a></li>
+                </ul>
+            </div>
+            <div class="video-detail">
+                <ul class="video-list" id="VL1" style="display:block;">
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays1" class="link-video">
+                            <img src="CJ-SPZX/1528025929.82b93212f566e165a482c7d0191ae2a7.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激全知道：航线和降落人数的隐藏作用</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays2" class="link-video">
+                            <img src="CJ-SPZX/900x500.1528026108.e7980ac2b3213c3d2985c4e2c767e500.900x500_139315.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">节奏刚枪王 ：最爱听人说：“大哥别杀我！”</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays3" class="link-video">
+                            <img src="CJ-SPZX/750x4221.1528090611.a9844e8fb40770ab47b2fe5b6487533b.750x422_47731.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激实战教室：战争模式游走抓人轻松高分</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays4" class="link-video">
+                            <img src="CJ-SPZX/1528089979.fbb35e5cacef796a30204cb251d22b2c.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">战场分析师：战场模式单人进阶玩法开发</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays5" class="link-video">
+                            <img src="CJ-SPZX/1528089736.27c788ba9177d5acffeecf2a9048dfdd.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激测评室：全新三倍镜在瞄具中地位不可小觑</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays6" class="link-video">
+                            <img src="CJ-SPZX/750422.1528038327.03c1bf23125dc2fc47953c0eb3a7dae0.750x422_42689.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">出其不“易” 是想象中的空投没错了</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays7" class="link-video">
+                            <img src="CJ-SPZX/238131.1528037711.c36f0660d70f0add2b30ff52b9b7c318.238x131_81994.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">KID说：史上最酷时装没有之一 连帽夹克免费获取指南</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays8" class="link-video">
+                            <img src="CJ-SPZX/750.1528026471.d31f7bf542b4c9e69aec3782917adfbd.750x422_47394.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">出其不“易” 当你枪法不好的时候怎么办</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays9" class="link-video">
+                            <img src="CJ-SPZX/238.1528025877.17bcd2a4942035ab6143e41473c3ea91.238x131_44959.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">出其不“易” 小姐姐由我来保护</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="picPlays10" class="link-video">
+                            <img src="CJ-SPZX/238131.1528024095.d68bcb9cd1c0854ffeef0ab0b930cc3a.238x131_91184.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激前哨站 新版本配件不会？用别怕！</p>
+                    </li>
+                </ul>
+                <ul class="video-list" id="VL2" style="display:none;">
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays1" class="link-video">
+                            <img src="CJ-SPZX/yizhaowuyazuofeiji.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场不可能完成的任务！如何爬上炮塔房顶？！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays2" class="link-video">
+                            <img src="CJ-SPZX/chuizhixiefei.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场目前最快的跳伞方式！垂直斜飞！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays3" class="link-video">
+                            <img src="CJ-SPZX/238131.1529585723.d2d9e47c7f63401e27c9c266f14a500b.238x131_79321.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">KID说：狙神速成班第6弹 狙击手三大测距方案利弊</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays4" class="link-video">
+                            <img src="CJ-SPZX/chijixueyuan.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激学院：最快最正确的跳伞方法，让你最先落地！敌人都是活靶子！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays5" class="link-video">
+                            <img src="CJ-SPZX/1529310650.e2cc43db09a84c4eadf2bc58ddc8d7e3.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激测评室：这把长枪，没点技术最好不要拿</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays6" class="link-video">
+                            <img src="CJ-SPZX/1529310363.2aeaf4b25fc72c01dd6f35ba08eca69b.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">海岛战术家：山顶废墟对抗源源不断的敌人</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays7" class="link-video">
+                            <img src="CJ-SPZX/900.1529412440.840adea23f0df630e9abccbc1c3330e3.900x500_508670.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：吃鸡足球赛，我爱世界杯</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays8" class="link-video">
+                            <img src="CJ-SPZX/1529228621.c5658d1092398f35b14edd6335678a60.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激测评室：十字弩搭配这把步枪，几乎无解</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays9" class="link-video">
+                            <img src="CJ-SPZX/1529227920.e573ddfae1f236d5b9927c866914bf23.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激测评室：载具轮胎的全方位测试</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic2Plays10" class="link-video">
+                            <img src="CJ-SPZX/1529224121.ce799df4e88782eccea49108de7abe10.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">战场分析师：娱乐模式必会的四人套路</p>
+                    </li>
+                </ul>
+                <ul class="video-list" id="VL3" style="display:none;">
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays1" class="link-video">
+                            <img src="CJ-SPZX/1.1530152892.60cef48f7e2371eafd30af8cb1caf407.750x442_594318.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">战场小灶：姐要承包这个小核电站</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays2"  class="link-video">
+                            <img src="CJ-SPZX/750.1530081772.9ecc6a96882a5bde129569469d784a6a.750x422_49768.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">【干货，皮一下】第15期：山坡反冲锋战术</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays3"  class="link-video">
+                            <img src="CJ-SPZX/1.1530073638.fcddc1610471ce5f3c4d8c0b2fc17096.750x442_552979.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">战场小灶：倒地也不能丧失求生欲哦</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays4"  class="link-video">
+                            <img src="CJ-SPZX/1530067583.e0365e4ae0446844f8aecd66126ffa7d.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">海岛战术家：这里虽小，但总会刷出十多把长枪</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays5"  class="link-video">
+                            <img src="CJ-SPZX/1530068062.2aeb7a8448860793e97d044b0c9c09d7.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">海岛战术家：一个被贫瘠资源区包围的野区</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays6"  class="link-video">
+                            <img src="CJ-SPZX/1530068424.a8d7f842da98190f52065abc4814c441.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">沙漠战术家：电站双排手册 房区集中资源多</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays7"  class="link-video">
+                            <img src="CJ-SPZX/1.1529922066.19d2d2d49c70eed38daf0cfb38826cc1.238x131_67507.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">战场小灶：98K，SKS，哪把才是你的菜？</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays8"  class="link-video">
+                            <img src="CJ-SPZX/1.1529992398.ac86311682859c246480ab07acd961f5.238x131_55411.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">战场小灶：论钓鱼执法的正确姿势</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays9"  class="link-video">
+                            <img src="CJ-SPZX/1529920827.8253e7187a6ddd0197eba450106d771a.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">沙漠战术家：老工业区搜索路线 双排这样玩</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic3Plays10"  class="link-video">
+                            <img src="CJ-SPZX/1529921075.4a6c5b5b3d9d51310c30f3c8a3007afe.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">沙漠战术家：老工业区四排 完美配合满员吃鸡</p>
+                    </li>
+                </ul>
+                <ul class="video-list" id="VL4" style="display:none;">
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays1"  class="link-video">
+                            <img src="CJ-SPZX/750442.1530100491.ac0cef7a73d1038d5d8d0a0bcd392dda.750x442_203036.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：骚气舞蹈，这个小哥哥我要PICK！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays2" class="link-video">
+                            <img src="CJ-SPZX/750442.1530101057.41ca957a8a83dcdbe322a19c6f77e1a4.750x442_190578.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：小姐姐我pick你！在刺激战场里C位出道吧！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays3" class="link-video">
+                            <img src="CJ-SPZX/750442.1530101393.487b4be41001e2d713ae947273a8be36.750x442_233664.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：刺激战场孟美岐与王一博比心pick</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays4" class="link-video">
+                            <img src="CJ-SPZX/1.1530103452.e7172745d1fa9c241bd7116084548f9e.750x442_584184.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">舔包姐战斗日常：在线求抛物线公式，挺急的</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays5" class="link-video">
+                            <img src="CJ-SPZX/1.1530153928.35494d19adaf8dc5a3545dc971df5fc7.750x442_511781.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">舔包姐战斗日常：别想跟姐谈条件，亲妹也不行</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays6" class="link-video">
+                            <img src="CJ-SPZX/1.1530154887.1be5c948944ff7e076d0db74825c5e8c.750x442_592046.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">舔包姐战斗日常：拿着这个头盔去推动世界和平吧</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays7" class="link-video">
+                            <img src="CJ-SPZX/750.1530090585.ed22e265e87d9be6e15488709b5feb28.750x422_35288.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激沙漠：小草亲身试范！车未停好时下车的后果</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays8" class="link-video">
+                            <img src="CJ-SPZX/442.1530117762.c7b51f8c8ec86b5ffb818877d9a483d4.750x442_346316.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">出其不“易” 捡一口锅保护着我</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays9" class="link-video">
+                            <img src="CJ-SPZX/442.1530164512.3497516052624d1673f9c3732f297f47.750x442_39870.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">老司机上线了：战争模式的狙击战！一场战斗和艺术的结合</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic4Plays10" class="link-video">
+                            <img src="CJ-SPZX/442.1530164842.6862959a2851015369fb193ee538426a.750x442_42110.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激海岛一日游：吃鸡之路行亦难，打的好不如躺的好！</p>
+                    </li>
+                </ul>
+                <ul class="video-list" id="VL5" style="display:none;">
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays1" class="link-video">
+                            <img src="CJ-SPZX/750442.1530168486.13e3319d2fb98af4fae4a020cf5fd097.750x442_253530.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">主播集锦：Q神决赛圈1v8，各种视野卡的明明白白</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays2" class="link-video">
+                            <img src="CJ-SPZX/5750x442.1530069991.6cad76eca820aebd6e0c0022b1519eb5.750x442_177499.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">主播：人帅枪刚还能苟，狙击千里也爆头</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays3" class="link-video">
+                            <img src="CJ-SPZX/6750x442.1530070167.b1b19ab4b8944f99ee20ac8b8a399a60.750x442_342602.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">主播“不求人”：挡我舔包者，让你们哭着求我</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays4" class="link-video">
+                            <img src="CJ-SPZX/750442.1530173078.59b6d5e783e1dab97026aa899501746b.750x442_268521.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">主播集锦：野生度半拳王上身，小拳拳穷追不舍</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays5" class="link-video">
+                            <img src="CJ-SPZX/750442.1530110920.6db30763c6ca0633d0809abb9fd6a7b8.750x442_567893.png" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">抱歉了兄嘚 浪子断丢雷吃鸡就这么自信</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays6" class="link-video">
+                            <img src="CJ-SPZX/7750x442.1530070401.ff4dde2b207331f9bc75378376154dcb.750x442_338273.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">主播“奇怪君”：向着敌人的炮火，前进！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays7" class="link-video">
+                            <img src="CJ-SPZX/QQ20180627164042.1530089278.ed1b660dd53d320ef032db3e53abe590.1123x631_127023.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">友坑吃鸡：沙漠决赛圈房区死斗，高玩带两妹子躺吃鸡</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays8" class="link-video">
+                            <img src="CJ-SPZX/QQ20180627170355.1530090455.c2024624fe8ef9573bed26b528de5377.984x547_123197.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">绝地求生刺激战场：高玩沙漠暴力1V4 吃鸡是必须的</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays9" class="link-video">
+                            <img src="CJ-SPZX/QQ20180627103849.1530067758.7763fb140033286803a9a3c9bd22c62f.1165x654_154539.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">友坑吃鸡：空投8倍镜砸脸 真能激活超能力！太帅啦</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic5Plays10" class="link-video">
+                            <img src="CJ-SPZX/1530069270.e9998bdacfb08d7e7c85c52ece51a032.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">主播你真秀：遭天谴！连老天都嫉妒你的美貌</p>
+                    </li>
+                </ul>
+                <ul class="video-list" id="VL6" style="display:none;">
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays1" class="link-video">
+                            <img src="CJ-SPZX/750442.1530096903.eaec843873df1030fff41680c118d757.750x442_218064.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：霞弹枪必备配件，揭开收束器神秘面纱</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays2" class="link-video">
+                            <img src="CJ-SPZX/750442.1530087020.553ad655eb325f7a39d73e623f0cf163.750x442_166966.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：霞弹枪子弹天女散花，称为喷子不足为奇</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays3" class="link-video">
+                            <img src="CJ-SPZX/41537354793463944.1530086110.ef6db07c168f8d6d1d359cf44e95e684.750x442_323888.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激军机处： 刺激战场特殊配件大合辑</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays4" class="link-video">
+                            <img src="CJ-SPZX/750442.1530083898.1cd7a4c3dbeb39e5b3a8bc08a174c198.750x442_310871.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：打枪屏幕疯狂抖？托腮板稳得不行</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays5" class="link-video">
+                            <img src="CJ-SPZX/750442.1530084270.d6b4254dfe62ec7116624859b6b96578.750x442_40411.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：SKS配上托腮板，提升十分明显！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays6" class="link-video">
+                            <img src="CJ-SPZX/026.1529916612.742bbfce653b6741f63f32f6eae71c68.228x128_14797.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激全知道：高端局需要掌握的选择物资技巧</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays7" class="link-video">
+                            <img src="CJ-SPZX/900.1529664971.2956e15d65d229d2319a535a47c5597a.900x500_365934.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：战术枪托多重要？枪械稳定就靠它</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays8" class="link-video">
+                            <img src="CJ-SPZX/900.1529665148.7a6f1416e883e4d910bbd357f42cfb7b.900x500_400673.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：UZI枪托测评，提升真的大！</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays9" class="link-video">
+                            <img src="CJ-SPZX/900.1529665442.fa5c5ab388813829bf159de0c05277dd.900x500_328700.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：小小枪托大智慧，怪不得它是吃鸡标配</p>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="pic6Plays10" class="link-video">
+                            <img src="CJ-SPZX/900.1529665639.5d8e1ca8657eba59e10a02629454ca83.900x500_423849.jpg" style="width:100%;height:100%;"/>
+                            <i class="ico-play"></i>
+                        </a>
+                        <p class="video-title">刺激战场：步枪枪托实装提升大，萌新也能轻松压枪</p>
+                    </li>
+                </ul>
+                <div class="page-num">
+                    <a href="">下一页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-botoom">
+        <div class="bot_cont">
+            <div class="foot-cpright">
+                <div class="foot-logos">
+                    <a href="http://ieg.tencent.com/"class="foot-logos-game"></a>
+                    <a href=""class="foot-logos-company">
+                        <img src="CJ-SPZX/footer-logo-gz.png"/>
+                    </a>
+                </div>
+                <ul class="foot-links">
+                    <li>
+                        <a href="http://ieg.tencent.com/">腾讯互动娱乐</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://www.qq.com/contract.shtml">服务条款</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="https://e.tencent.com/">广告服务</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/hr/">腾讯游戏招聘</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://service.qq.com/">腾讯游戏客服</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://tgact.qq.com/">游戏活动</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/gnav/">游戏地图</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/portal2010/business.htm">商务合作</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://www.qq.com/">腾讯网</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://www.qq.com/map/">网站导航</a>
+                    </li>
+                    <li><a href="http://www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯公司版权所有</a></li>
+                    <li>COPYRIGHT © 1998 - 2018 TENCENT. ALL RIGHTS RESERVED.</li>
+                    <li>
+                        <a href="http://www.qq.com/culture.shtml">粤网文[2017]6138-1456号</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/culture2.htm">新出网证：（粤）字010号</a>
+                    </li>
+                    <li>本网络游戏适合年满16周岁以上的用户使用；为了您的健康，请合理控制游戏时间。</li>
+                    <li>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="VideoCenter.js"></script>
+</body>
+</html>
