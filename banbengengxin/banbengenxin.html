@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>版本更新</title>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        a{
+            color:#000;
+        }
+        div{
+            display:block;
+        }
+        body {
+            background: #e9e9e9;
+        }
+        #ost_box{
+            width:100%;
+            height:40px;
+            background-color:#fff;
+            color:#464646;
+            font-size:12px;
+            font-family:Tahoma,simsun;
+            border:1px solid #c9c9c9;
+            border-width:1px 0;
+            position:absolute;
+            z-index:8000;
+        }
+        #ost_box .ost_inner{
+            width:980px;
+            padding:0 5px;
+            margin:0 auto;
+            position:relative;
+            line-height:40px;
+        }
+        .ost_inner .ost_big {
+            width:970px;
+            height:185px;
+            padding:0 3px 3px;
+            border-bottom:1px solid #eee;
+            background:#fff;
+            position:absolute;
+            top:0;
+            left:50%;
+            margin:0 0 0 -488px;
+        }
+        .ost_inner .ost_logo{
+            background:url("CJ-GC-Version/ost-bg.png") no-repeat;
+            width:205px;
+            padding:0 15px 0 0;
+            background-position:0 -40px;
+            position:relative;
+            z-index: 10001;
+            float:left;
+        }
+        .ost_logo .ost_blank{
+            display:block;
+            height:100%;
+            color:#000;
+            text-indent:-500px;
+        }
+        .ost_inner .ost_ad{
+            width:230px;
+            height:100%;
+            float:left;
+        }
+        .ost_inner .ost_total{
+            width:220px;
+            background-position:-143px -120px;
+            margin-left:10px;
+            float:right;
+        }
+        .ost_total a{
+            color: #464646;
+            font-size:12px;
+            font-weight:400;
+        }
+        .ost_total .ost_czsh{
+            float:left;
+            width:118px;
+            background:url(CJ-GC-Version/logo.png) 0 12px no-repeat;
+            text-indent:20px;
+            cursor:pointer;
+        }
+        .ost_czsh a:hover {
+            color: #ff4e00;
+        }
+        .ost_total .ost_title{
+            font-size:12px;
+            font-weight:400;
+            height:40px;
+            line-height:40px;
+            cursor:pointer;
+            overflow: hidden;
+            display: block;
+            text-indent: 0!important;
+        }
+        .ost_title .ost_icon{
+            width:11px;
+            height:11px;
+            background-position:-150px -134px;
+            margin-left:5px;
+            background:url(CJ-GC-Version/ost-bg.png) no-repeat;
+            display:inline-block;
+            vertical-align:middle;
+            font-size: .1em;
+        }
+        #top_nav{
+            width:100%;
+            height:110px;
+            background:url(CJ-GC-Version/bg-nav.png) no-repeat;
+            position:absolute;
+            top:42px;
+            z-index:9;
+            display:block;
+        }
+        #top_nav .container{
+            width:1200px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        #top_nav .container .top_title{
+            float:left;
+        }
+        .container .top_title .tag{
+            margin-top:10px;
+            margin-right:12px;
+            z-index:9;
+            float:left;
+            width:125px;
+            height:125px;
+        }
+        #top_nav .container .top_title h1{
+            font-size:24px;
+            color:#ffb400;
+            line-height:36px;
+            font-weight:bold;
+            float:left;
+            margin-top:27px;
+        }
+        .top_title h1 span{
+            font-size:14px;
+            color:#ffffff;
+            display:block;
+        }
+        #top_nav .container .nav{
+            float:right;
+            margin-top:34px;
+        }
+        .container .nav a{
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:80px;
+            display:inline-block;/*内联块：和其他a标签在同一行显示*/
+        }
+        .container .nav .nav_yx {
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:110px;
+            display:inline-block;
+        }
+        .nav .nav_yx span {
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;
+        }
+        .nav a:hover{
+            color:#ffb400;
+        }
+        .nav a:hover span{
+            color:#ffb400;
+        }
+        .nav .nav_yx:hover {
+            color: #ffb400;
+        }
+        .nav .nav_yx:hover span{
+            color:#ffb400;
+        }
+        .nav a span{
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;/*将span（本来是行级标签） 标签设为块级标签独占一行 */
+        }
+        #listpage_head {
+            position:relative;
+            top:42px;
+            width:100%;
+            min-width:1200px;
+            height:348px;
+            background:url(CJ-GC-Version/info-kv.jpg) no-repeat center top;
+            overflow:hidden;
+        }
+        #listpage_head .Page-container {
+            width:1200px;
+            height:100px;
+            margin:0 auto;
+            position:relative;
+            top:170px;
+            z-index:2;
+        }
+        .Page-container .listpage-main{
+            margin:0 auto;
+            width:1040px;
+            height:100px;
+        }
+        .listpage-main .Big-title {
+            width:167px;
+            height:62px;
+            background:url(CJ-GC-Version/version_title.png) no-repeat;
+        }
+        .listpage-main .local {
+            padding-top:17px;
+            color:#b8b8b8;
+            font-size:16px;
+            line-height:20px;
+        }
+        .listpage-main .local a {
+            color: #b8b8b8;
+            text-decoration: underline;
+        }
+        .listpage-main .local a:hover {
+            color:#e8a026;
+        }
+        .containtBox {
+            padding-top:90px;
+            width:1120px;
+            height:auto;
+            margin:0 auto;
+        }
+        .list {
+            width:100%;
+            overflow:hidden;
+            height:auto;
+        }
+        .list li {
+            position:relative;
+            width:100%;
+            height:392px;
+            background-color:#f2f2f2;
+            margin-bottom:30px;
+            padding-left: 632px;
+            box-sizing: border-box;
+            overflow:hidden;
+        }
+        .banner_dt {
+            position:absolute;
+            top:0;
+            left:0;
+            display:block;
+            width:600px;
+            height:392px;
+        }
+        .num {
+            display:block;
+            position:absolute;
+            top:0;
+            left:0;
+            width:120px;
+            height:34px;
+            background:url(CJ-GC-Version/tag.png) no-repeat top center;
+            font-size:24px;
+            text-align:center;
+            line-height:34px;
+            z-index:1;
+            color:#171616;
+            padding-right:10px;
+            box-sizing:border-box;
+        }
+        .exp_con {
+            position:relative;
+            width:100%;
+            height:100%;
+            line-height:30px;
+            padding-top:28px;
+            box-sizing:border-box;
+            color:#4c4c4c;
+            float:right;
+        }
+        .exp_con h3 {
+            font-size:28px;
+            margin-bottom:10px;
+        }
+        .tx {
+            position:relative;
+            font-size:14px;
+        }
+        .refresh {
+            display:block;
+            font-size:24px;
+            margin-top:8px;
+            margin-bottom:10px;
+        }
+        .exp_list {
+            width:100%;
+            height:auto;
+        }
+        .exp_list .tx {
+            padding-left: 22px;
+            box-sizing: border-box;
+        }
+        .tx i{
+            font-style:normal;
+            display:inline-block;
+            position:absolute;
+            top:50%;
+            margin-top:-7.5px;
+            left:0;
+            width:15px;
+            height:15px;
+            background:url(CJ-GC-Version/icon.png) no-repeat top center;
+        }
+        .checkNewMes {
+            display:block;
+            position:absolute;
+            bottom:34px;
+            left:0;
+            width:159px;
+            height:41px;
+            color:#000000;
+            font-size:14px;
+            line-height:41px;
+            text-align:center;
+            background:url(CJ-GC-Version/checkMore.jpg) no-repeat top left;
+        }
+        .foot {
+            position: relative;
+            z-index: 1;
+            height:714px;
+            background:url(CJ-GC-Version/info_car.png) no-repeat top center;
+            top:30px;
+            margin-top:-80px;
+        }
+        .foot .footer_box{
+            position:relative;
+            top:400px;
+            height:454px;
+        }
+        .footer_box .footer_top{
+            height:246px;
+        }
+        .footer_top .foot_container{
+            width: 1200px;
+            height:246px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .foot-code {
+            width: 950px;
+            height:246px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .code_list{
+            width:1200px;
+            height:246px;
+        }
+        .foot-code li {
+            width:175px;
+            float:left;
+            margin-right:83px;
+        }
+        .foot-code li p {
+            font-size:18px;
+            color:#fff;
+            line-height:70px;
+            background:#000;
+            text-align:center;
+            border:1px solid #a07708;
+            position:relative;
+            top:-4px;
+        }
+        .footer_box .footer-botoom{
+            height:138px;
+            position:relative;
+            top:68px;
+            background:#000;
+            color:#ccc;
+        }
+        .bot_cont {
+            width:1200px;
+            height:138px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        .bot_cont .foot-cpright{
+            width:1200px;
+            height:135px;
+            padding-top:15px;
+        }
+        .foot-logos {
+            float:left;
+            display:inline;
+            margin-top:20px;
+            width:335px;
+            height:61px;
+        }
+        .foot-logos-game {
+            background:url(CJ-GC-Version/foot-dark.png);
+            float:left;
+            width:170px;
+            height:35px;
+            text-indent:-999em;
+            overflow:hidden;
+            margin:10px 0 0 10px;
+        }
+        .foot-logos-company {
+            float:left;
+            overflow:hidden;
+            margin:10px 0 0 28px;
+        }
+        .foot-links {
+            margin-top:10px;
+            display:inline;
+            float:right;
+            width:700px;
+            color:#fff;
+            font-size:12px;
+        }
+        .foot-links li{
+            margin-bottom:2px;
+        }
+        .foot-links a {
+            color: #fff;
+        }
+        .foot-sprt {
+            margin:0 2px;
+        }
+        .tips-player {
+            width:239px;
+            overflow:hidden;
+            top:100px;
+            right:13px;
+            position:absolute;
+            height:150px;
+            z-index:99;
+        }
+        .tips-player ul {
+            float:right;
+            padding:10px 5px;
+            background:#000;
+        }
+        .tips-player .on {
+            color: #fead2c;
+        }
+        .tips-player li {
+            overflow:hidden;
+            height:25px;
+            line-height:25px;
+            font-size:14px;
+            color:#fff;
+            cursor:pointer;
+        }
+        #tips-img1, #tips-img2, #tips-img3, #tips-img4 {
+            padding: 6px;
+            left: 0;
+            position: absolute;
+            background: #fff;
+            line-height: 0;
+            display: none;
+            width: 132px;
+        }
+        .tips-player img {
+            width:100%;
+        }
+        .ips-arrow {
+            width:0;
+            height:0;
+            border-top:10px solid transparent;
+            border-left:20px solid #fff;
+            border-bottom:10px solid transparent;
+            position:absolute;
+            top:57px;
+            right:-19px;
+        }
+        #shouq_arr{
+            top:12px;
+        }
+        #wxgzh_arr{
+            top:36px;
+        }
+        #wxqz_arr{
+            top:62px;
+        }
+        #gfwb_arr{
+            top:87px;
+        }
+        .nav .nav_yx #yx_sub {
+            text-align:center;
+            background:#000;
+            width:80px;
+            overflow:hidden;
+            margin-top:22px;
+            margin-left:20px;
+            position:absolute;
+            padding:20px 0px 20px 0px;
+            z-index:99;
+        }
+        #yx_sub li {
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+        }
+        .nav .nav_yx #yx_sub a {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="ost_box">
+        <ul class="ost_inner">
+            <li class="ost_logo">
+                <a href="//game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav target= _blank"  class="ost_blank" title="腾讯游戏logo">腾讯游戏logo</a>
+            </li>
+            <li id="ost_g"  class="ost_ad">
+                <img id="ost_go" src="CJ-GC-Version/1573749985933637065153025711123040.1530257132.5ba217652c7be0612541cbb8a1d913c8.230x40_6361.jpg"/>
+            </li>
+            <div id="ost_d" class="ost_big" style="display:none;">
+                <a href="http://ac.o2.qq.com/php/click.php?loc_id=119_0d8e2b9df01ce2966bb5d8dd52e865e1&amp;
+                info_data=HhppS1tYhho2yY2eZhZh0-VnkWLIQbMGhUzjaeiPSwP5JMHBpvlEJxq-8bBIvlMkmdpUDvHCcAsel35lWaoyWpWZKJDHsQq8GYqlta1gn2QtTd7Femf_miUOqcazaUFsRlVbAQofsrdxfodj4g9DifGM_PnN_D1okapiWKjAmJwosgCz0QtGTUC1bwU2jAbWcYvorcj8BMSxFQsz6E3bFXdPZ2gE56R9RLn2cr8kMy47S65Ypmd_1oD8nPN6zdahhPlHl1mSj2kJ6oNh6uUknygN59p1z-lt6DIyCF3abtYhvAFlVgbf4ucqefGLO55NcqHSc4-0yVhG-DaKk-MEqLsZFnRON_DGoJyRzDPDWRlWTMFOHpDR9LIq14FtDX-gCcMG7c7EJo4M17FsirabRi1jNkUYPMYK-IGRrNZd7zVcDnxPi-qKjyptgFeN42k4g9dOEngv1YJxmVSv2Xm2uQ"
+                   target="_blank">
+                    <img class="ost_nb" src="CJ-GC-Version/71393217633543671530257002970185.1530257026.f235c874788c3f7404e13589c7307a0a.970x185_77897.png" width="970" height="185" alt="">
+                </a>
+            </div>
+            <li class="ost_total">
+                <h3 class="ost_czsh">
+                    <a target="_blank" href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+                </h3>
+                <div class="ost_title">
+                    腾讯游戏排行榜
+                    <p class="ost_icon"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="top_nav">
+        <div class="container">
+            <div class="top_title">
+                <a href="">
+                    <img src="CJ-GC-Version/top-tag.png" class="tag"/>
+                </a>
+                <h1>
+                    绝地求生 : 刺激战场
+                    <span>正版战斗特训手游</span>
+                </h1>
+            </div>
+            <div class="nav">
+                <a href="../guanwangshouye/shouye.html">
+                    官网首页
+                    <span>HOME</span>
+                </a>
+                <a href="../saishizhongxin/saishi.html">
+                    赛事中心
+                    <span>MATCH</span>
+                </a>
+                <a href="../shipingzhongxin/shiping.html">
+                    视频中心
+                    <span>VIDEO</span>
+                </a>
+                <a href="../zhibozhongxin/zhibo.html">
+                    直播中心
+                    <span>LIVE</span>
+                </a>
+                <a href="../gongluezhongxin/gonglue.html">
+                    攻略中心
+                    <span>GAMETIPS</span>
+                </a>
+                <div class="nav_yx" id="YXZL">
+                    游戏资料
+                    <span>DATA</span>
+                    <ul  id="yx_sub" style="display:none;">
+                        <li>
+                            <a id="wuqiPJ" href="../wuqipeijian/youxiziliao.html">
+                                武器配件
+                            </a>
+                        </li>
+                        <li>
+                            <a id="banbenGX" href="../banbengengxin/banbengenxin.html" >
+                                版本更新
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" id="shequhudong">
+                    社区互动
+                    <span>COMMUNITY</span>
+                    <div class="tips-player" id="tipsPlayer" style="display:none;">
+                        <ul>
+                            <li id="shouQ" class="on">手Q部落</li>
+                            <li id="weixinGZH" class="">微信公众号</li>
+                            <li id="weixinQZ" class="">微信圈子</li>
+                            <li id="guangfangWB" class="">官方微博</li>
+                        </ul>
+                        <p id="tips-img1" style="display:block;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_sq.jpg" alt="手Q部落">
+                            <i id="shouq_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img2" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wxqz.jpg" alt="微信公众号">
+                            <i id="wxgzh_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img3" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wx.jpg" alt="微信圈子">
+                            <i id="wxqz_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img4" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wb.jpg" alt="官方微博">
+                            <i id="gfwb_arr" class="ips-arrow"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="listpage_head">
+        <div class="Page-container">
+            <div class="listpage-main">
+                <div class="Big-title"></div>
+                <div class="local">
+                    您的位置：
+                    <a href="../guanwangshouye/shouye.html">首页</a>
+                      >
+                    <a href="">版本更新</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containtBox">
+        <ul class="list">
+            <li>
+                <a href="" class="banner_dt" >
+                    <img src="CJ-GC-Version/0e65d402d11c602bd8268663dbdb60de.jpg" width="600" height="392" >
+                    <span class="num">版本4</span>
+                </a>
+                <div class="exp_con">
+                    <h3>天降奇兵 刺激登场-全新战争模式</h3>
+                    <p class="tx">更新时间：2018-05-31</p>
+                    <span class="refresh">更新内容：</span>
+                    <div class="exp_list">
+                        <p class="tx">
+                            <i class="icon"></i>
+                            战争模式：带枪跳伞，无限复活，20人小队战争模式。
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            全新装备：SLR射手步枪，新型握把，全新倍镜。
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            新增系统：地域排行，好友观战，动作表情系统。
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            新增时装：款型硬朗、舒适衬身，纵横战场优秀伴侣！
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            系统优化：物品调整，枪械平衡性调整。
+                        </p>
+                    </div>
+                    <a href="http://pg.qq.com/zlkdatasys/pc20180531/pcd.shtml" class="checkNewMes">查看版本详情</a>
+                </div>
+            </li>
+            <li>
+                <a href="" class="banner_dt" >
+                    <img src="CJ-GC-Version/a0d2ab9bee2799bfa8119ff58e5c3f39.jpg" width="600" height="392" >
+                    <span class="num">版本3</span>
+                </a>
+                <div class="exp_con">
+                    <h3>火力对决 无限刺激-5月新版本专题</h3>
+                    <p class="tx">更新时间：2018-04-25</p>
+                    <span class="refresh">更新内容：</span>
+                    <div class="exp_list">
+                        <p class="tx">
+                            <i class="icon"></i>
+                            全新服装：全新风格靓丽吃鸡
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            玩法升级：刺激对决模式，第一人称模式
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            新增系统：军备库、物资中心
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            全新功能：新增手枪位、新增玻璃系统
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            游戏优化：更多自定义按钮、快捷信息标记
+                        </p>
+                    </div>
+                    <a href="http://pg.qq.com/zlkdatasys/pc20180531/pcd.shtml" class="checkNewMes">查看版本详情</a>
+                </div>
+            </li>
+            <li>
+                <a href="" class="banner_dt" >
+                    <img src="CJ-GC-Version/367db5bda0f56c621abe2b30a00af34f.jpg" width="600" height="392" >
+                    <span class="num">版本2</span>
+                </a>
+                <div class="exp_con">
+                    <h3>激情沙漠 震撼来袭-全新沙漠地图</h3>
+                    <p class="tx">更新时间：2018-04-25</p>
+                    <span class="refresh">更新内容：</span>
+                    <div class="exp_list">
+                        <p class="tx">
+                            <i class="icon"></i>
+                            沙漠地图：全新地图，全新玩法
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            新增枪械：沙漠专属枪械助力吃鸡
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            新增载具：沙漠专属载具皮卡、巴士
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            军团系统：专属军团，亲密无间的集体氛围
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            吃鸡攻略：快捷攻略入口，点击立即吃鸡
+                        </p>
+                    </div>
+                    <a href="http://pg.qq.com/zlkdatasys/pc20180531/pcd.shtml" class="checkNewMes">查看版本详情</a>
+                </div>
+            </li>
+            <li>
+                <a href="" class="banner_dt" >
+                    <img src="CJ-GC-Version/1b1117ca090d414fbade990254c5fa10.jpg" width="600" height="392" >
+                    <span class="num">版本1</span>
+                </a>
+                <div class="exp_con">
+                    <h3>急速对决玩法来袭-新春特训版本</h3>
+                    <p class="tx">更新时间：2018-04-25</p>
+                    <span class="refresh">更新内容：</span>
+                    <div class="exp_list">
+                        <p class="tx">
+                            <i class="icon"></i>
+                            娱乐模式：6大模式刺激开战
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            天气系统：晴天、黄昏不同天气展现海岛新面貌
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            社交强化：战队、名片、亲密关系等新功能上线
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            新兵训练场：靶场、载具等道具提高吃鸡功力
+                        </p>
+                        <p class="tx">
+                            <i class="icon"></i>
+                            全新形象：亚洲男、亚洲女新形象上线
+                        </p>
+                    </div>
+                    <a href="http://pg.qq.com/zlkdatasys/pc20180531/pcd.shtml" class="checkNewMes">查看版本详情</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="foot">
+        <div class="footer_box">
+            <div class="footer_top">
+                <div class="foot_container">
+                    <div class="foot-code">
+                        <ul class="code_list">
+                            <li>
+                                <img src="CJ-GC-Version/code1.png"style="width:174px;height:174px;"/>
+                                <p>手Q部落二维码</p>
+                            </li>
+                            <li>
+                                <img src="CJ-GC-Version/code2.png"style="width:174px;height:174px;"/>
+                                <p>微信圈子二维码</p>
+                            </li>
+                            <li>
+                                <img src="CJ-GC-Version/code3.png"style="width:174px;height:174px;"/>
+                                <p>微信公众号二维码</p>
+                            </li>
+                            <li>
+                                <img src="CJ-GC-Version/code4.png"style="width:174px;height:174px;"/>
+                                <p>微博二维码</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-botoom">
+                <div class="bot_cont">
+                    <div class="foot-cpright">
+                        <div class="foot-logos">
+                            <a href="http://ieg.tencent.com/"class="foot-logos-game"></a>
+                            <a href=""class="foot-logos-company">
+                                <img src="CJ-GC-Version/footer-logo-gz.png"/>
+                            </a>
+                        </div>
+                        <ul class="foot-links">
+                            <li>
+                                <a href="http://ieg.tencent.com/">腾讯互动娱乐</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://www.qq.com/contract.shtml">服务条款</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="https://e.tencent.com/">广告服务</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://game.qq.com/hr/">腾讯游戏招聘</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://service.qq.com/">腾讯游戏客服</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://tgact.qq.com/">游戏活动</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://game.qq.com/gnav/">游戏地图</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://game.qq.com/portal2010/business.htm">商务合作</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://www.qq.com/">腾讯网</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://www.qq.com/map/">网站导航</a>
+                            </li>
+                            <li><a href="http://www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯公司版权所有</a></li>
+                            <li>COPYRIGHT © 1998 - 2018 TENCENT. ALL RIGHTS RESERVED.</li>
+                            <li>
+                                <a href="http://www.qq.com/culture.shtml">粤网文[2017]6138-1456号</a>
+                                <span class="foot-sprt">|</span>
+                                <a href="http://game.qq.com/culture2.htm">新出网证：（粤）字010号</a>
+                            </li>
+                            <li>本网络游戏适合年满16周岁以上的用户使用；为了您的健康，请合理控制游戏时间。</li>
+                            <li>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="ReVersion.js"></script>
+</body>
+</html>
