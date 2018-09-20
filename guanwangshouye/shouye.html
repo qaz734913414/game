@@ -1,0 +1,3277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>官网首页</title>
+    <style type="text/css">
+
+         *{
+             margin:0;
+             padding:0;
+             list-style:none;
+             text-decoration:none;
+         }
+         a{
+             color:#000;
+         }
+         div{
+             display:block;
+         }
+         #ost_box{
+             width:100%;
+             height:40px;
+             background-color:#fff;
+             color:#464646;
+             font-size:12px;
+             font-family:Tahoma,simsun;
+             border:1px solid #c9c9c9;
+             border-width:1px 0;
+             position:absolute;
+             z-index:8000;
+         }
+         #ost_box .ost_inner{
+             width:980px;
+             padding:0 5px;
+             margin:0 auto;
+             position:relative;
+             line-height:40px;
+         }
+         .ost_inner .ost_logo{
+             background:url("CJ/ost-bg.png") no-repeat;
+             width:205px;
+             padding:0 15px 0 0;
+             background-position:0 -40px;
+             position:relative;
+             z-index: 10001;
+             float:left;
+         }
+         .ost_inner .ost_big {
+             width:970px;
+             height:185px;
+             padding:0 3px 3px;
+             border-bottom:1px solid #eee;
+             background:#fff;
+             position:absolute;
+             top:0;
+             left:50%;
+             margin:0 0 0 -488px;
+         }
+         .ost_logo .ost_blank{
+             display:block;
+             height:100%;
+             color:#000;
+             text-indent:-500px;
+         }
+         .ost_inner .ost_ad{
+            width:230px;
+            height:100%;
+            float:left;
+        }
+         .ost_inner .ost_total{
+            width:220px;
+            background-position:-143px -120px;
+            margin-left:10px;
+            float:right;
+        }
+         .ost_total a{
+             color: #464646;
+             font-size:12px;
+             font-weight:400;
+         }
+         .ost_total .ost_czsh{
+             float:left;
+             width:118px;
+             background:url(CJ/logo.png) 0 12px no-repeat;
+             text-indent:20px;
+             cursor:pointer;
+         }
+         .ost_czsh a:hover {
+             color: #ff4e00;
+         }
+         .ost_total .ost_title{
+             font-size:12px;
+             font-weight:400;
+             height:40px;
+             line-height:40px;
+             cursor:pointer;
+             overflow: hidden;
+             display: block;
+             text-indent: 0!important;
+         }
+         .ost_title .ost_icon{
+             width:11px;
+             height:11px;
+             background-position:-150px -134px;
+             margin-left:5px;
+             background:url(CJ/ost-bg.png) no-repeat;
+             display:inline-block;
+             vertical-align:middle;
+             font-size: .1em;
+         }
+        #top_nav{
+            width:100%;
+            height:110px;
+            background:url(CJ/bg-nav.png) no-repeat;
+            position:absolute;
+            top:42px;
+            z-index:9;
+            display:block;
+        }
+         #top_nav .container{
+             width:1200px;
+             margin:0 auto;
+             position:relative;
+             z-index:2;
+         }
+         #top_nav .container .top_title{
+             float:left;
+         }
+         .container .top_title .tag{
+             margin-top:10px;
+             margin-right:12px;
+             z-index:9;
+             float:left;
+             width:125px;
+             height:125px;
+         }
+         #top_nav .container .top_title h1{
+             font-size:24px;
+             color:#ffb400;
+             line-height:36px;
+             font-weight:bold;
+             float:left;
+             margin-top:27px;
+         }
+         .top_title h1 span{
+             font-size:14px;
+             color:#ffffff;
+             display:block;
+         }
+         #top_nav .container .nav{
+             float:right;
+             margin-top:34px;
+         }
+         .container .nav a{
+             font-size:16px;
+             color:#ffffff;
+             text-align:center;
+             width:115px;
+             height:80px;
+             display:inline-block;/*内联块：和其他a标签在同一行显示*/
+         }
+         .container .nav .nav_yx {
+             font-size:16px;
+             color:#ffffff;
+             text-align:center;
+             width:115px;
+             height:110px;
+             display:inline-block;
+         }
+         .nav .nav_yx span {
+             margin-top:5px;
+             font-size:10px;
+             color:#515151;
+             font-weight:600;
+             display:block;
+         }
+          .nav a:hover{
+             color:#ffb400;
+         }
+         .nav a:hover span{
+             color:#ffb400;
+         }
+         .nav .nav_yx:hover {
+             color: #ffb400;
+         }
+         .nav .nav_yx:hover span{
+             color:#ffb400;
+         }
+         .nav a span{
+             margin-top:5px;
+             font-size:10px;
+             color:#515151;
+             font-weight:600;
+             display:block;/*将span（本来是行级标签） 标签设为块级标签独占一行 */
+         }
+         #bg{
+             width:100%;
+             height:662px;
+             padding-top:120px;
+         }
+
+         .bg1{
+             width:100%;
+             height:662px;
+             background:url(CJ/bg_02_20180531.jpg) no-repeat top center;
+             position:relative;
+
+         }
+         .bg2{
+             height:661px;
+             background:url(CJ/bg_03_20180531.jpg) no-repeat top center;
+         }
+
+        .bg3{
+            height:2079px;
+            background: #e9e9e9;
+        }
+        .bg4{
+            height:706px;
+            background: url(CJ/bg_05.jpg) no-repeat top center;
+        }
+        .Contain{
+             width:1200px;
+             height:615px;
+             margin:0 auto;
+             position:relative;
+             top:-650px;
+             z-index:2;
+         }
+        .logo_cont {
+             position: absolute;
+             top:48px;
+             left:50%;
+             width:490px;
+             height:81px;
+             margin-left:-245px;
+        }
+        .logo_cont a{
+             cursor:default;
+        }
+        .logo_cont .top_theme {
+             position: absolute;
+             width: 297px;
+             height: 81px;
+             background: url(CJ/logo_0206.png) center no-repeat;
+             display: block;
+             left:0;
+             top:0;
+             margin:0;
+        }
+         .logo_cont .Flash_logo{
+             width:109px;
+             height:40px;
+             background-position:-59px -268px;
+             display: inline-block;
+             overflow: hidden;
+             background-repeat: no-repeat;
+             background-image: url(CJ/icon.png);
+             float:right;
+             position:relative;
+             top:20px;
+         }
+         .Tplay{
+             display:block;
+             width:107px;
+             height:105px;
+             background: url(CJ/bof0206.png) center no-repeat;
+             margin:0 auto;
+             padding-top:900px;
+         }
+         .section1{
+             width:100%;
+             height:320px;
+             position:relative;
+             top:-660px;
+         }
+         .section1 .container1 {
+             height:320px;
+             margin-top:10px;
+         }
+        .container1{
+            width:1200px;
+            height:320px;
+            margin:0 auto;
+        }
+         .container1 .top_slide{
+             width:540px;
+             height:100%;
+             background:#ccc;
+             float:left;
+             position:relative;
+         }
+         .container1 .top_slide .adBtn {
+             position:absolute;
+             z-index:2;
+             right:17px;
+             bottom:30px;
+             height:8px;
+         }
+         .top_slide .adBtn a {
+             display:block;
+             float:left;
+             text-indent:-5000px;
+             margin-right:7px;
+             overflow:hidden;
+             width:20px;
+             height:8px;
+             background-color:#fff;
+         }
+         .adBtn a:hover {
+             background: #d98500;
+         }
+         .adBtn .on{
+             background:#d98500;
+             width:44px;
+         }
+         .container1 .top_tab{
+             width:479px;
+             height:100%;
+             background:#ffffff;
+             float:right;
+         }
+        .container1 .download {
+             width:181px;
+             height:100%;
+             background:#2b2929;
+             float:left;
+        }
+         .download .down{
+             width:177px;
+             height:46px;
+             font-size:16px;
+             text-align:center;
+             line-height:46px;
+             text-indent:37px;
+             display: inline-block;
+             overflow: hidden;
+             background-repeat: no-repeat;
+             background-image: url(CJ/icon.png);
+         }
+         .download #iphone-down{
+             background-position: -727px -259px;
+         }
+
+         .download #android-down{
+             background-position: -727px -316px;
+         }
+         .download #android-data{
+             background-position: -727px -372px;
+         }
+         .download .code{
+             width:175px;
+             height:170px;
+             background:#ffba00;
+         }
+
+         .top_tab .tab_cont{
+             width:447px;
+             height:288px;
+             padding:16px;
+         }
+         .tab_cont .tab_menu{
+             width:400px;
+             height:38px;
+             line-height: 20px;
+             float:left;
+         }
+         .tab_menu a{
+             width:78px;
+             font-size:16px;
+             color:#000;
+             text-align:center;
+             display:inline-block;
+             padding-bottom:10px;
+         }
+         .tab_menu a:hover{
+             color: #ffb007;
+             border-bottom: 3px solid #ffb007;
+         }
+          .icon-sh{
+             width:1px;
+             height:6px;
+             background-position: 0 -312px;
+             float:right;
+             display:inline-block;
+             overflow:hidden;
+             background-repeat: no-repeat;
+             background-image:url(CJ/icon.png);
+             margin-top:7px;
+         }
+         .more{
+             float:right;
+             line-height:24px;
+         }
+         .more a{
+             font-size:12px;
+             color:#000000;
+         }
+         .more span {
+             vertical-align:middle;
+         }
+         .more .icon-more{
+             width:17px;
+             height:17px;
+             background-position:-841px -233px;
+             display:inline-block;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+
+         }
+         .tab_cont .tab_list{
+             width:447px;
+             height:240px;
+             position:relative;
+             top:40px;
+         }
+         .tab_list .first{
+             position:absolute;
+             top:0;
+             font-size: 16px;
+             border-bottom: 1px solid #eee;
+             padding-bottom: 5px;
+             margin-bottom: 5px;
+         }
+         .tab_list .first a{
+             color:#ffa100;
+             width:430px;
+             display: inline-block;
+             vertical-align: middle;
+         }
+         .tab_list li{
+             width:447px;
+             font-size:14px;
+             color:#000000;
+             line-height:37px;
+         }
+         .tab_list li i{
+             color:#ccc;
+             font-style:normal;
+             float:right;
+         }
+         .tab_list li a{
+             color:#000;
+             width:375px;
+             display:inline-block;
+             vertical-align:middle;
+             overflow:hidden;
+             text-overflow:ellipsis;
+             white-space:nowrap;
+         }
+         .tab_list li a:hover {
+             color:#ffb007;
+         }
+         .section2{
+             width:100%;
+             height:163px;
+             position:relative;
+             top:-660px;
+         }
+         .container2{
+             width:1200px;
+             margin:0 auto;
+             position:relative;
+             z-index:2;
+             height:163px;
+         }
+         .container2 .action_link{
+             position:relative;
+             display:inline-block;
+             margin-right:14px;
+         }
+         .container2 .last{
+             margin-right:0!important;
+         }
+         .action_link .btn_go {
+             width:59px;
+             height:22px;
+             background-position:-661px -265px;
+             display:block;
+             position:absolute;
+             bottom:29px;
+             left:17px;
+             background-repeat: no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+
+         .cont .slide-menu{
+             width:146px;
+             position:fixed;
+             top:245px;
+             right:10px;
+             z-index:99;
+         }
+         .slide-menu .btn {
+             border:1px solid #000;
+             width:115px;
+             display:block;
+             margin:0 auto;
+         }
+         .slide-menu .btn a {
+             color:#000;
+             font-size:14px;
+             width:100%;
+             height:39px;
+             border-bottom:2px solid #000;
+             display:block;
+             text-align:center;
+             line-height:39px;
+             background:#ffcc00;
+         }
+         .slide-menu .code {
+             display:block;
+             margin:0 auto;
+             border:5px solid #000;
+         }
+         .btn span{
+             vertical-align: middle;
+             display: inline-block;
+             overflow: hidden;
+             background-repeat: no-repeat;
+             background-image: url(CJ/icon.png);
+         }
+         .icon-iphone {
+             width: 18px;
+             height: 20px;
+             background-position: -686px -304px;
+         }
+         .icon-androide {
+             width:17px;
+             height:19px;
+             background-position: -656px -307px;
+         }
+         .icon-gamedata {
+             width: 15px;
+             height: 19px;
+             background-position: -951px -318px;
+         }
+         .section3{
+             width:100%;
+             height:515px;
+             position:relative;
+             top:-660px;
+         }
+         .section3 .container3{
+            padding-top:32px;
+            width:1200px;
+            height:515px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+         .container3 .left {
+             width:810px;
+             height:100%;
+             float:left;
+         }
+         .mod_title {
+             font-size:24px;
+             color:#000000;
+             font-weight:bold;
+             line-height:24px;
+             text-indent:10px;
+         }
+         .mod_title .icon_video{
+             margin-right:10px;
+             width:27px;
+             height:27px;
+             background-position:-910px 0;
+             display:inline-block;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .mod_title .icon_anchor{
+             margin-right:10px;
+             width:27px;
+             height:27px;
+             background-position:-935px -167px;
+             display:inline-block;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .mod_title span{
+             vertical-align: middle;
+         }
+         .mod_title em {
+             font-size:12px;
+             color:#8b8b8b;
+             font-weight:normal;
+             margin-left:10px;
+             font-style: normal;
+         }
+         .left .main{
+             height:470px;
+             width:100%;
+             margin-top:16px;
+             background:#fff;
+         }
+         .left .main .tab{
+             padding:18px;
+             width:774px;
+             height:468px;
+         }
+         .tab .tab-nav{
+             width:774px;
+             height:48px;
+         }
+         .tab-nav ul {
+             float:left;
+         }
+         .tab-nav li {
+             width:136px;
+             height:48px;
+             font-size:16px;
+             color:#000000;
+             text-align:center;
+             float:left;
+         }
+         .tab-nav li a{
+             width:136px;
+             display:block;
+             color:#000;
+         }
+         .tab-nav li a .icon-sh {
+             margin-top:10px;
+
+         }
+         .tab-nav li .tab-active {
+             width:135px;
+             height:8px;
+             background-position:0 -240px;
+             display:inline-block;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .tab-nav .contribute {
+             margin-left:226px;
+             width:82px;
+             height:26px;
+             line-height:26px;
+             font-size:14px;
+             text-align:center;
+             background:#ffba00;
+             float:left;
+             cursor:pointer;
+             color:#000;
+         }
+         .icon-up {
+             width: 10px;
+             height: 8px;
+             background-position: -311px -240px;
+             margin-left: 5px;
+             display: inline-block;
+             overflow: hidden;
+             background-repeat: no-repeat;
+             background-image: url(CJ/icon.png);
+         }
+
+         .tab .tab-box{
+             width:774px;
+             height:370px;
+         }
+         .tab-panel .video-item-top {
+             margin-bottom: 30px;
+             margin-top: 20px;
+             width: 820px;
+             height: 370px;
+             overflow: hidden;
+         }
+
+         .video-item-top li {
+             width:238px;
+             float:left;
+             margin-right:30px;
+             margin-bottom:20px;
+         }
+         .video-item-top li .pic-play {
+             width:238px;
+             height:131px;
+             position:relative;
+             display:block;
+         }
+
+         .video-item-top li .pic-play  img {
+             transition: all .5s;
+         }
+         .video-item-top li .pic-play:hover img{
+             transform:scale(1.1);
+             transition: all .5s;
+         }
+         .video-item-top li .btn-play {
+             position: absolute;
+             left:50%;
+             top:50%;
+             margin-left:-27px;
+             margin-top:-27px;
+             width:55px;
+             height:55px;
+             background-position:-771px 0;
+             display:inline-block;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .video-item-top li p {
+             font-size:14px;
+             color:#000000;
+             line-height:36px;
+             text-align:center;
+             margin:0 10px;
+             white-space:nowrap;
+             overflow:hidden;
+             text-overflow:ellipsis;
+         }
+         .container3 .right {
+             width:370px;
+             height:100%;
+             float:right;
+         }
+         .right .main {
+             margin-top:16px;
+         }
+         .main .anchor_cont {
+             padding:16px;
+             background:#fff;
+             height:262px;
+             border-bottom:1px solid #e4e4e4;
+         }
+         .anchor_cont li {
+             width:162px;
+             height:235px;
+             position:relative;
+             float:left;
+             margin-right:7px;
+             border:1px solid #d7d7d7;
+             display:list-item;
+         }
+         .anchor_cont li:hover{
+             border: 1px solid #ffcc00;
+         }
+         .anchor_cont li img {
+             width:159px;
+             height:167px;
+             display:block;
+             margin:0 auto;
+         }
+         .anchor_cont li .name {
+             margin-top:5px;
+             font-size:18px;
+             line-height:24px;
+             text-indent:10px;
+         }
+         .anchor_cont li .an_djjr {
+             position:absolute;
+             right:2px;
+             bottom:3px;
+         }
+         .anchor_cont li .an_djjr .jr {
+             line-height:14px;
+             float:right;
+         }
+         .an_djjr .icon-enter {
+             float: right;
+             width: 15px;
+             height: 15px;
+             background-position: -243px -240px;
+             display: inline-block;
+             overflow: hidden;
+             background-repeat: no-repeat;
+             background-image: url(CJ/icon.png);
+         }
+         .anchor-bottom_cont {
+             background: #f2f2f2;
+             padding:0 16px;
+             height:160px;
+             padding-top:16px;
+             position:relative;
+         }
+         .anchor-bottom_cont .slide-right {
+             width:295px;
+             height: 112px;
+             margin:0 auto;
+             position:relative;
+             overflow:hidden;
+             z-index:1;
+         }
+         .slide-right .swiper_wrapper{
+             width:35498.3213px;
+             height:112px;
+             position:relative;
+         }
+         #SWrapper{
+             position:absolute;
+             top:0;
+             left:-1868.3327px;
+         }
+         .slide-right p {
+             text-align:center;
+             width:77px;
+         }
+         .swiper-slide {
+             float:left;
+         }
+         .anchor-bottom_cont .slide-btn {
+             position:absolute;
+             top:50px;
+             z-index:99;
+         }
+         .slide-btn span{
+             display:inline-block;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .slide-btn .icon-p {
+             width:22px;
+             height:22px;
+             background-position:-696px -342px;
+         }
+         .slide-btn .icon-n {
+             width:22px;
+             height:22px;
+             background-position:-661px -342px;
+         }
+         .slide-btn a{
+             display: block;
+             line-height: 22px;
+             position: absolute;
+             width: 22px;
+             height: 22px;
+         }
+         .slide-btn .slide-prev {
+             left: -7px;
+         }
+         .slide-btn .slide-next{
+             left:320px;
+         }
+         .more-line {
+             width:97px;
+             height:27px;
+             background-position:-771px -75px;
+             display:block;
+             margin:15px auto;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .section4{
+             width:100%;
+             height:545px;
+             position:relative;
+             top:-630px;
+             float:left;
+         }
+         .section4 .container4 {
+             width:1200px;
+             height:545px;
+             margin:0 auto;
+             position:relative;
+             z-index:2;
+         }
+         .container4 .left-guide{
+             width:810px;
+             height:100%;
+             float:left;
+         }
+         .left-guide .main {
+             height: 500px;
+             margin-top:16px;
+             background:#fff;
+         }
+         .mod_title .icon_guide{
+             margin-right:10px;
+             width:27px;
+             height:27px;
+             background-position:-905px -120px;
+             display:inline-block;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .left-guide .main .tab{
+             width:774px;
+             height:70px;
+             padding:18px;
+         }
+         .left-guide .tab-nav .contribute {
+             margin-left:90px;
+         }
+         .left-guide .main .tab-box{
+             margin-top:20px;
+             width:774px;
+             height:410px;
+         }
+         .left-guide .main .tab-box  .left_pic{
+             width:250px;
+             height:410px;
+             float:left;
+         }
+         .video-pic {
+             width: 238px;
+             height: 370px;
+             float: left;
+         }
+         .video-pic li {
+             display: block;
+             float: none;
+             margin: 0;
+             width: 238px;
+             margin-bottom:80px;
+         }
+         .video-pic li .Vpic_play {
+             width: 238px;
+             height: 131px;
+             position: relative;
+             display: block;
+         }
+         .video-pic li p {
+             font-size: 14px;
+             color: #000000;
+             line-height:36px;
+             text-align:center;
+             margin:0 10px;
+             white-space:nowrap;
+             overflow:hidden;
+             text-overflow:ellipsis;
+         }
+         .left-guide .main .tab-box  .right_list{
+             width:500px;
+             height:410px;
+             float:right;
+         }
+         .right_list li {
+             font-size:14px;
+             margin-bottom:21px;
+         }
+         .right_list li a:hover{
+             color:#ffb007;
+         }
+         .right_list li a i {
+             display:inline-block;
+             vertical-align:top;
+             font-style: normal;
+         }
+         .right_list li a span {
+             width:375px;
+             overflow:hidden;
+             white-space:nowrap;
+             text-overflow:ellipsis;
+             display:inline-block;
+         }
+         .right_list li em {
+             float: right;
+             color: #c3c3c3;
+             font-weight: normal;
+             font-style: normal;
+         }
+         .container4 .right-data {
+             width:370px;
+             height:544px;
+             float:right;
+         }
+         .mod_title .icon_data{
+             margin-right:10px;
+             width:27px;
+             height:27px;
+             background-position:-989px -90px;
+             display:inline-block;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .right-data .main-data {
+             margin-top:16px;
+             height:500px;
+             background:#fff;
+             padding:0 16px;
+         }
+         .main-data .tab{
+             padding-top:17px;
+             width:338px;
+             height:469px;
+         }
+         .main-data .tab-nav{
+             width:338px;
+             height:48px;
+         }
+         .main-data .tab-nav li{
+             width:68px;
+         }
+         .main-data .tab-nav li a{
+             width:68px;
+         }
+         .main-data .tab-nav li .tab-active{
+             width:68px;
+             background-position:-155px -240px;
+         }
+         .right-data .main-data .tab-box{
+             width:338px;
+             height:400px;
+             margin-top:21px;
+         }
+         .main-data .tab-box .data-top {
+             width:336px;
+             height:166px;
+             position: relative;
+             background: url(CJ/bg-zl-top.png) no-repeat top center;
+             overflow: hidden;
+         }
+         .data-top img {
+             width:205px;
+             margin:20px auto;
+             display:block;
+         }
+         .data-top p {
+             font-size:18px;
+             font-weight:bold;
+             position:absolute;
+             bottom:4px;
+             left:8px;
+             height:26px;
+             overflow:hidden;
+             width:60%;
+             white-space:nowrap;
+             text-overflow:ellipsis;
+         }
+         .main-data .tab-box .data-bottom {
+             width:338px;
+             height:234px;
+             overflow:hidden;
+         }
+         .data-bottom ul{
+             width:450px;
+             height:234px;
+         }
+         .data-bottom li {
+             width:156px;
+             height:95px;
+             position:relative;
+             float:left;
+             margin-top:22px;
+             margin-right:24px;
+             background:url(CJ/bg-zl.png) no-repeat top center;
+         }
+
+         .data-bottom img {
+             width:156px;
+             height:95px;
+             margin:0 auto;
+             display:block;
+         }
+         .data-bottom  li p {
+             font-size:12px;
+             position:absolute;
+             left:7px;
+             bottom:10px;
+             width:50%;
+             white-space:nowrap;
+             overflow:hidden;
+             text-overflow:ellipsis;
+         }
+        .section5{
+            height:550px;
+        }
+         .section5 .container5 {
+             width:1200px;
+             height:550px;
+             margin:0 auto;
+             position:relative;
+             top:-30px;
+             z-index:2;
+         }
+         .container5 .mod_title{
+             width:1200px;
+             height:30px;
+             padding-bottom:15px;
+             position:absolute;
+             top:0px;
+         }
+         .mod_title .icon_doujin {
+             width:27px;
+             height:27px;
+             background-position:-957px 0;
+             display:inline-block;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .container5 .main_doujin {
+             position:relative;
+             top:45px;
+             height:500px;
+             padding:0 16px;
+             background:#fff;
+         }
+         .container5 .tab{
+             width:1168px;
+             height:48px;
+             padding-top:20px;
+         }
+         .container5 .tab .tab-nav{
+             position:relative;
+             width:1168px;
+             height:48px;
+         }
+         .container5 .tab .tab-nav ul{
+             position:absolute;
+             top:0px;
+         }
+         .container5 .tab-nav .contribute {
+             margin-left:230px;
+             position:absolute;
+             top:0px;
+         }
+         .container5 .tab-nav .more {
+             position:relative;
+             top:-560px;
+         }
+         .container5 .tab .tab-box{
+             width:1168px;
+             height:410px;
+            margin-top:20px;
+             position:relative;
+         }
+         .tab-box .doujin-left {
+             width:356px;
+             height:373px;
+             float:left;
+             position:absolute;
+             top:0;
+         }
+         .doujin-left p {
+             font-size:14px;
+             text-align:center;
+             line-height:30px;
+             margin:0 20px;
+             white-space:nowrap;
+             overflow:hidden;
+             text-overflow:ellipsis;
+         }
+         .doujin-right {
+             width:810px;
+             height:417px;
+             float: right;
+             position:absolute;
+             right:-30px;
+             top:0;
+         }
+         .doujin-right .video-item-top{
+             margin-top:0;
+             margin-bottom:47px;
+         }
+         .section6  .container6 {
+             width: 1200px;
+             height:670px;
+             margin: 0 auto;
+             position: relative;
+             z-index: 2;
+         }
+         .container6 .mod_title{
+             width:1200px;
+             height:30px;
+             margin-bottom:15px;
+             position:absolute;
+             top:0;
+         }
+         .mod_title .icon_features {
+             margin-right:10px;
+             width:27px;
+             height:27px;
+             background-position:-942px -47px;
+             display:inline-block;
+             overflow:hidden;
+             background-repeat:no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .container6 .Fbottom_slide{
+             width:1200px;
+             height:627px;
+             margin:0 auto;
+             position:relative;
+             top:40px;
+         }
+         .Fbottom_slide .Bigslide{
+             float:left;
+             text-align:center;
+             position:absolute;
+             top:0;
+         }
+
+         .Fbottom_slide #pagination-bottom{
+             position: absolute;
+             z-index: 20;
+             bottom: 5px;
+             width: 100%;
+             text-align:center;
+         }
+
+         #pagination-bottom li{
+             display:inline-block;
+             width:31px;
+             height:8px;
+             background:#111111;
+             margin:0 16px;
+             cursor:pointer;
+         }
+         .pagination-bottom_out{
+             background:#111111;
+         }
+         .pagination-bottom_over{
+             background:#ffb007 !important;
+         }
+         #bottomslide-btn #bottomslidePrev {
+             left:0;
+         }
+         #bottomslide-btn #bottomslideNext {
+             right:0;
+         }
+         #bottomslide-btn a {
+             display:block;
+             position:absolute;
+             width:44px;
+             height:44px;
+             top:242px;
+         }
+         .prev {
+             width:44px;
+             height:44px;
+             background-position:-846px 0;
+         }
+         .next {
+             width:44px;
+             height:44px;
+             background-position:-841px -122px;
+         }
+         #bottomslide-btn span {
+             display:inline-block;
+             overflow: hidden;
+             background-repeat: no-repeat;
+             background-image:url(CJ/icon.png);
+         }
+         .active{
+             background:#ffb007 !important;
+         }
+        .foot{
+            margin-top:600px;
+            height:320px;
+            background:#000;
+            color:#ccc;
+        }
+         .foot .footer_box{
+             position:relative;
+             top:-200px;
+             height:520px;
+         }
+         .footer_box .footer_top{
+             height:246px;
+             margin-bottom:100px;
+         }
+         .footer_top .foot_container{
+             width: 1200px;
+             height:246px;
+             margin: 0 auto;
+             position: relative;
+             z-index: 2;
+         }
+         .foot-code {
+             width: 950px;
+             height:246px;
+             margin: 0 auto;
+             overflow: hidden;
+         }
+         .code_list{
+             width:1200px;
+             height:246px;
+         }
+         .foot-code li {
+             width:175px;
+             float:left;
+             margin-right:83px;
+         }
+         .foot-code li p {
+             font-size:18px;
+             color:#fff;
+             line-height:70px;
+             background:#000;
+             text-align:center;
+             border:1px solid #a07708;
+             position:relative;
+             top:-4px;
+         }
+         .footer_box .footer-botoom{
+             height:138px;
+             position:relative;
+             top:25px;
+         }
+         .bot_cont {
+             width:1200px;
+             height:138px;
+             margin:0 auto;
+             position:relative;
+             z-index:2;
+         }
+         .bot_cont .foot-cpright{
+             width:1200px;
+             height:135px;
+             padding-top:15px;
+         }
+         .foot-logos {
+             float:left;
+             display:inline;
+             margin-top:20px;
+             width:335px;
+             height:61px;
+         }
+         .foot-logos-game {
+             background:url(CJ/foot-dark.png);
+             float:left;
+             width:170px;
+             height:35px;
+             text-indent:-999em;
+             overflow:hidden;
+             margin:10px 0 0 10px;
+         }
+         .foot-logos-company {
+             float:left;
+             overflow:hidden;
+             margin:10px 0 0 28px;
+         }
+         .foot-links {
+             margin-top:10px;
+             display:inline;
+             float:right;
+             width:700px;
+             color:#fff;
+             font-size:12px;
+         }
+         .foot-links li{
+             margin-bottom:2px;
+         }
+         .foot-links a {
+             color: #fff;
+         }
+         .foot-sprt {
+             margin:0 2px;
+         }
+         .V-boxs{
+             position:absolute;
+             z-index:9999;
+             left:50%;
+             top:1450px;
+             margin-top:0;
+             margin-left:-400px;
+         }
+         .PicVideos{
+             position:fixed;
+             left:20%;
+             top:10%;
+             width:800px;
+             height:450px;
+             z-index:9999;
+         }
+         .Vcloser {
+             width:75px;
+             height:75px;
+             background:url(CJ/close.jpg);
+             position:fixed;
+             right:15.3%;
+             top:10%;
+             line-height:2000px;
+             overflow:hidden;
+         }
+         .pop_app {
+             border:3px solid #917200;
+             background: #1e1915;
+             width:390px;
+             color:#787777;
+         }
+         .pop_app .pop_box {
+             background:#1e1915;
+             margin:1px;
+             height:100%;
+             padding-top:20px;
+             padding-bottom:80px;
+             position:relative;
+         }
+         .pop_app .pop_hd {
+             font-size:24px;
+             line-height:36px;
+             text-align:center;
+             color:#ffd400;
+             padding:18px 0;
+         }
+         .pop_app .pop_hd h3 {
+             font-weight:normal;
+             font-size:24px;
+         }
+         .pop_app .pop_app {
+             display:block;
+             width:200px;
+             margin:0 auto;
+         }
+         .pop_app .pop_close {
+             width:66px;
+             height:66px;
+             background:url(CJ/sprites.png) -259px -198px;
+             position:absolute;
+             right:-69px;
+             top:-4px;
+         }
+         .tips-player {
+             width:239px;
+             overflow:hidden;
+             top:100px;
+             right:13px;
+             position:absolute;
+             height:150px;
+             z-index:99;
+         }
+         .tips-player ul {
+             float:right;
+             padding:10px 5px;
+             background:#000;
+         }
+         .tips-player .on {
+             color: #fead2c;
+         }
+         .tips-player li {
+             overflow:hidden;
+             height:25px;
+             line-height:25px;
+             font-size:14px;
+             color:#fff;
+             cursor:pointer;
+         }
+         #tips-img1, #tips-img2, #tips-img3, #tips-img4 {
+             padding: 6px;
+             left: 0;
+             position: absolute;
+             background: #fff;
+             line-height: 0;
+             display: none;
+             width: 132px;
+         }
+         .tips-player img {
+             width:100%;
+         }
+         .ips-arrow {
+             width:0;
+             height:0;
+             border-top:10px solid transparent;
+             border-left:20px solid #fff;
+             border-bottom:10px solid transparent;
+             position:absolute;
+             top:57px;
+             right:-19px;
+         }
+         #shouq_arr{
+             top:12px;
+         }
+         #wxgzh_arr{
+             top:36px;
+         }
+         #wxqz_arr{
+             top:62px;
+         }
+         #gfwb_arr{
+             top:87px;
+         }
+         .nav .nav_yx #yx_sub {
+             text-align:center;
+             background:#000;
+             width:80px;
+             overflow:hidden;
+             margin-top:22px;
+             margin-left:20px;
+             position:absolute;
+             padding:20px 0px 20px 0px;
+             z-index:99;
+         }
+         #yx_sub li {
+             white-space:nowrap;
+             text-overflow:ellipsis;
+             overflow:hidden;
+         }
+         .nav .nav_yx #yx_sub a {
+             font-size: 14px;
+             color: #ffffff;
+             text-align: center;
+             width: auto;
+             height: auto;
+         }
+    </style>
+</head>
+<body>
+    <div id="V_box" class="V-boxs" style="display:none;">
+        <div id="mod-player">
+            <video id="Video_auto" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0700jnngst.mp4" type="video/mp4">
+            </video>
+
+            <video id="picVideos1" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0700jnngst.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos2" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/e0707axu2vh.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos3" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/w0707i7mn74.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos4" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/z0707smjevr.m701.mp4" type="video/mp4" >
+            </video>
+            <video id="picVideos5" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/a07042ru5h2.mp4" type="video/mp4">
+            </video>
+            <video id="picVideos6" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0703f7ur8f.p702.1.mp4" type="video/mp4">
+            </video>
+
+            <video id="pic2Videos1" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/d0703zwf08v.mp4" type="video/mp4" >
+            </video>
+            <video id="pic2Videos2" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/a07042ru5h2.mp4" type="video/mp4">
+            </video>
+            <video id="pic2Videos3" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0703f7ur8f.p702.1.mp4" type="video/mp4">
+            </video>
+            <video id="pic2Videos4" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/n0700sc4l6g.mp4" type="video/mp4">
+            </video>
+            <video id="pic2Videos5" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/e0707axu2vh.mp4" type="video/mp4">
+            </video>
+            <video id="pic2Videos6" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/w0707i7mn74.mp4" type="video/mp4">
+            </video>
+
+            <video id="pic3Videos1" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/b07070g63yp.mp4" type="video/mp4" >
+            </video>
+            <video id="pic3Videos2" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/a07042ru5h2.mp4" type="video/mp4">
+            </video>
+            <video id="pic3Videos3" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/q0703f7ur8f.p702.1.mp4" type="video/mp4">
+            </video>
+            <video id="pic3Videos4" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/n0700sc4l6g.mp4" type="video/mp4">
+            </video>
+            <video id="pic3Videos5" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/e0707axu2vh.mp4" type="video/mp4">
+            </video>
+            <video id="pic3Videos6" class="PicVideos" width="420" style="display:none;">
+                <source src="videoGU/w0707i7mn74.mp4" type="video/mp4">
+            </video>
+        </div>
+        <a id="dia-close" class="Vcloser" href="javascript:void(0);" title="关闭">×</a>
+    </div>
+
+    <div class="pop_app" id="pop_id_app" style="display:none; position: absolute; z-index: 9999; left: 50%; top: 1050px; margin-top: 0px; margin-left: -198px;">
+        <div class="pop_box">
+            <div class="pop_hd">
+                <h3>扫描下载助手APP</h3>
+            </div>
+            <div class="pop_app">
+                <p><img src="CJ/900_20004.png" width="200"></p>
+            </div>
+            <a href="javascript:void(0);" id="app_close" class="pop_close sp" ></a>
+        </div>
+    </div>
+
+    <div id="ost_box">
+        <ul class="ost_inner">
+            <li class="ost_logo">
+                <a href="//game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav target= _blank"  class="ost_blank" title="腾讯游戏logo">腾讯游戏logo</a>
+            </li>
+            <li id="ost_g" class="ost_ad">
+                <img id="ost_go" src="CJ/2067483039611530132152957300223040.1529573015.d8ac1e7a8c014967ce86e5decb34c8a0.230x40_5089.jpg" style="display:block;"/>
+            </li>
+            <div id="ost_d" class="ost_big" style="display:none;">
+                <a href="http://ac.o2.qq.com/php/click.php?loc_id=119_0d8e2b9df01ce2966bb5d8dd52e865e1&amp;
+                info_data=HhppS1tYhho2yY2eZhZh0-VnkWLIQbMGhUzjaeiPSwOQotgXdDLXAnSPKD5L0uk7pgSD03kdZ_ZOeMzijWT5BoFSVvv0hDDu-fdZZz2_R5q9VZrRSp981wrpzdV4N9t_OXLBgrzNqiHxQX0aeDSovP3oJ3lGltLO7y4P5K7GaSxXKKk6ZjGD109sZPDau3x0VI914YOlxLL_hieTw_wuStUubmZgKJvfwUGoeaqBYyV4a8Cx4unVxRLmJPBwzeqA7CpYLtH1fN5GMfqrT62Rpd0lENuZXrkxJ-XuN_tzv6ZgrhgxNGQMA8jvkafexosG6gvufmmRfUN4yu_rPD4tTMoqmkOhWN2MLaHLtWf4D0Qlrn6Q4o82rSauuIkUxgldtBzzQAsp98BnvNenujXj3ICf8Dv5tmdMeg-iIW4Z-z8"
+                   target="_blank">
+                    <img class="ost_nb" src="CJ/45369093913160448321529573002970185.1529573016.ac515fcc3654fc5806439c54860c47d0.970x185_34770.jpg" width="970" height="185" alt="">
+                </a>
+            </div>
+            <li class="ost_total">
+                <h3 class="ost_czsh">
+                    <a target="_blank" href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+                </h3>
+                <div class="ost_title">
+                    腾讯游戏排行榜
+                    <p class="ost_icon"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="top_nav">
+        <div class="container">
+            <div class="top_title">
+                <a href="">
+                    <img src="CJ/top-tag.png" class="tag"/>
+                </a>
+                <h1>
+                    绝地求生:刺激战场
+                    <span>正版战斗特训手游</span>
+                </h1>
+            </div>
+            <div class="nav">
+                <a href="../guanwangshouye/shouye.html">
+                    官网首页
+                    <span>HOME</span>
+                </a>
+                <a href="../saishizhongxin/saishi.html">
+                    赛事中心
+                    <span>MATCH</span>
+                </a>
+                <a href="../shipingzhongxin/shiping.html">
+                    视频中心
+                    <span>VIDEO</span>
+                </a>
+                <a href="../zhibozhongxin/zhibo.html">
+                    直播中心
+                    <span>LIVE</span>
+                </a>
+                <a href="../gongluezhongxin/gonglue.html">
+                    攻略中心
+                    <span>GAMETIPS</span>
+                </a>
+                <div class="nav_yx" id="YXZL">
+                    游戏资料
+                    <span>DATA</span>
+                    <ul  id="yx_sub" style="display:none;">
+                        <li>
+                            <a id="wuqiPJ" href="../wuqipeijian/youxiziliao.html">
+                                武器配件
+                            </a>
+                        </li>
+                        <li>
+                            <a id="banbenGX" href="../banbengengxin/banbengenxin.html" >
+                                版本更新
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" id="shequhudong">
+                    社区互动
+                    <span>COMMUNITY</span>
+                    <div class="tips-player" id="tipsPlayer" style="display:none;">
+                        <ul>
+                            <li id="shouQ" class="on">手Q部落</li>
+                            <li id="weixinGZH" class="">微信公众号</li>
+                            <li id="weixinQZ" class="">微信圈子</li>
+                            <li id="guangfangWB" class="">官方微博</li>
+                        </ul>
+                        <p id="tips-img1" style="display:block;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_sq.jpg" alt="手Q部落">
+                            <i id="shouq_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img2" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wxqz.jpg" alt="微信公众号">
+                            <i id="wxgzh_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img3" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wx.jpg" alt="微信圈子">
+                            <i id="wxqz_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img4" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wb.jpg" alt="官方微博">
+                            <i id="gfwb_arr" class="ips-arrow"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="wrap">
+        <div id="bg">
+            <div class="bg1"></div>
+            <div class="bg2"></div>
+            <div class="bg3"></div>
+            <div class="bg4"></div>
+        </div>
+        <div class="cont">
+            <div class="slide-menu">
+                <img src="CJ/umbrella.png" alt="" width="146" height="144">
+                <img src="CJ/downqrcode.jpg"alt=""width="108" height="108"class="code" >
+                <div class="btn">
+                    <a href="https://itunes.apple.com/cn/app/id1321803705">
+                        <span class="icon-iphone"></span> 苹果下载</a>
+                    <a href="http://pg.qq.com/zlkdatasys/pc20180705/index.shtml">
+                        <span class="icon-androide"></span> 安卓下载</a>
+                    <a href="../wuqipeijian/youxiziliao.html">
+                        <span class="icon-gamedata"></span> 游戏资料</a>
+                </div>
+            </div>
+            <div class="Contain">
+                <div class="logo_cont">
+                    <div class="top_theme"></div>
+                    <a href="javascript:;" class="Flash_logo"></a>
+                </div>
+                <a href="javascript:void(0);" class=" Tplay" id="Tplay_auto"></a>
+            </div>
+            <div class="section1">
+                <div class="container1">
+                    <div class="download">
+                        <a href="https://itunes.apple.com/cn/app/id1321803705" class="down" id="iphone-down">苹果下载</a>
+                        <a href="" class="down" id="android-down">安卓下载</a>
+                        <a href="" class="down" id="android-data">游戏资料</a>
+                        <div class="code">
+                            <img src="CJ/downqrcode.jpg" style="width:161px;height:161px;"/>
+                        </div>
+                    </div>
+                    <div class="top_slide">
+                        <div class="ad_pic">
+                            <a href="" style="left:0%;">
+                                <img src="CJ/pic_1.jpg" id="lisPic"/>
+                            </a>
+                        </div>
+                        <div class="adBtn">
+                            <a title="天降奇兵  刺激登场" href="javascript:void(0)" onMouseOver="show(1)" onMouseOut="start()" class="on">天降奇兵  刺激登场</a>
+                            <a title="城市赛" href="javascript:void(0)" onMouseOver="show(2)" onMouseOut="start()" class="">城市赛</a>
+                            <a title="高校赛" href="javascript:void(0)" onMouseOver="show(3)" onMouseOut="start()" class="">高校赛</a>
+                            <a title="武器库" href="javascript:void(0)" onMouseOver="show(4)" onMouseOut="start()" class="">武器库</a>
+                            <a title="下载引导页" href="javascript:void(0)" onMouseOver="show(5)" onMouseOut="start()" class="on">下载引导页</a>
+                        </div>
+                    </div>
+                    <div class="top_tab">
+                        <div class="tab_cont">
+                            <p class="tab_menu">
+                                <a href="javascript:void(0)"  id="infozuixin" style="color:#ffb007; border-bottom:3px solid #ffb007;">最新<i class="icon-sh"></i></a>
+                                <a href="javascript:void(0)" id="infonew">新闻<i class="icon-sh"></i></a>
+                                <a href="javascript:void(0)" id="infonotice">公告<i class="icon-sh"></i></a>
+                                <a href="javascript:void(0)" id="infoactive">活动<i class="icon-sh"></i></a>
+                            </p>
+                            <p class="more">
+                                <a href="">
+                                    <span>更多</span>
+                                    <span class="icon-more"></span>
+                                </a>
+                            </p>
+                            <div class="tab-box" id="InFoTB1" style="display:block;">
+                                <ul class="tab_list">
+                                    <li class="first"><a href="../guanwang-zuixinxinwengonggao/xinwenbanbengengxinwenti.html">天降奇兵版本更新常见问题解答</a></li>
+                                    <li><a href="../guanwang-zuixinxinwengonggao/xinwenbanbengengxinwenti.html" style="margin-top:15px;">5月31日《天降奇兵》版本更新公告</a><i style="margin-top:15px;">5-30</i></li>
+                                    <li><a href="../guanwang-zuixinxinwengonggao/xinwenbanbengengxinwenti.html">燃热血 玩刺激 《绝地求生：刺激战场》高校联赛亮点盘点</a><i>5-30</i></li>
+                                    <li><a href="../guanwang-zuixinxinwengonggao/xinwenbanbengengxinwenti.html">【豆豆带你看比赛】TGA5月月赛落幕  AG成最终赢家</a><i>5-30</i></li>
+                                    <li><a href="../guanwang-zuixinxinwengonggao/xinwenbanbengengxinwenti.html">【湖南】《绝地求生：刺激战场》2018刺激战场城市联赛完美落幕</a><i>5-30</i></li>
+                                    <li><a href="../guanwang-zuixinxinwengonggao/xinwenbanbengengxinwenti.html">《绝地求生：刺激战场》2018城市联赛·重庆站圆满落幕</a><i>5-30</i></li>
+                                </ul>
+                            </div>
+                            <div class="tab-box" id="InFoTB2" style="display:none;">
+                                <ul class="tab_list">
+                                    <li class="first"><a href="">【新版本爆料】注意！新步枪、新倍镜、新握把通通来了！</a></li>
+                                    <li><a href="" style="margin-top:15px;">【新版本爆料】三大新增系统，趣味再升级！</a><i style="margin-top:15px;">05-26</i></li>
+                                    <li><a href="">【新版本爆料】揭秘新玩法——战争模式！</a><i>05-25</i></li>
+                                    <li><a href="">WGC微信游戏精英赛《绝地求生：刺激战场》五月月赛即将精彩来袭</a><i>05-19</i></li>
+                                    <li><a href="">刺激战场TGA五月赛事海选报名开启</a><i>05-11</i></li>
+                                    <li><a href="">刺激战场TGA四月月赛开启，4月28日决战厦门</a><i>04-26</i></li>
+                                </ul>
+                            </div>
+                            <div class="tab-box" id="InFoTB3" style="display:none;">
+                            <ul class="tab_list">
+                                <li class="first"><a href="">刺激爽购，尽在618</a></li>
+                                <li><a href="" style="margin-top:15px;">【绝地求生-刺激战场】为外设开放接口公告</a><i style="margin-top:15px;">06-07</i></li>
+                                <li><a href="">天降奇兵版本更新常见问题解答</a><i>05-30</i></li>
+                                <li><a href="">5月31日《天降奇兵》版本更新公告</a><i>05-30</i></li>
+                                <li><a href="">打击外挂公告（6月25日更新封号名单）</a><i>05-28</i></li>
+                                <li><a href="">腾讯游戏刺激战场客服（成都）招聘，期待您的加入！</a><i>05-25</i></li>
+                            </ul>
+                        </div>
+                            <div class="tab-box" id="InFoTB4" style="display:none;">
+                                <ul class="tab_list">
+                                    <li class="first"><a href="">【策划面对面】版本更新后，小白裙想说说心里话</a></li>
+                                    <li><a href="" style="margin-top:15px;">【福利】刺激战场提醒您2018 世界杯倒计时开始！</a><i style="margin-top:15px;">06-11</i></li>
+                                    <li><a href="">今晚见！中国电竞第一人：我建议打排位都苟一苟!</a><i>06-08</i></li>
+                                    <li><a href="">SKY李晓峰正式签约企鹅电竞，共同诠释真正的电竞精神</a><i>06-08</i></li>
+                                    <li><a href="">虎牙刺激战场赏金赛报名开始 冠军战队直接晋级TGA总决赛！</a><i>06-06</i></li>
+                                    <li><a href="">中国空军2018年度招飞《绝地求生：刺激战场》致敬人民空军</a><i>06-01</i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section2">
+                <div class="container2">
+                    <div class="action_link">
+                        <a href="javascript:void(0);">
+                            <img src="CJ/guide1.png"/>
+                            <span class="btn_go"></span>
+                        </a>
+                    </div>
+                    <div class="action_link">
+                        <a href="javascript:void(0);" id="getAPP">
+                            <img src="CJ/guide2.png"/>
+                            <span class="btn_go"></span>
+                        </a>
+                    </div>
+                    <div class="action_link">
+                        <a href="javascript:void(0);">
+                            <img src="CJ/guide3.png"/>
+                            <span class="btn_go"></span>
+                        </a>
+                    </div>
+                    <div class="action_link last" >
+                        <a href="../guanwangkefyzhuanqu/kefuzhuanqu.html">
+                            <img src="CJ/guide4.png"/>
+                            <span class="btn_go"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="section3">
+                <div class="container3">
+                    <div class="left">
+                        <h3 class="mod_title">
+                            <span class="icon_video"></span>
+                            <span>视频中心</span>
+                            <em>VIDEO</em>
+                        </h3>
+                        <div class="main">
+                            <div class="tab">
+                                <div class="tab-nav">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)" id="icoNewest">最新<i class="icon-sh"></i></a>
+                                            <span id="icoNewestLine"class="tab-active"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="icoNewhander">新手<i class="icon-sh"></i></a>
+                                            <span id="icoNewhanderLine"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="icoImprove">进阶<i class="icon-sh"></i></a>
+                                            <span id="icoImproveLine"></span>
+                                        </li>
+                                    </ul>
+                                    <a href="//itea-cdn.qq.com/pubgm/specialty/editor.shtml?gameId=480" class="contribute">
+                                        我要投稿
+                                        <span class="icon-up"></span>
+                                    </a>
+                                    <p class="more">
+                                        <a href="http://localhost:63342/WebStorm_work/%E7%BB%9D%E5%9C%B0%E6%B1%82%E7%94%9F-%E8%A7%86%E9%A2%91%E4%B8%AD%E5%BF%83.html?_ijt=h7nrcvc5e4gq52sutmovpfjta1">
+                                            <span>更多</span>
+                                            <span class="icon-more"></span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="tab-box">
+                                    <div class="tab-panel" id="TP1" style="display:block;">
+                                        <ul class="video-item-top">
+                                            <li>
+                                                <a href="javascript:void(0)" id="picPlays1" class="pic-play">
+                                                    <img src="CJ/0.jpg" style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激战场移动压枪教学！刚枪就像剥橘子一样简单</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="picPlays2" class="pic-play">
+                                                    <img src="CJ/KID.jpg" style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>KID说：揭秘又肥又没人知道的LYB专用吃鸡点</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="picPlays3" class="pic-play">
+                                                    <img src="CJ/1527681359.c5c18cde1bf2e93e8e4a44cb38a97003.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>节奏刚枪王：新版表情包，跟着音乐起舞</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="picPlays4" class="pic-play">
+                                                    <img src="CJ/6900x500.1527497093.3fa407caf410cce9906005ded5b6b476.900x500_76336.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>主播“团子”：面对敌人攻楼，人气女主播竟然做出......</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="picPlays5" class="pic-play">
+                                                    <img src="CJ/900.1527747567.9f56e1eabd63191c8399f4d95a7d8d01.900x500_173952.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激战场：弹夹也有分单排双排？直接四排开黑吃鸡走起！</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="picPlays6" class="pic-play">
+                                                    <img src="CJ/900.1527748200.9b6f8bf1d02d0686c7c5f65550e4ba70.900x500_152997.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激战场：弹夹的天赋技能至关重要，合理选择弹夹使你猛过UZI</p>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="tab-panel" id="TP2" style="display:none;">
+                                        <ul class="video-item-top">
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic2Plays1" class="pic-play">
+                                                    <img src="CJ/1529652389.89832900afe0217da5cd3a96599f1e9d.jpg" style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激实战教室：据说4倍镜和M249在沙漠中更配</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic2Plays2" class="pic-play">
+                                                    <img src="CJ/1.1529475260.f8e08b3b78900bac47dfe2bc5980332f.238x131_51438.png" style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>战场小灶：伏地魔不好当，躺着也中枪</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic2Plays3" class="pic-play">
+                                                    <img src="CJ/1.1529380281.a87f216f30b60cd8ff2123250fdc3f42.238x131_65435.png"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>战场小灶：穿了这身衣服，走路都带风</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic2Plays4" class="pic-play">
+                                                    <img src="CJ/1.1529392723.8537d0e0911c29f4d982b2f2fac328d8.238x131_51272.png"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>舔包姐战斗日常：有了这件白大衣，化身沙漠无情杀手</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic2Plays5" class="pic-play">
+                                                    <img src="CJ/1529305288.5815d109ed014336a8a0d70d9fe95e22.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激测评室：这把枪除了载弹量，通通压制M249</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic2Plays6" class="pic-play">
+                                                    <img src="CJ/1529305521.5cd76352f3d70ab31c4e7e0e2b11513e.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>海岛战术家：核电站附设工厂的战略点讲解</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-panel" id="TP3" style="display:none;">
+                                        <ul class="video-item-top">
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic3Plays1" class="pic-play">
+                                                    <img src="CJ/750x4221.1529651263.b4a28e706d195f3291ed7cf8fba30c59.750x422_49070.jpg" style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>战场分析师：狙击老是打不准，设置好立马成神</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic3Plays2" class="pic-play">
+                                                    <img src="CJ/238131.1529570966.99103c121ff198bb36235402e65f3100.238x131_90946.png" style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激前哨站 制霸N港你也可以</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic3Plays3" class="pic-play">
+                                                    <img src="CJ/1529651490.313f295b192bc74e7e341a969d2089a9.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>战场分析师：多方面分析在野点降落的好处</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)"  id="pic3Plays4"  class="pic-play">
+                                                    <img src="CJ/1529652541.e26e0113052d81336b3cd560a44f6cff.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激实战教室：教你如何把握好出手的时机</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)"  id="pic3Plays5"  class="pic-play">
+                                                    <img src="CJ/750422.1529657343.40f38fd15f38ffb1b44b14b37936de98.750x422_42734.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激前哨站 王牌局单人对多队 战术吃鸡分析</p>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="pic3Plays6" class="pic-play">
+                                                    <img src="CJ/9005002m.1529574382.8a9c9b2274b080e3306d769a434eef11.900x500_432170.jpg"style="width:238px;height:131px;"/>
+                                                    <span class="btn-play"></span>
+                                                </a>
+                                                <p>刺激军机处：灵魂配件！战术枪托是如何成为吃鸡标配的</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <h3 class="mod_title">
+                            <span class="icon_anchor"></span>
+                            <span>主播中心</span>
+                            <em>ANCHOR</em>
+                        </h3>
+                        <div class="main">
+                            <ul class="anchor_cont">
+                                <li>
+                                    <a href="../zhibozhongxin/zhibo.html">
+                                        <img src="CJ/zhubo2_1.png"style="width:159px; height:167px;" >
+                                        <p class="name">小苍</p>
+                                        <div class="an_djjr">
+                                            <span class="jr">点击进入</span>
+                                            <span class="icon-enter"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li style="margin-right:0px">
+                                    <a href="../zhibozhongxin/zhibo.html">
+                                        <img src="CJ/zhubo2_2.png"style="width:159px; height:167px;" >
+                                        <p class="name">若风</p>
+                                        <div class="an_djjr">
+                                            <span class="jr">点击进入</span>
+                                            <span class="icon-enter"></span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="anchor-bottom_cont">
+                                <div class="slide-right">
+                                    <div class="swiper_wrapper" id="SWrapper">
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo11.png" alt="主播头像" width="86" height="86">
+                                                <p>寅子</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide "style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo12.png" alt="主播头像" width="86" height="86">
+                                                <p>童话</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo13.png" alt="主播头像" width="86" height="86">
+                                                <p>告白</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo1.png" alt="主播头像" width="86" height="86">
+                                                <p>西卡笑笑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo2.png" alt="主播头像" width="86" height="86">
+                                                <p>若风</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo3.png" alt="主播头像" width="86" height="86">
+                                                <p>小苍</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo4.png" alt="主播头像" width="86" height="86">
+                                                <p>饼干</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo5.png" alt="主播头像" width="86" height="86">
+                                                <p>董小飒</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo6.png" alt="主播头像" width="86" height="86">
+                                                <p>大鹌鹑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo7.png" alt="主播头像" width="86" height="86">
+                                                <p>文森特</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo8.png" alt="主播头像" width="86" height="86">
+                                                <p>刘杀鸡</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo9.png" alt="主播头像" width="86" height="86">
+                                                <p>QQQ</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo10.png" alt="主播头像" width="86" height="86">
+                                                <p>草莓</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo11.png" alt="主播头像" width="86" height="86">
+                                                <p>寅子</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide "style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo12.png" alt="主播头像" width="86" height="86">
+                                                <p>童话</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo13.png" alt="主播头像" width="86" height="86">
+                                                <p>告白</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo1.png" alt="主播头像" width="86" height="86">
+                                                <p>西卡笑笑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo2.png" alt="主播头像" width="86" height="86">
+                                                <p>若风</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo3.png" alt="主播头像" width="86" height="86">
+                                                <p>小苍</p>
+                                            </a>
+                                        </div>
+
+
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo11.png" alt="主播头像" width="86" height="86">
+                                                <p>寅子</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide "style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo12.png" alt="主播头像" width="86" height="86">
+                                                <p>童话</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo13.png" alt="主播头像" width="86" height="86">
+                                                <p>告白</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo1.png" alt="主播头像" width="86" height="86">
+                                                <p>西卡笑笑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo2.png" alt="主播头像" width="86" height="86">
+                                                <p>若风</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo3.png" alt="主播头像" width="86" height="86">
+                                                <p>小苍</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo4.png" alt="主播头像" width="86" height="86">
+                                                <p>饼干</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo5.png" alt="主播头像" width="86" height="86">
+                                                <p>董小飒</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo6.png" alt="主播头像" width="86" height="86">
+                                                <p>大鹌鹑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo7.png" alt="主播头像" width="86" height="86">
+                                                <p>文森特</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo8.png" alt="主播头像" width="86" height="86">
+                                                <p>刘杀鸡</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo9.png" alt="主播头像" width="86" height="86">
+                                                <p>QQQ</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo10.png" alt="主播头像" width="86" height="86">
+                                                <p>草莓</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo11.png" alt="主播头像" width="86" height="86">
+                                                <p>寅子</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide "style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo12.png" alt="主播头像" width="86" height="86">
+                                                <p>童话</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo13.png" alt="主播头像" width="86" height="86">
+                                                <p>告白</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo1.png" alt="主播头像" width="86" height="86">
+                                                <p>西卡笑笑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo2.png" alt="主播头像" width="86" height="86">
+                                                <p>若风</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo3.png" alt="主播头像" width="86" height="86">
+                                                <p>小苍</p>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo11.png" alt="主播头像" width="86" height="86">
+                                                <p>寅子</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide "style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo12.png" alt="主播头像" width="86" height="86">
+                                                <p>童话</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo13.png" alt="主播头像" width="86" height="86">
+                                                <p>告白</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo1.png" alt="主播头像" width="86" height="86">
+                                                <p>西卡笑笑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo2.png" alt="主播头像" width="86" height="86">
+                                                <p>若风</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo3.png" alt="主播头像" width="86" height="86">
+                                                <p>小苍</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo4.png" alt="主播头像" width="86" height="86">
+                                                <p>饼干</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo5.png" alt="主播头像" width="86" height="86">
+                                                <p>董小飒</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo6.png" alt="主播头像" width="86" height="86">
+                                                <p>大鹌鹑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo7.png" alt="主播头像" width="86" height="86">
+                                                <p>文森特</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo8.png" alt="主播头像" width="86" height="86">
+                                                <p>刘杀鸡</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo9.png" alt="主播头像" width="86" height="86">
+                                                <p>QQQ</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo10.png" alt="主播头像" width="86" height="86">
+                                                <p>草莓</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo11.png" alt="主播头像" width="86" height="86">
+                                                <p>寅子</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide "style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo12.png" alt="主播头像" width="86" height="86">
+                                                <p>童话</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo13.png" alt="主播头像" width="86" height="86">
+                                                <p>告白</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo1.png" alt="主播头像" width="86" height="86">
+                                                <p>西卡笑笑</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo2.png" alt="主播头像" width="86" height="86">
+                                                <p>若风</p>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-slide" style="width: 98.3333px; height: 112px;">
+                                            <a href="../zhibozhongxin/zhibo.html">
+                                                <img src="CJ/zhubo3.png" alt="主播头像" width="86" height="86">
+                                                <p>小苍</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slide-btn">
+                                    <a href="javascript:void(0)"class="slide-prev" id="SlidePrev">
+                                        <span class="icon-p"></span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="slide-next" id="SlideNext">
+                                        <span class="icon-n"></span>
+                                    </a>
+                                </div>
+                                <a href="" class="more-line"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section4">
+                <div class="container4">
+                    <div class="left-guide">
+                        <h3 class="mod_title">
+                            <span class="icon_guide"></span>
+                            <span>攻略中心</span>
+                            <em>GUIDE</em>
+                        </h3>
+                        <div class="main">
+                            <div class="tab">
+                                <div class="tab-nav">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)" id="zuixin">最新<i class="icon-sh"></i></a>
+                                            <span id="icoZuiXinLine" class="tab-active"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="zonghe">综合<i class="icon-sh"></i></a>
+                                            <span id="icoZongHeLine"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="xinshou">新手<i class="icon-sh"></i></a>
+                                            <span id="icoXinShouLine"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="baike">百科<i class="icon-sh"></i></a>
+                                            <span id="icoBaiKeLine"></span>
+                                        </li>
+                                    </ul>
+                                    <a href="//itea-cdn.qq.com/pubgm/specialty/editor.shtml?gameId=480" class="contribute">
+                                        我要投稿
+                                        <span class="icon-up"></span>
+                                    </a>
+                                    <p class="more">
+                                        <a href="">
+                                            <span>更多</span>
+                                            <span class="icon-more"></span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="tab-box">
+                                    <div class="tab-panel" id="GuideTP1" style="display:block;">
+                                    <div class="left_pic">
+                                        <ul class="video-pic">
+                                            <li>
+                                                <a href="javascript:void(0)" class="Vpic_play">
+                                                    <img src="CJ/750.1527662338.fde5e0e008d0af1d5e26d70979124b90.750x422_39291.jpg"style="width:238px;height:131px;"/>
+                                                    <p>正确救援方式让你成为队友守护神</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" class="Vpic_play">
+                                                    <img src="CJ/750.1527662020.1181d33218b25f3c4a71197bd75a3e2b.750x422_23340.jpg"style="width:238px;height:131px;"/>
+                                                    <p>正确救援方式让你成为队友守护神</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="right_list">
+                                        <ul>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>队友自带削弱光环，P城霸主的姐也没怕过</span>
+                                                    <em>06-01</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>隐藏于R城和废墟的风水宝地</span>
+                                                    <em>06-01</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>真正刺激的来了!劲爆战争模式介绍</span>
+                                                    <em>06-01</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>正确救援方式让你成为队友守护神</span>
+                                                    <em>05-31</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>第一人称不能阴人？听声辨位阴人大法</span>
+                                                    <em>05-31</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>进阶玩家必会的攻守之道!</span>
+                                                    <em>05-30</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>刺激战场狙击枪大盘点，看看哪一款适合你</span>
+                                                    <em>05-30</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>新手必读！受击情况的处理技巧</span>
+                                                    <em>05-29</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>三指操控细节，赢在细节上</span>
+                                                    <em>05-29</em>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                    <div class="tab-panel" id="GuideTP2" style="display:none;">
+                                    <div class="left_pic">
+                                        <ul class="video-pic">
+                                            <li>
+                                                <a href="javascript:void(0)" class="Vpic_play">
+                                                    <img src="CJ/238.1528453171.14a07825d1e54445ece4778bef889e0c.238x131_4322.jpg"style="width:238px;height:131px;"/>
+                                                    <p>为什么AKM和大盘鸡逐渐热门起来?</p>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" class="Vpic_play">
+                                                    <img src="CJ/4.1528447331.eb856776240d4c9be3de42fe5f2b2e16.900x500_44382.jpg"style="width:238px;height:131px;"/>
+                                                    <p>刺激战场必备物资大盘点：物资在手，天下我有</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="right_list">
+                                        <ul>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                <i>-</i>
+                                                    <span>【娱乐】你不是真正的快乐</span>
+                                                    <em>06-22</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                <i>-</i>
+                                                    <span>【娱乐】无私奉献，让战场充满爱</span>
+                                                    <em>06-21</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>【娱乐】枪械和职场的奇妙关联</span>
+                                                    <em>06-20</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>躺鸡秘籍：这就是你的高资源模式吗？就给我一把镰刀？</span>
+                                                    <em>06-20</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>【娱乐】眯眯眼的都是怪物？真的是这样吗</span>
+                                                    <em>06-19</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>【娱乐】上分稳如狗，前十不是梦</span>
+                                                    <em>06-14</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>【娱乐】确认过眼神，我遇见秀的人</span>
+                                                    <em>06-12</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>吃鸡心理战，巧用方法让你顺利吃鸡！</span>
+                                                    <em>06-10</em>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                    <i>-</i>
+                                                    <span>在飞机上获得第一手情报，初圈定位法则</span>
+                                                    <em>06-09</em>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                    <div class="tab-panel" id="GuideTP3" style="display:none;">
+                                        <div class="left_pic">
+                                            <ul class="video-pic">
+                                                <li>
+                                                    <a href="" class="Vpic_play">
+                                                        <img src="CJ/2.1528708082.b7968ffaab2a41801e669528c8e02305.900x500_1161081.png"style="width:238px;height:131px;"/>
+                                                        <p>全新天降奇兵更新，新增加的三个握把应该怎么选择</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="" class="Vpic_play">
+                                                        <img src="CJ/7501.1527575164.07d0ec082f68ae3316dee0711540bba7.750x422_21748.jpg"style="width:238px;height:131px;"/>
+                                                        <p>决赛圈辩位心得！声音可以告诉你一切</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="right_list">
+                                            <ul>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>降落冷门小技巧教学，别让自己输在起跑线上</span>
+                                                        <em>06-23</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>最好的防守就是进攻，成为猎手而不是猎物</span>
+                                                        <em>06-23</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>连发狙和拉栓狙到底哪个更适合你?</span>
+                                                        <em>06-23</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>残血状态注意事项，生存率大大提升</span>
+                                                        <em>06-21</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>狙击模式经典套路，照做就能把把吃鸡</span>
+                                                        <em>06-21</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>海岛野学家，靶场曲线发育战术</span>
+                                                        <em>06-20</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>海岛地图最佳打野点，山顶废墟战术介绍</span>
+                                                        <em>06-19</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>被忽视的物资，却可能是你的救命稻草</span>
+                                                        <em>06-19</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>躺鸡秘籍：想要学会压枪？那么你就需要了解所有准镜的数据</span>
+                                                        <em>06-16</em>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-panel" id="GuideTP4" style="display:none;">
+                                        <div class="left_pic">
+                                            <ul class="video-pic">
+                                                <li>
+                                                    <a href="javascript:void(0)" class="Vpic_play">
+                                                        <img src="CJ/238.1526017861.b990f6fd0e51df428d46ce33cb357356.238x131_5495.jpg"style="width:238px;height:131px;"/>
+                                                        <p>握把作用属性对比!扫射与点射配件推荐</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="Vpic_play">
+                                                        <img src="CJ/230.140.1518353612.08a5eae3ffb49770d80c190b0797bff9.230x140_3388.jpg"style="width:238px;height:131px;"/>
+                                                        <p>【刺激百科】合理配置阵容，你不是一个人在战斗</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="right_list">
+                                            <ul>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>到底该怎么用?六倍瞄准镜深度剖析</span>
+                                                        <em>06-14</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>狙击手们看过来!栓动狙伤害及性能汇总</span>
+                                                        <em>06-12</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>最全建筑学名，无障碍跟队友沟通</span>
+                                                        <em>05-28</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>握把作用属性对比!扫射与点射配件推荐</span>
+                                                        <em>05-11</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>刺激档案—堵桥篇</span>
+                                                        <em>03-08</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>【刺激百科】合理配置阵容，你不是一个人在战斗</span>
+                                                        <em>02-18</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>刺激档案-防具篇</span>
+                                                        <em>02-18</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>刺激档案-近战及投掷武器篇</span>
+                                                        <em>02-18</em>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="../guanwang-gonglue-zicandan/zicandan-glzx-diyige.html">
+                                                        <i>-</i>
+                                                        <span>【刺激百科】熟练驾驶各种载具，展现不俗车技</span>
+                                                        <em>02-16</em>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-data">
+                        <h3 class="mod_title">
+                            <span class="icon_data"></span>
+                            <span>游戏资料</span>
+                            <em>DATA</em>
+                        </h3>
+                        <div class="main-data">
+                            <div class="tab">
+                                <div class="tab-nav">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)" id="wuqi">武器<i class="icon-sh"></i></a>
+                                            <span id="icoWuQiLine" class="tab-active"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="peijian">配件<i class="icon-sh"></i></a>
+                                            <span id="icoPeiJianLine"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="zaiju">载具<i class="icon-sh"></i></a>
+                                            <span id="icoZaiJuLine"></span>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" id="zhuangbei">装备<i class="icon-sh"></i></a>
+                                            <span id="icoZhuangBeiLine"></span>
+                                        </li>
+                                    </ul>
+                                    <p class="more">
+                                        <a href="">
+                                            <span>更多</span>
+                                            <span class="icon-more"></span>
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="tab-box">
+                                    <div class="tab-panel" id="DataTP1" style="display:block;">
+                                        <div class="data-top">
+                                            <img src="CJ/483b2a5e218d56aa4d5595561028f6b6.png"/>
+                                            <p>AKM</p>
+                                        </div>
+                                        <div class="data-bottom">
+                                            <ul>
+                                                <li>
+                                                    <img src="CJ/67914b7387f6c577ef2d4a93887703fa.png"/>
+                                                    <p>M16A4</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/b54065a8d6b725d0ab3ff34b07275104.png"/>
+                                                    <p>M16A4</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/97e872bbe81dac11a3afb20963ca2724.png"/>
+                                                    <p>M16A4</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/75b07f5afeba89384316fc135eaf7be8.png"/>
+                                                    <p>M16A4</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-panel" id="DataTP2" style="display:none;">
+                                        <div class="data-top">
+                                            <img src="CJ/9be6cadf2fd3537ef33c880079a7ef12.png"/>
+                                            <p>直角前握把（自动步枪，冲锋枪，狙击枪）</p>
+                                        </div>
+                                        <div class="data-bottom">
+                                            <ul>
+                                                <li>
+                                                    <img src="CJ/b506072b61402d12e8363b32dfc22c9d.png" style="width:116px;height:70.5px;"/>
+                                                    <p>垂直握把（自动步枪，冲锋枪，狙击枪）</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/4ffa4615206b9b8ffcb50d7b5c0aa948.png" style="width:116px; height:70.5px;"/>
+                                                    <p>霰弹枪收束器</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/f2c96d09c836401815b37b4eff522db5.png" style="width:116px; height:70.5px;"/>
+                                                    <p>枪口补偿器（冲锋枪）</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/9bf54291055cca098022c9003303e590.png" style="width:116px; height:70.5px;"/>
+                                                    <p>枪口补偿器（狙击枪）</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-panel" id="DataTP3" style="display:none;">
+                                        <div class="data-top">
+                                            <img src="CJ/f9ea55c5dc23a7b8a7b03d2eccf4ec98.png"/>
+                                            <p>蹦蹦</p>
+                                        </div>
+                                        <div class="data-bottom">
+                                            <ul>
+                                                <li>
+                                                    <img src="CJ/5b61ff81ff68c978935bbd477cf4d553.png"/>
+                                                    <p>轿车</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/62c63e23c74438720bd75e436c036845.png"/>
+                                                    <p>三轮摩托</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/ac89ac127d34ae274097f2610af10eca.png"/>
+                                                    <p>两轮摩托车</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/28d43094dfee8ed6f0baf7ad751fdeba.png"/>
+                                                    <p>船</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-panel" id="DataTP4" style="display:none;">
+                                        <div class="data-top">
+                                            <img src="CJ/84e1037c7e90a7ebde236e0f74c7e6b9.png"/>
+                                            <p>军用头盔 (丛林迷彩) </p>
+                                        </div>
+                                        <div class="data-bottom">
+                                            <ul>
+                                                <li>
+                                                    <img src="CJ/15d8afc8dfb8936dff51982808be087a.png" style="width:116px; height:70.5px;"/>
+                                                    <p>军用头盔 (沙漠迷彩) </p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/04a189702055f900dc3da1a3fa7ab3cd.png" style="width:116px; height:70.5px;"/>
+                                                    <p>摩托车头盔（灰色）</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/d1b5361f3ca3a4da256d089e99757719.png" style="width:116px; height:70.5px;"/>
+                                                    <p>摩托车头盔（绿色）</p>
+                                                </li>
+                                                <li>
+                                                    <img src="CJ/70405db941dfa34401fa3db1c2465a1e.png" style="width:116px; height:70.5px;"/>
+                                                    <p>特种部队头盔</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section5">
+                <div class="container5">
+                    <h3 class="mod_title">
+                        <span class="icon_doujin"></span>
+                        <span>同人专区</span>
+                        <em>DOUJIN</em>
+                    </h3>
+                    <div class="main_doujin">
+                        <div class="tab">
+                            <div class="tab-nav">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" id="manhua">官方漫画<i class="icon-sh"></i></a>
+                                        <span id="icoManHuaLine" class="tab-active"></span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" id="guangziji">光子鸡系列<i class="icon-sh"></i></a>
+                                        <span id="icoGuangZiJiLine"></span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" id="zuixinji">最新<i class="icon-sh"></i></a>
+                                        <span id="icoZuiXinJiLine"></span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" id="dongman">动漫<i class="icon-sh"></i></a>
+                                        <span id="icoDongManLine"></span>
+                                    </li>
+                                </ul>
+                                <a href="//itea-cdn.qq.com/pubgm/specialty/editor.shtml?gameId=480" class="contribute">
+                                    我要投稿
+                                    <span class="icon-up"></span>
+                                </a>
+                                <p class="more">
+                                    <a href="">
+                                        <span>更多</span>
+                                        <span class="icon-more"></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="tab-box">
+                                <div class="tab-panel" id="DoujinTP1" style="display:block;">
+                                <div class="doujin-left">
+                                    <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                        <img src="CJ/guanziji.jpg"style="width:356px;height:339px;"/>
+                                        <p>刺激小剧场-春节快乐</p>
+                                    </a>
+                                </div>
+                                <div class="doujin-right">
+                                    <ul class="video-item-top">
+                                        <li>
+                                            <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                                <img src="CJ/NeverGiveup.jpg" style="width:238px;height:131px;/">
+                                            </a>
+                                            <p>刺激小剧场特别篇二#3-决不放弃</p>
+                                        </li>
+                                        <li>
+                                            <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                                <img src="CJ/jiannan.jpg" style="width:238px;height:131px;"/>
+                                            </a>
+                                            <p>刺激小剧场特别篇二#2-艰难坎坷</p>
+                                        </li>
+                                        <li>
+                                            <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                                <img src="CJ/dasheng.jpg" style="width:238px;height:131px;"/>
+                                            </a>
+                                            <p>刺激小剧场特别篇二#1-大神之志</p>
+                                        </li>
+                                        <li>
+                                            <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                                <img src="CJ/jiqing.jpg" style="width:238px;height:131px;"/>
+                                            </a>
+                                            <p>刺激小剧场特别篇#6-激情沙漠</p>
+                                        </li>
+                                        <li>
+                                            <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                                <img src="CJ/juesai.jpg" style="width:238px;height:131px;"/>
+                                            </a>
+                                            <p>刺激小剧场特别篇#5-决赛圈外</p>
+                                        </li>
+                                        <li>
+                                            <a href="../guanwang-tongren-guangziji/guangzijimanhua.html">
+                                                <img src="CJ/danan.jpg" style="width:238px;height:131px;"/>
+                                            </a>
+                                            <p>刺激小剧场特别篇#4-大难不死</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                                <div class="tab-panel" id="DoujinTP2" style="display:none;">
+                                    <div class="doujin-left">
+                                        <a href="">
+                                            <img src="CJ/750x4221.1529661061.c5a2520331e528ce88e6acac4d4a8abd.750x422_28128.jpg" style="width:356px;height:339px;"/>
+                                            <p>【光子鸡传奇】极速救援的噩梦，你想试试么？</p>
+                                        </a>
+                                    </div>
+                                    <div class="doujin-right">
+                                        <ul class="video-item-top">
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/238x131.1529738513.bd3ad790972ea33a11b8b8c8377ad4ed.238x131_10688.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>【光子鸡传奇】超大惊喜！从天而降的快递大礼包</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/238x131.1529037121.16f01fc9ae16658f9f84575aebbc49e2.238x131_11809.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>【光子鸡传奇】父亲节吃鸡特殊待遇？竟有专业指挥员</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/238x131.1529041949.b5a7932fe8215cb2afbc559b4cda2ae0.238x131_10116.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>【光子鸡传奇】压枪扭到脖子？都是新版握把惹得祸！</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/750x4221.1529041562.4916349354d553f17daeb7379235cb36.750x422_26448.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>【光子鸡传奇】传说中的考试宝典竟解出送命题</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/238x131.1528857210.ee246e70bd388778001653890f0c397a.238x131_11027.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>【光子鸡传奇】无敌的敌人？石锤锁血的秘密！</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/750x4221.1528967725.4be5d6dc88d23bf4acda4d031cfbc005.750x422_29536.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>【光子鸡传奇】人肉炸弹？自雷还能这么玩！</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-panel" id="DoujinTP3" style="display:none;">
+                                    <div class="doujin-left">
+                                        <a href="">
+                                            <img src="CJ/750x4221.1526019564.8f200fca2f34a2a5151ef901d9624f23.750x422_27138.jpg" style="width:356px;height:339px;"/>
+                                            <p>【光子鸡传奇】这样也可以？巧用道具戏耍对手</p>
+                                        </a>
+                                    </div>
+                                    <div class="doujin-right">
+                                        <ul class="video-item-top">
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/1.1529553825.cac04465dacc6c6bc511b04780ec68f4.238x131_53997.png" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>舔包姐吃鸡日常：骑摩托秀飞车？害人害己！</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/1.1529400739.2b87f752a0951df9c79276d7687ad236.238x131_54905.png"style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>舔包姐吃鸡日常：天上掉馅饼，还掉两！</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/1.1529391658.8cc222986a679bea3e116a2e9a7268e1.238x131_52426.png" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>舔包姐吃鸡日常：关键时刻能不能别掉链子</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/QQ20180615190015.1529060884.04cdec5c05e3d7a012916defde237ab0.238x131_57548.png" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>舔包姐吃鸡日常：炸鸡配可乐最棒了</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/QQ20180615190015.1529060417.45d752088bf19fc521e357d2cde78055.238x131_35528.png" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>舔包姐吃鸡日常：小样~勾引懂不懂</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/QQ20180615190015.1529060717.7e4ba5cae53321530b5209d3a7e324b7.238x131_53438.png" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>舔包姐吃鸡日常：惊现二杀倒车技术，学不来学不来</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-panel" id="DoujinTP4" style="display:none;">
+                                    <div class="doujin-left">
+                                        <a href="">
+                                            <img src="CJ/caideyuanyin.jpg" style="width:356px;height:339px;"/>
+                                            <p>别担心，有了它你就不会菜了！</p>
+                                        </a>
+                                    </div>
+                                    <div class="doujin-right">
+                                        <ul class="video-item-top">
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/750.1516353429.ef3acdcd51f8b359754b1b2eb332c441.750x422_38720.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>追求完美？可是计划赶不上变化</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/670x376.1514544013.1a633abc957d834db4995eb7b3ad738e.670x376_62450.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>进退两难的选择，是时候迈出那一步了！</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/670x376.1514103053.932db949bf6a1f23854887c4681e3e37.670x376_69290.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>为师日关观天象，此路必有血光之灾</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/670x376.1514102944.87721b352a812b24b4f4a6f735154b22.670x376_65527.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>一言不合就秀操作，高手都是喜欢这样</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/750x422.1514103601.87e16c10706ae8b4f616c3056b15e1b2.750x422_23592.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>听声辩位精准预测背后的故事</p>
+                                            </li>
+                                            <li>
+                                                <a href="" class="pic-play">
+                                                    <img src="CJ/670x376.1513933240.ea1d3b89c75c75506b80a74bf9a316d8.670x376_58468.jpg" style="width:238px;height:131px;"/>
+                                                </a>
+                                                <p>水鬼王争第一？不！是群蛙乱舞</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section6">
+                <div class="container6">
+                    <h3 class="mod_title">
+                        <span class="icon_features"></span>
+                        <span>游戏特色</span>
+                        <em>GAME FEATURES</em>
+                    </h3>
+                    <div class="Fbottom_slide">
+                        <div class="Bigslide"style="width: 1200px; height: 627px;">
+                            <img src="CJ/sl111.jpg" style="width:1200px;height:572px;"id="BigPic"/>
+                            <ul id="pagination-bottom">
+                                <li class=bottom1 onMouseOver="show(1)" onMouseOut="start()"></li>
+                                <li class=bottom2 onMouseOver="show(2)" onMouseOut="start()"></li>
+                                <li class=bottom2 onMouseOver="show(3)" onMouseOut="start()"></li>
+                                <li class=bottom2 onMouseOver="show(4)" onMouseOut="start()"></li>
+                                <li class=bottom2 onMouseOver="show(5)" onMouseOut="start()"></li>
+                            </ul>
+                            <div id="bottomslide-btn">
+                                <a href="javascript:void(0)" id="bottomslidePrev">
+                                    <span class="prev"></span>
+                                </a>
+                                <a href="javascript:void(0)" id="bottomslideNext">
+                                    <span class="next"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <div class="footer_box">
+                    <div class="footer_top">
+                        <div class="foot_container">
+                            <div class="foot-code">
+                                <ul class="code_list">
+                                    <li>
+                                        <img src="CJ/code1.png"style="width:174px;height:174px;"/>
+                                        <p>手Q部落二维码</p>
+                                    </li>
+                                    <li>
+                                        <img src="CJ/code2.png"style="width:174px;height:174px;"/>
+                                        <p>微信圈子二维码</p>
+                                    </li>
+                                    <li>
+                                        <img src="CJ/code3.png"style="width:174px;height:174px;"/>
+                                        <p>微信公众号二维码</p>
+                                    </li>
+                                    <li>
+                                        <img src="CJ/code4.png"style="width:174px;height:174px;"/>
+                                        <p>微博二维码</p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-botoom">
+                        <div class="bot_cont">
+                            <div class="foot-cpright">
+                                <div class="foot-logos">
+                                    <a href="http://ieg.tencent.com/"class="foot-logos-game"></a>
+                                    <a href=""class="foot-logos-company">
+                                        <img src="CJ/footer-logo-gz.png"/>
+                                    </a>
+                                </div>
+                                <ul class="foot-links">
+                                    <li>
+                                        <a href="http://ieg.tencent.com/">腾讯互动娱乐</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://www.qq.com/contract.shtml">服务条款</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="https://e.tencent.com/">广告服务</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://game.qq.com/hr/">腾讯游戏招聘</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://service.qq.com/">腾讯游戏客服</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://tgact.qq.com/">游戏活动</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://game.qq.com/gnav/">游戏地图</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://game.qq.com/portal2010/business.htm">商务合作</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://www.qq.com/">腾讯网</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://www.qq.com/map/">网站导航</a>
+                                    </li>
+                                    <li><a href="http://www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯公司版权所有</a></li>
+                                    <li>COPYRIGHT © 1998 - 2018 TENCENT. ALL RIGHTS RESERVED.</li>
+                                    <li>
+                                        <a href="http://www.qq.com/culture.shtml">粤网文[2017]6138-1456号</a>
+                                        <span class="foot-sprt">|</span>
+                                        <a href="http://game.qq.com/culture2.htm">新出网证：（粤）字010号</a>
+                                    </li>
+                                    <li>本网络游戏适合年满16周岁以上的用户使用；为了您的健康，请合理控制游戏时间。</li>
+                                    <li>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="GuanWang.js"></script>
+    <script>
+         var wi=96;
+         var speed=0.1;
+         var myInterval=setInterval(function () {
+              wi=wi+speed;
+              if(wi>=106){
+                   speed=-speed;
+              }else if(wi<=96){
+              speed=-speed;
+              }
+              document.querySelector(".Tplay").style.backgroundSize = wi + "px";
+              //document.querySelector(".Tplay").style.backgroundSize = wi + "px";
+         },8);
+    </script>
+</body>
+</html>
