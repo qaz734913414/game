@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>【战报】绝地求生刺激战场5月月赛：先发致胜 AG稳健“吃鸡”</title>
+    <link rel="short icon" href="img/top-tag.png"/>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            width:100%;
+            height:100%;
+            background-color: #e9e9e9;
+        }
+        #top{
+            position: absolute;
+            top:0!important;
+            left:0;
+            height:40px;
+            width: 100%;
+            background-color: white!important;
+            background: url("img/ost-bg.png") ;
+            background-repeat: repeat-x;
+            border: 1px solid #c9c9c9;
+            border-width: 1px 0;
+            z-index:100000;
+        }
+        #top ul{
+            width:1100px;
+            height:100%;
+            line-height: 45px;
+            margin:0 auto;
+        }
+        #top li{
+            list-style: none;
+            float:left;
+        }
+        #top .f1{
+            position: absolute;
+            z-index: 9999;
+            background: url("img/ost-bg.png") 15px -40px;
+            padding-right:15px;
+            cursor: pointer;
+        }
+        .f3 {
+            padding-left:220px;
+        }
+        .f3 {
+            padding-left:220px;
+        }
+        .f3 h3{
+            width:118px;
+            height:40px;
+            float: left;
+        }
+        .f3 a{
+            text-decoration: none;
+            color: #464646;
+            font-size:12px;
+            font-family: Tahoma,simsun;
+            font-weight:400;
+        }
+        .f3 a:hover{
+            color:red;
+        }
+        .f3 i{
+            background: url("img/ost-bg.png")-150px -134px;
+            width:11px;
+            height:11px;
+            float:right;
+            margin-right:20px;
+            margin-top:20px;
+        }
+        .f3 i:hover{
+            background: url("img/ost-bg.png")-170px -134px;
+        }
+        #mid{
+            width:1349px;
+            height: 380px;
+            background: url("img/match-page-headbg.jpg")no-repeat 50% 0;
+            background-size: cover;
+        }
+        #mid .mid1{
+            width:1349px;
+            height:110px;
+            background: url("img/bg-nav.png") no-repeat;
+            position:absolute;
+            z-index: 9;
+            margin-top: 45px;
+        }
+        .m-left{
+            width:353px;
+            height:135px;
+            margin-left:75px;
+        }
+        .m-left img{
+            width:125px;
+            height:125px;
+            float: left;
+            margin-top:10px;
+        }
+        .m-left h1{
+            width:216px;
+            height:72px;
+            float:left;
+            font-size: 24px;
+            color: #ffb400;
+            line-height: 36px;
+            font-weight: bold;
+            margin-top: 27px;
+            margin-left:10px;
+        }
+        .m-left span{
+            font-size: 14px;
+            color: #ffffff;
+        }
+        .m-right{
+            margin-top:-100px;
+            margin-right:80px;
+            width:827px;
+            height:114px;
+            float: right;
+        }
+        .m-right a{
+            width:115px;
+            height:110px;
+            font-size: 16px;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            float: left;
+        }
+        .m-right  span{
+            height:2px;
+            width:60px;
+            float: left;
+            margin-top:20px;
+            margin-left:30px;
+        }
+        .m-right a:hover span{
+            background-color:#ffb400 ;
+        }
+        .m-right a:hover {
+            color:#ffb400;
+        }
+        .mid2{
+            width:1200px;
+            height:170px;
+            padding-top: 80px;
+            padding-left:75px;
+        }
+        .mid2 h1{
+            font-size: 40px;
+            color: #eb961e;
+        }
+        .mid2 span{
+            font-size: 14px;
+            color: #dedede;
+        }
+        .mid2 p{
+            font-size: 16px;
+            color: #dfdfdf;
+        }
+        .mid2 a{
+            font-size: 16px;
+            color: #dfdfdf;
+            text-decoration: underline;
+        }
+        #news{
+            width:1200px;
+            height:3648px;
+            margin:0 auto;
+        }
+        #news h2{
+            text-align: center;
+            float: left;
+            width:100%;
+            height: 32px;
+            line-height: 32px;
+            color: #333333;
+            font-size: 32px;
+            padding: 56px 0 48px;
+        }
+        #news .article-info{
+            float: left;
+            width:100%;
+            height:52px;
+            border-bottom: 2px solid #dfdfdf;
+            font-size: 12px;
+        }
+        .fxtb{
+            width:189px;
+            height:16px;
+            float: right;
+            margin-right:330px;
+        }
+        .fxtb a{
+            width:16px;
+            height:16px;
+            float: right;
+            margin-left: 5px;
+        }
+        .detail{
+            height:3460px;
+            width:100%;
+            padding-top:50px;
+            float: left;
+        }
+        .detail p{
+            color: #515151;
+            font-size:12px;
+            line-height:24px;
+        }
+        .detail  img{
+            margin-left:300px;
+        }
+        #foot{
+            width:100%;
+            height:652px;
+            background:url("img/footer-bg.jpg")no-repeat 50% 0;
+        }
+        #foot .logo{
+            width:100%;
+            height:80px;
+            padding-top:410px;
+            text-align: center;
+        }
+        #foot .footwz{
+            width:100%;
+            height:80px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 26px;
+            color: #fff;
+            margin-top:70px;
+        }
+        .footwz a{
+            font-size: 14px;
+            line-height: 26px;
+            color: #fff;
+            text-decoration: none;
+        }
+        #ost_nb{
+            margin-top:-40px;
+            margin-left:20px;
+            float: left;
+            width: 970px;
+            height: 185px;
+            background-color: white;
+            display: none;
+        }
+        #ost{
+            position: absolute;
+            left:360px;
+            width:230px;
+            height:40px;
+            cursor: pointer;
+        }
+        #ost_p{
+            width: 700px;
+            height: 460px;
+            top: 32px;
+            right: 7px;
+            position: absolute;
+            z-index: 9000;
+            border:1px solid #b9b9b9;
+            margin-right:230px;
+            background-color: white;
+            display: none;
+        }
+        #ost_p ul{
+            float: left;
+            width:220px;
+            height:420px;
+            margin-top:20px;
+            margin-left:5px;
+        }
+        #ost_p ul li{
+            width:150px;
+            clear: both;
+        }
+        #ost_p ul li span{
+            width:10px;
+            height:10px;
+            border:1px solid #b9b9b9;
+            font-size:10px;
+        }
+        #ost_nb{
+            margin-top:-40px;
+            margin-left:20px;
+            float: left;
+            width: 970px;
+            height: 185px;
+            background-color: white;
+            display: none;
+        }
+        #ost{
+            position: absolute;
+            left:360px;
+            width:230px;
+            height:40px;
+            cursor: pointer;
+        }
+        #ost_p{
+            width: 700px;
+            height: 460px;
+            top: 32px;
+            right: 7px;
+            position: absolute;
+            z-index: 9000;
+            border:1px solid #b9b9b9;
+            margin-right:230px;
+            background-color: white;
+            display: none;
+        }
+        #ost_p ul{
+            float: left;
+            width:220px;
+            height:420px;
+            margin-top:20px;
+            margin-left:5px;
+        }
+        #ost_p ul li{
+            width:150px;
+            clear: both;
+        }
+        #ost_p ul li span{
+            width:10px;
+            height:10px;
+            border:1px solid #b9b9b9;
+            font-size:10px;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <ul>
+        <li class="f1" style="width:220px;height:40px;">
+            <a href="http://game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav%20target=" style="float: left;height:100%;width:100%;"></a>
+        </li>
+        <li id="f2" style="width:230px;height:40px; cursor: pointer;">
+            <a href="javascript:;"  id="ost">
+                <img src="img/ost1.jpg" style="display:block"/>
+            </a>
+        </li>
+        <a href="javascript:;" id="ost_nb"><img src="../zhuyemian/img/top1.png"/></a>
+        <li class="f3" style="width:300px;height:40px;margin-left:320px;">
+            <h3 >
+                <img src="img/logo.png" style="margin-bottom:-5px;"/>
+                <a href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+            </h3>
+            <h3 >
+                <a href="" id="but">腾讯游戏排行榜
+                    <i></i>
+                </a>
+            </h3>
+            <div id="ost_p">
+                <ul style=" border-right: 1px solid #b9b9b9;">
+                    <div style="width:100%;height:20px;border-bottom: 1px solid #b9b9b9;">
+                        <p style="font-size:12px;font-weight: bold;color:green;float: left;margin-top:-10px;">新游排行版</p>
+                        <a href="" style="font-size: 12px;color:#b9b9b9;float: right;margin-top:-10px;">更多》</a>
+                    </div>
+                    <span style="font-size:12px;color:#b9b9b9;margin-left:-60px;padding-top:-10px;">排名</span>
+                    <span style="font-size:12px;color:#b9b9b9;padding-top:-10px;">游戏</span>
+                    <li>
+                        <span style="border:1px solid #b9b9b9;width:10px;height:10px;">1</span>
+                        <a href="" style="font-size:12px;">FIFA online4</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">2</span>
+                        <a href="" style="font-size:12px;">灵山奇缘</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">3</span>
+                        <a href="" style="font-size:12px;">流放之路</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">4</span>
+                        <a href="" style="font-size:12px;">冒险岛2</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">5</span>
+                        <a href="" style="font-size:12px;">使命召唤</a>
+                    </li><li>
+                    <span style="border:1px solid #b9b9b9">6</span>
+                    <a href="" style="font-size:12px;">极品飞车</a>
+                </li><li>
+                    <span style="border:1px solid #b9b9b9">7</span>
+                    <a href="" style="font-size:12px;">穿越火线</a>
+                </li><li>
+                    <span style="border:1px solid #b9b9b9">8</span>
+                    <a href="" style="font-size:12px;">QQ炫舞</a>
+                </li>
+                </ul>
+                <ul style=" border-right: 1px solid #b9b9b9;">
+                    <div style="width:100%;height:20px;border-bottom: 1px solid #b9b9b9;">
+                        <p style="font-size:12px;font-weight: bold;color:green;float: left;margin-top:-10px;">新游排行版</p>
+                        <a href="" style="font-size: 12px;color:#b9b9b9;float: right;margin-top:-10px;">更多》</a>
+                    </div>
+                    <span style="font-size:12px;color:#b9b9b9;margin-left:-60px;padding-top:-10px;">排名</span>
+                    <span style="font-size:12px;color:#b9b9b9;padding-top:-10px;">游戏</span>
+                    <li>
+                        <span style="border:1px solid #b9b9b9;width:10px;height:10px;">1</span>
+                        <a href="" style="font-size:12px;">FIFA online4</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">2</span>
+                        <a href="" style="font-size:12px;">灵山奇缘</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">3</span>
+                        <a href="" style="font-size:12px;">流放之路</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">4</span>
+                        <a href="" style="font-size:12px;">冒险岛2</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">5</span>
+                        <a href="" style="font-size:12px;">使命召唤</a>
+                    </li><li>
+                    <span style="border:1px solid #b9b9b9">6</span>
+                    <a href="" style="font-size:12px;">极品飞车</a>
+                </li><li>
+                    <span style="border:1px solid #b9b9b9">7</span>
+                    <a href="" style="font-size:12px;">穿越火线</a>
+                </li><li>
+                    <span style="border:1px solid #b9b9b9">8</span>
+                    <a href="" style="font-size:12px;">QQ炫舞</a>
+                </li>
+                </ul>
+                <ul>
+                    <div style="width:100%;height:20px;border-bottom: 1px solid #b9b9b9;">
+                        <p style="font-size:12px;font-weight: bold;color:green;float: left;margin-top:-10px;">新游排行版</p>
+                        <a href="" style="font-size: 12px;color:#b9b9b9;float: right;margin-top:-10px;">更多》</a>
+                    </div>
+                    <span style="font-size:12px;color:#b9b9b9;margin-left:-60px;padding-top:-10px;">排名</span>
+                    <span style="font-size:12px;color:#b9b9b9;padding-top:-10px;">游戏</span>
+                    <li>
+                        <span style="border:1px solid #b9b9b9;width:10px;height:10px;">1</span>
+                        <a href="" style="font-size:12px;">FIFA online4</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">2</span>
+                        <a href="" style="font-size:12px;">灵山奇缘</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">3</span>
+                        <a href="" style="font-size:12px;">流放之路</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">4</span>
+                        <a href="" style="font-size:12px;">冒险岛2</a>
+                    </li>
+                    <li>
+                        <span style="border:1px solid #b9b9b9">5</span>
+                        <a href="" style="font-size:12px;">使命召唤</a>
+                    </li><li>
+                    <span style="border:1px solid #b9b9b9">6</span>
+                    <a href="" style="font-size:12px;">极品飞车</a>
+                </li><li>
+                    <span style="border:1px solid #b9b9b9">7</span>
+                    <a href="" style="font-size:12px;">穿越火线</a>
+                </li><li>
+                    <span style="border:1px solid #b9b9b9">8</span>
+                    <a href="" style="font-size:12px;">QQ炫舞</a>
+                </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="mid">
+    <div class="mid1">
+        <div class="m-left">
+            <a href="../guanwangshouye/shouye.html"><img src="img/top-tag.png"/></a>
+            <h1>绝地求生：刺激战场
+                <span>正版战斗特训手游</span>
+            </h1>
+        </div>
+        <div class="m-right">
+            <a href="../guanwangshouye/shouye.html">首页<span></span></a>
+            <a href="../saishi-TGA/TGA.html">TGA<span></span></a>
+            <a href="http://pg.qq.com/cp/a20180323city/index.shtml">城市赛<span></span></a>
+            <a href="../saishi-xiaoyuansai/xys.html">校园赛<span></span></a>
+            <a href="">QGC<span></span></a>
+            <a href="">WGC<span></span></a>
+            <a href="">全民赛<span></span></a>
+        </div>
+        <div class="mid2">
+            <h1>赛事资讯</h1>
+            <span>NEWS</span>
+            <p>
+                您的位置：<a href="">赛事中心</a>
+                >
+                <a href="">赛事资讯</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+<div id="news">
+    <h2>【战报】绝地求生刺激战场5月月赛：先发致胜 AG稳健“吃鸡”</h2>
+    <div class="article-info">
+        <span style="margin-left:364px;">刺激赛事官方团队</span>
+        <span style="margin-left:50px;">2018-05-27</span>
+        <span style="margin-left:60px;">分享到</span>
+        <div class="fxtb">
+            <a href="" style="background:url('img/icon-sns-16.png')0 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-20px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-40px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-60px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-80px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-100px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-120px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-140px 0;"></a>
+            <a href="" style="background:url('img/icon-sns-16.png')-180px 0;"></a>
+        </div>
+    </div>
+    <div class="detail">
+        <p style="text-align: center">【战报】绝地求生刺激战场5月月赛：先发致胜 AG稳健“吃鸡”</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对决，永不落幕！由机械革命冠名赞助，达尔优、努比亚手机以及乐虎功能饮料特约赞助的2018 TGA大奖赛5月月赛正在火爆进行中。5月26日16：00，5月线下月赛厦门站迎来了第二个比赛项目——《绝地求生：刺激战场》的精彩角逐。最终，AG以总分1735稳摘积分榜榜首，顺利夺冠。</p>
+        <span>
+            <img src="img/0.jpg"/>
+        </span>
+        <p>【整体概述】</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在《绝地求生：刺激战场》5月月赛率先进行的单排表演赛中，AG的762凭借前期的低调稳健处理，后期的出色个人发挥，成功拿到了表演赛的第一名！第二名是WE的小奥，第三名是JS的超喵。在随后的四排竞技赛中，AG以总分1735排在了第一名，第二名为WE，总分1515，第三名为JC，总分1440。</p>
+        <span>
+            <img src="img/1.jpg"/>
+        </span>
+        <p>【表演赛综述】</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表演赛最终是WE小奥和AG762的单人对决，762在安全区中央地区，并且相对来说血量和物资都比较充足，而在安全区边缘的小奥则处于劣势。在进行了两颗手雷的试探之后，762出其不意的往自己脸上“糊”了个烟雾弹，让小奥无法预判自己的下一步动作后，762依靠对地形的印象，快速前进，主动出击跳打小奥，成功吃鸡！</p>
+        <p style="margin-left:570px;">月冠军：AG</p>
+        <span>
+            <img src="img/2.jpg"/>
+        </span>
+        <p style="margin-left:570px;">月亚军：WE</p>
+        <span>
+            <img src="img/3.jpg"/>
+        </span>
+        <p style="margin-left:570px;">月季军：JC</p>
+        <span>
+            <img src="img/4.jpg"/>
+        </span>
+        <p>【赛事战况】</p>
+        <p>四排第一局：</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在表演赛中成功吃鸡的AG762，在四排第一局开局没多久便反向“吃鸡”了，成为第一位被淘汰掉的选手。比赛进行到中期的时候，QG毛毛连续击杀了3名选手，瞬间拿到了45分。安全区不断缩圈，6支队伍挤在了一个小小的防区内，相互间都谨慎的移动着，时不时发几枪试探，都在等待机会。EMP老表一颗雷炸掉了一个人头，不过旁边FS已经攻了上来。超玩会被团灭。场上爆发混战，AG隔岸观火，在大家打得差不多的时候才加入乱战进行人头收割，并最终成功吃鸡。</p>
+        <p>四排第二局：</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一波缩圈刷在了偏上的地方，防区会少一些，山地会多一些。SC开车路过加油站的时候遇到了VG四人小队，原本已经减速打算停车的他们赶快逃走。CQ藏在了谷仓内 ，DKG完全不知道里面有人，没做侦查就直接进去了，被CQ闷头狂打一波。AG和LGD在东北侧遭遇，双方隔着一条马路对垒架枪，不过双方都很谨慎，迟迟没有下一步动作。AG怪人枪法很准，把露头的LGD熊猫打得措手不及，消耗掉LGD一个救援。另一边，SV似乎看上了QG占据的小楼，想要进行攻楼。QG放了个烟，SV做了个假动作，假走开又很快绕回来。山地区域几个队伍打了起来，瞬间刷了一波屏。AG762发挥出色，但已无法阻拦AgFox吃鸡。</p>
+        <p>四排第三局：</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  安全区刷在了东南侧，大家都赶快在进行着转移。LGD跑去攻了DKG的楼，RNG在远处进行了一波消耗。Eagle四人躲在了厕所里，没成想依然被SV发现，SV的一名选手本来起身打算攻上去，QG打了几枪，意外的帮Eagle解了下围。比赛进行到31分钟的时候，圈子已经很小了，AG被团灭。SC被WE收掉了很多人头，目前WE还是满员的状态。SC三打一，不过WE的屠龙相对来说血比较多，最终屠龙凭借漂亮的侧身进攻，完成击杀成功吃鸡！</p>
+        <p>四排第二局：</p>
+        <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  这局是个左上角到右下角的一个航线，AG一队人直接往N港飞了过去，避开了人多的几个区域。LGD和Top两个老对手又开局就撞上了，LGD被包抄腹背受敌，在初期直接就被团灭了。比赛进行到18分钟的时候，AG选择在野区寻找机会，其他几个队伍则是开始占据自己的防区。这时候安全区刷在了左边，对AG很不友好，几乎每个队伍都会从AG这边通过，AG此时的总击败人数是3。在转移的过程当中，AG和EMP发生了遭遇战，AG有点伤。这时候Eagle也攻了上来，打了EMP一个措手不及。在比赛结尾的时候，场上已经只剩下JS三个人和EMP老表，形成三打一的局面。并且对于EMP老表的位置，JS基本已经清楚，不过JS并没有打得很果断，完全不着急的样子还在试探着，EMP老表出来打倒了一个后被另外一个人击杀，恭喜JS成功吃鸡！</p>
+        <p>对阵结果：AG以总分1735排名第一名，成为5月月赛冠军</p>
+        <p style="margin-left:570px;">关于TGA大奖赛</p>
+        <p> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; TGA大奖赛是一项基于腾讯游戏竞技平台（简称：TGA）的重要品牌赛事，是腾讯游戏为广大玩家打造的一场覆盖全年的大型综合性体育竞技盛会。赛事全面整合了腾讯游戏旗下众多竞技产品和单项赛事，将线上赛事和线下赛事进行有机融合，形成了一套专业、完善的赛事体系，每年总参赛人数达数千万之众，成为国内规模最大、最具全民参与性的专业电竞赛事。</p>
+        <span>
+             <img src="img/5.jpg" style="margin-left:400px;"/>
+        </span>
+    </div>
+</div>
+<div id="foot">
+    <div class="logo">
+        <img src="img/tencent-logo.png" style="margin-right:80px;"/>
+        <img src="img/gz-logo.png"/>
+    </div>
+    <div class="footwz">
+        <p>
+            <a href="">腾讯互动娱乐<span>|</span></a>
+            <a href="">服务条款<span>|</span></a>
+            <a href="">隐私政策<span>|</span></a>
+            <a href="">腾讯游戏招聘<span>|</span></a>
+            <a href="">腾讯游戏客服<span>|</span></a>
+            <a href="">游戏地图<span>|</span></a>
+            <a href="">成长守护平台<span>|</span></a>
+            <a href="">商务合作<span>|</span></a>
+            <a href="">网站导航</a>
+        </p>
+        <p>COPYRIGHT © 1998 – 2018 TENCENT. ALL RIGHTS RESERVED.</p>
+        <p><a href="">腾讯公司 版权所有</a></p>
+    </div>
+</div>
+<script type="text/javascript" src="zixun.js"></script>
+</body>
+</html>
