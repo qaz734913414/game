@@ -1,0 +1,176 @@
+/*
+    引入: 
+    <script src="//ossweb-img.qq.com/images/js/eas/eas.js?v=20151229"></script>
+    <script src="//gicp.qq.com/wmp/v5/static/js/gicprp.js"></script>
+    上报代码曝光,只有在列表中才会用到曝光上报：
+    if(typeof(Gicprp.send) == 'function'){
+        Gicprp.send({
+            'action_type':'pop',
+            'iuName':'<{$rp.name}>',
+            'contentId':'<{$rp.ids}>',
+            'serviceType':'<{$rp.st}>',
+            'contentType':'<{$rp.ct}>',
+            'url':'<{$rp.url}>'
+        });
+    }
+    //详情页pv
+    if(typeof(Gicprp.send) == 'function'){
+        Gicprp.send({
+            'action_type':'pv',
+            'iuName':'<{$rp.name}>',
+            'contentId':'<{$rp.id}>',
+            'serviceType':'<{$rp.st}>',
+            'contentType':'<{$rp.ct}>'
+        });
+    }
+    //列表点击上报
+    if(typeof(Gicprp.send) == 'function'){
+        Gicprp.send({
+            'action_type':'click',
+            'iuName':'<{$rp.name}>',
+            'contentId':'id',//此处传入被点击内容的内容id
+            'serviceType':'<{$rp.st}>',
+            'contentType':'video',//此处传入被点击内容的内容类型 video 或者是news
+            'url':url //此处传入被点击内容的url地址
+        });
+    }
+*/
+var Gicprp = (typeof Gicprp == 'object') ? Gicprp : {
+    //获取cookie
+    'getCookie' : function(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) {
+            return (arr[2]);
+        } else {
+            return null;
+        }
+    },
+
+    'getScript' : function(url){
+        var script = document.createElement('script');
+        script.onload = function () {};
+        script.src = url;
+        document.head.appendChild(script);
+    },
+
+    /* 封装ajax函数
+     * @param {string}opt.type http连接的方式，包括POST和GET两种方式
+     * @param {string}opt.url 发送请求的url
+     * @param {boolean}opt.async 是否为异步请求，true为异步的，false为同步的
+     * @param {object}opt.data 发送的参数，格式为对象类型
+     * @param {function}opt.success ajax发送并接收成功调用的回调函数
+     * 如需要 可设置dataType 为"script"
+     */
+    'getAjax' : function(opt) {
+        opt = opt || {};
+        opt.method = opt.method.toUpperCase() || 'POST';
+        opt.url = opt.url || '';
+        opt.async = opt.async || true;
+        opt.xhrFields = { withCredentials: true }; //发送Ajax时，Request header中便会带上 Cookie 信息
+        opt.data = opt.data || null;
+        opt.success = opt.success || function() {};
+        var xmlHttp = null;
+        if (XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        } else {
+            xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        var params = [];
+        for (var key in opt.data) {
+            params.push(key + '=' + opt.data[key]);
+        }
+        var postData = params.join('&');
+        if (opt.method.toUpperCase() === 'POST') {
+            xmlHttp.open(opt.method, opt.url, opt.async);
+            xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+            xmlHttp.send(postData);
+        } else if (opt.method.toUpperCase() === 'GET') {
+
+            xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+            xmlHttp.send(null);
+        }
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                opt.success(xmlHttp.responseText);
+            }
+        };
+    },
+    /*参数说明
+    渠道  iuName            系统名称（例：qzone）就是 source
+    内容id   contentId      视频id、资讯id、直播间id、赛事id、广告id等，根据具体内容传值 
+    内容类型 contentType    视频、资讯、攻略、直播、主播、赛事、广告等 
+    行为类型 action_type    内容类型判断 曝光地址去向   pv，播放； 点击，曝光。
+    业务id  serviceType     两次含义：一 .业务名称 （例：yxzj） ; 二. 业务号，例 王者荣耀业务为18
+    上报方式 sendType       jsonp json
+    easid   easid
+    */
+    'send' : function(obj) {
+        var baseUrl = '',
+            easid = Gicprp.getCookie('eas_sid');
+
+        if (obj.action_type != 'pv') {
+            baseUrl = 'http://apps.game.qq.com/easnew/go/eas.php'; //点击,pop  
+            if(obj.action_type == 'pop'){
+                var data = {
+                        'm':'SendLog_web',
+                        'click_type':508,
+                        'Url':encodeURIComponent(location.href),
+                        'iuName':obj.iuName,
+                        'contentSource':'list',
+                        'serviceType':obj.serviceType,
+                        'action_type': obj.action_type,
+                        'clickUrl': obj.url,
+                        'contentId':obj.contentId,
+                        'contentType':obj.contentType
+                    };
+            }else{
+                var data = {
+                        'm':'SendLog_web',
+                        'click_type':508,
+                        'Url':encodeURIComponent(location.href),
+                        'iuName':obj.iuName,
+                        'contentSource':'list',
+                        'serviceType':obj.serviceType,
+                        'action_type': obj.action_type,
+                        'clickUrl': obj.url,
+                        'contentId':obj.contentId,
+                        'contentType':obj.contentType
+                    };
+            }
+            var params = [];
+            for (var key in data) {
+                params.push(key + '=' + data[key]);
+            }
+            var url = baseUrl + '?' + params.join('&');
+            Gicprp.getScript(url);
+        } else {
+            if(obj.contentType == "news"){
+                obj.contentType = 2;
+            }else if(obj.contentType == "video"){
+                obj.contentType = 1;
+            }else{
+                obj.contentType = 0;
+            }
+            baseUrl = 'http://apps.game.qq.com/cmc/incr'; //pv,播放 
+            if (typeof(obj.sendType) != 'undefined' && obj.sendType == 'jsonp'){
+                var url = baseUrl + '?p0='+obj.serviceType+'&p2='+obj.contentId+'&p3='+obj.contentType+'&p5=0&source='+obj.iuName+'&action_type='+obj.action_type+'&easid=&rettype=jsonp'
+                Gicprp.getScript(url);
+            }else{
+                Gicprp.getAjax({
+                    method: 'GET',
+                    url: baseUrl,
+                    data: {
+                        'p0':obj.serviceType,
+                        'p2':obj.contentId,
+                        'p3':obj.contentType,
+                        'p5':0,
+                        'source':obj.iuName,
+                        'action_type': obj.action_type,
+                        'easid': easid
+                    }
+                });
+            }
+        }
+
+    }
+};
