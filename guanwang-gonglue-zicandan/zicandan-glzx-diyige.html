@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>队友自带光环</title>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+            text-decoration:none;
+        }
+        a{
+            color:#000;
+        }
+        div{
+            display:block;
+        }
+        body {
+            background: #e9e9e9;
+        }
+        #ost_box{
+            width:100%;
+            height:40px;
+            background-color:#fff;
+            color:#464646;
+            font-size:12px;
+            font-family:Tahoma,simsun;
+            border:1px solid #c9c9c9;
+            border-width:1px 0;
+            position:absolute;
+            z-index:8000;
+        }
+        #ost_box .ost_inner{
+            width:980px;
+            padding:0 5px;
+            margin:0 auto;
+            position:relative;
+            line-height:40px;
+        }
+        .ost_inner .ost_big {
+            width:970px;
+            height:185px;
+            padding:0 3px 3px;
+            border-bottom:1px solid #eee;
+            background:#fff;
+            position:absolute;
+            top:0;
+            left:50%;
+            margin:0 0 0 -488px;
+        }
+        .ost_inner .ost_logo{
+            background:url("CJ-GLZX-newsest/ost-bg.png") no-repeat;
+            width:205px;
+            padding:0 15px 0 0;
+            background-position:0 -40px;
+            position:relative;
+            z-index: 10001;
+            float:left;
+        }
+        .ost_logo .ost_blank{
+            display:block;
+            height:100%;
+            color:#000;
+            text-indent:-500px;
+        }
+        .ost_inner .ost_ad{
+            width:230px;
+            height:100%;
+            float:left;
+        }
+        .ost_inner .ost_total{
+            width:220px;
+            background-position:-143px -120px;
+            margin-left:10px;
+            float:right;
+        }
+        .ost_total a{
+            color: #464646;
+            font-size:12px;
+            font-weight:400;
+        }
+        .ost_total .ost_czsh{
+            float:left;
+            width:118px;
+            background:url(CJ-GLZX-newsest/logo.png) 0 12px no-repeat;
+            text-indent:20px;
+            cursor:pointer;
+        }
+        .ost_czsh a:hover {
+            color: #ff4e00;
+        }
+        .ost_total .ost_title{
+            font-size:12px;
+            font-weight:400;
+            height:40px;
+            line-height:40px;
+            cursor:pointer;
+            overflow: hidden;
+            display: block;
+            text-indent: 0!important;
+        }
+        .ost_title .ost_icon{
+            width:11px;
+            height:11px;
+            background-position:-150px -134px;
+            margin-left:5px;
+            background:url(CJ-GLZX-newsest/ost-bg.png) no-repeat;
+            display:inline-block;
+            vertical-align:middle;
+            font-size: .1em;
+        }
+        #top_nav{
+            width:100%;
+            height:110px;
+            background:url(CJ-GLZX-newsest/bg-nav.png) no-repeat;
+            position:absolute;
+            top:42px;
+            z-index:9;
+            display:block;
+        }
+        #top_nav .container{
+            width:1200px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        #top_nav .container .top_title{
+            float:left;
+        }
+        .container .top_title .tag{
+            margin-top:10px;
+            margin-right:12px;
+            z-index:9;
+            float:left;
+            width:125px;
+            height:125px;
+        }
+        #top_nav .container .top_title h1{
+            font-size:24px;
+            color:#ffb400;
+            line-height:36px;
+            font-weight:bold;
+            float:left;
+            margin-top:27px;
+        }
+        .top_title h1 span{
+            font-size:14px;
+            color:#ffffff;
+            display:block;
+        }
+        #top_nav .container .nav{
+            float:right;
+            margin-top:34px;
+        }
+        .container .nav a{
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:80px;
+            display:inline-block;/*内联块：和其他a标签在同一行显示*/
+        }
+        .nav a:hover{
+            color:#ffb400;
+        }
+        .nav a:hover span{
+            color:#ffb400;
+        }
+        .nav a span{
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;/*将span（本来是行级标签） 标签设为块级标签独占一行 */
+        }
+        #listpage_head {
+            position:relative;
+            top:42px;
+            width:100%;
+            min-width:1200px;
+            height:348px;
+            background:url(CJ-GLZX-newsest/info-kv.jpg) no-repeat center top;
+            overflow:hidden;
+        }
+        #listpage_head .Page-container {
+            width:1200px;
+            height:100px;
+            margin:0 auto;
+            position:relative;
+            top:170px;
+            z-index:2;
+        }
+        .Page-container .listpage-main{
+            margin:0 auto;
+            width:1040px;
+            height:100px;
+        }
+        .listpage-main .Big-title {
+            width:167px;
+            height:62px;
+            background:url(CJ-GLZX-newsest/gl-tit.png) no-repeat;
+        }
+        .listpage-main .local {
+            padding-top:17px;
+            color:#b8b8b8;
+            font-size:16px;
+            line-height:20px;
+        }
+        .listpage-main .local a {
+            color:#b8b8b8;
+            text-decoration:underline;
+        }
+        .listpage-main .local a:hover {
+            color:#e8a026;
+        }
+        #listpage_box {
+            min-width:1200px;
+            background:#e9e9e9;
+            overflow:hidden;
+            position:relative;
+            top:20px;
+        }
+        #listpage_box .listpage-center {
+            width:1200px;
+            margin:0 auto;
+            overflow:hidden;
+            position:relative;
+        }
+        .listpage-center .page-detail {
+            padding: 70px 0 0 27px;
+        }
+        .page-detail h1 {
+            color:#333;
+            font-size:32px;
+            text-align:center;
+            margin-bottom:32px;
+            width:100%;
+            overflow:hidden;
+            font-weight: normal;
+        }
+        .annotation {
+            overflow:hidden;
+            font-size:12px;
+            color:#666;
+            text-align:center;
+        }
+        .detail-author, .detail-date, .share-box {
+            display: inline-block;
+        }
+        .detail-author {
+            margin-right: 50px;
+        }
+        .detail-date {
+            margin-right: 60px;
+        }
+        .sns {
+            display: inline-block;
+        }
+        .sns-link {
+            float:left;
+            width:16px;
+            height:16px;
+            margin-right:5px;
+            text-indent:-9999em;
+            overflow:hidden;
+            background-image:url(CJ-GLZX-newsest/icon-sns-16.png);
+            background-position:-9999em -9999em;
+            background-repeat:no-repeat;
+        }
+        #sns-wechat {
+            background-position: 0 0;
+        }
+        #sns-qq {
+            background-position: -20px 0;
+        }
+        #sns-qzone {
+            background-position: -40px 0;
+        }
+        #sns-weibo {
+            background-position: -60px 0;
+        }
+        #sns-pengyou {
+            background-position: -80px 0;
+        }
+        #sns-sina {
+            background-position: -100px 0;
+        }
+        #sns-douban {
+            background-position: -120px 0;
+        }
+        #sns-kaixin {
+            background-position: -140px 0;
+        }
+        #sns-renren {
+            background-position: -160px 0;
+        }
+        .article_box {
+            padding-bottom:80px;
+            min-height:500px;
+            padding-top:50px;
+            line-height:25px;
+            color:#555;
+        }
+        .article-box img {
+            max-width: 100%;
+        }
+        .footer-botoom{
+            height:150px;
+            position:relative;
+            background:#000;
+            color:#ccc;
+        }
+        .bot_cont {
+            width:1200px;
+            height:138px;
+            margin:0 auto;
+            position:relative;
+            z-index:2;
+        }
+        .bot_cont .foot-cpright{
+            width:1200px;
+            height:135px;
+            padding-top:15px;
+        }
+        .foot-logos {
+            float:left;
+            display:inline;
+            margin-top:20px;
+            width:335px;
+            height:61px;
+        }
+        .foot-logos-game {
+            background:url(CJ-GLZX-newsest/foot-dark.png);
+            float:left;
+            width:170px;
+            height:35px;
+            text-indent:-999em;
+            overflow:hidden;
+            margin:10px 0 0 10px;
+        }
+        .foot-logos-company {
+            float:left;
+            overflow:hidden;
+            margin:10px 0 0 28px;
+        }
+        .foot-links {
+            margin-top:10px;
+            display:inline;
+            float:right;
+            width:700px;
+            color:#fff;
+            font-size:12px;
+        }
+        .foot-links li{
+            margin-bottom:2px;
+        }
+        .foot-links a {
+            color: #fff;
+        }
+        .foot-sprt {
+            margin:0 2px;
+        }
+        .container .nav .nav_yx {
+            font-size:16px;
+            color:#ffffff;
+            text-align:center;
+            width:115px;
+            height:110px;
+            display:inline-block;
+        }
+        .nav .nav_yx span {
+            margin-top:5px;
+            font-size:10px;
+            color:#515151;
+            font-weight:600;
+            display:block;
+        }
+        .nav .nav_yx:hover {
+            color: #ffb400;
+        }
+        .nav .nav_yx:hover span{
+            color:#ffb400;
+        }
+        .tips-player {
+            width:239px;
+            overflow:hidden;
+            top:100px;
+            right:13px;
+            position:absolute;
+            height:150px;
+            z-index:99;
+        }
+        .tips-player ul {
+            float:right;
+            padding:10px 5px;
+            background:#000;
+        }
+        .tips-player .on {
+            color: #fead2c;
+        }
+        .tips-player li {
+            overflow:hidden;
+            height:25px;
+            line-height:25px;
+            font-size:14px;
+            color:#fff;
+            cursor:pointer;
+        }
+        #tips-img1, #tips-img2, #tips-img3, #tips-img4 {
+            padding: 6px;
+            left: 0;
+            position: absolute;
+            background: #fff;
+            line-height: 0;
+            display: none;
+            width: 132px;
+        }
+        .tips-player img {
+            width:100%;
+        }
+        .ips-arrow {
+            width:0;
+            height:0;
+            border-top:10px solid transparent;
+            border-left:20px solid #fff;
+            border-bottom:10px solid transparent;
+            position:absolute;
+            top:57px;
+            right:-19px;
+        }
+        #shouq_arr{
+            top:12px;
+        }
+        #wxgzh_arr{
+            top:36px;
+        }
+        #wxqz_arr{
+            top:62px;
+        }
+        #gfwb_arr{
+            top:87px;
+        }
+        .nav .nav_yx #yx_sub {
+            text-align:center;
+            background:#000;
+            width:80px;
+            overflow:hidden;
+            margin-top:22px;
+            margin-left:20px;
+            position:absolute;
+            padding:20px 0px 20px 0px;
+            z-index:99;
+        }
+        #yx_sub li {
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+        }
+        .nav .nav_yx #yx_sub a {
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="ost_box">
+        <ul class="ost_inner">
+            <li class="ost_logo">
+                <a href="//game.qq.com/?ADTAG=IED.InnerCop.gameWeb.topNav target= _blank"  class="ost_blank" title="腾讯游戏logo">腾讯游戏logo</a>
+            </li>
+            <li id="ost_g" class="ost_ad">
+                <img  id="ost_go" src="CJ-GLZX-newsest/1896067324696626391152775628723040.1527756287.172727694fd6b6f15e1eb7a7763649a3.230x40_6578.jpg"/>
+            </li>
+            <div id="ost_d" class="ost_big" style="display:none;">
+                <a href="http://ac.o2.qq.com/php/click.php?loc_id=119_0d8e2b9df01ce2966bb5d8dd52e865e1&amp;
+                info_data=HhppS1tYhho2yY2eZhZh0-VnkWLIQbMGhUzjaeiPSwP5JMHBpvlEJxq-8bBIvlMkmdpUDvHCcAsel35lWaoyWpWZKJDHsQq8GYqlta1gn2QtTd7Femf_miUOqcazaUFsRlVbAQofsrdxfodj4g9DifGM_PnN_D1okapiWKjAmJwosgCz0QtGTUC1bwU2jAbWcYvorcj8BMSxFQsz6E3bFXdPZ2gE56R9RLn2cr8kMy47S65Ypmd_1oD8nPN6zdahhPlHl1mSj2kJ6oNh6uUknygN59p1z-lt6DIyCF3abtYhvAFlVgbf4ucqefGLO55NcqHSc4-0yVhG-DaKk-MEqLsZFnRON_DGoJyRzDPDWRlWTMFOHpDR9LIq14FtDX-gCcMG7c7EJo4M17FsirabRi1jNkUYPMYK-IGRrNZd7zVcDnxPi-qKjyptgFeN42k4g9dOEngv1YJxmVSv2Xm2uQ"
+                   target="_blank">
+                    <img class="ost_nb" src="CJ-GLZX-newsest/71393217633543671530257002970185.1530257026.f235c874788c3f7404e13589c7307a0a.970x185_77897.png" width="970" height="185" alt="">
+                </a>
+            </div>
+            <li class="ost_total">
+                <h3 class="ost_czsh">
+                    <a target="_blank" href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbanner">成长守护平台</a>
+                </h3>
+                <div class="ost_title">
+                    腾讯游戏排行榜
+                    <p class="ost_icon"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="top_nav">
+        <div class="container">
+            <div class="top_title">
+                <a href="">
+                    <img src="CJ-GLZX-newsest/top-tag.png" class="tag"/>
+                </a>
+                <h1>
+                    绝地求生 : 刺激战场
+                    <span>正版战斗特训手游</span>
+                </h1>
+            </div>
+            <div class="nav">
+                <a href="../guanwangshouye/shouye.html">
+                    官网首页
+                    <span>HOME</span>
+                </a>
+                <a href="../saishizhongxin/saishi.html">
+                    赛事中心
+                    <span>MATCH</span>
+                </a>
+                <a href="../shipingzhongxin/shiping.html">
+                    视频中心
+                    <span>VIDEO</span>
+                </a>
+                <a href="../zhibozhongxin/zhibo.html">
+                    直播中心
+                    <span>LIVE</span>
+                </a>
+                <a href="../gongluezhongxin/gonglue.html">
+                    攻略中心
+                    <span>GAMETIPS</span>
+                </a>
+                <div class="nav_yx" id="YXZL">
+                    游戏资料
+                    <span>DATA</span>
+                    <ul  id="yx_sub" style="display:none;">
+                        <li>
+                            <a id="wuqiPJ" href="../wuqipeijian/youxiziliao.html">
+                                武器配件
+                            </a>
+                        </li>
+                        <li>
+                            <a id="banbenGX" href="../banbengengxin/banbengenxin.html" >
+                                版本更新
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" id="shequhudong">
+                    社区互动
+                    <span>COMMUNITY</span>
+                    <div class="tips-player" id="tipsPlayer" style="display:none;">
+                        <ul>
+                            <li id="shouQ" class="on">手Q部落</li>
+                            <li id="weixinGZH" class="">微信公众号</li>
+                            <li id="weixinQZ" class="">微信圈子</li>
+                            <li id="guangfangWB" class="">官方微博</li>
+                        </ul>
+                        <p id="tips-img1" style="display:block;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_sq.jpg" alt="手Q部落">
+                            <i id="shouq_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img2" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wxqz.jpg" alt="微信公众号">
+                            <i id="wxgzh_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img3" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wx.jpg" alt="微信圈子">
+                            <i id="wxqz_arr" class="ips-arrow"></i>
+                        </p>
+                        <p id="tips-img4" style="display:none;">
+                            <img src="../shipingzhongxin/CJ-SPZX/qrcode_wb.jpg" alt="官方微博">
+                            <i id="gfwb_arr" class="ips-arrow"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="listpage_head">
+        <div class="Page-container">
+            <div class="listpage-main">
+                <div class="Big-title"></div>
+                <div class="local">
+                    您的位置：
+                    <a href="../guanwangshouye/shouye.html">首页</a>
+                       >
+                    <a href="">攻略中心</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="listpage_box">
+        <div class="listpage-center">
+            <div class="page-detail">
+                <h1>队友自带削弱光环，P城霸主的姐也没怕过</h1>
+                <div class="annotation">
+                    <span class="detail-author">舔包姐姐</span>
+                    <span class="detail-date">2018-06-01</span>
+                    <div class="share-box">
+                        <span>分享到：</span>
+                        <div id="sns" class="sns">
+                            <a href="" class="sns-link" id="sns-wechat"></a>
+                            <a href="" class="sns-link" id="sns-qq"></a>
+                            <a href="" class="sns-link" id="sns-qzone"></a>
+                            <a href="" class="sns-link" id="sns-weibo"></a>
+                            <a href="" class="sns-link" id="sns-pengyou"></a>
+                            <a href="" class="sns-link" id="sns-sina"></a>
+                            <a href="" class="sns-link" id="sns-douban"></a>
+                            <a href="" class="sns-link" id="sns-kaixin"></a>
+                            <a href="" class="sns-link" id="sns-renren"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="article_box">
+                    <div class="section" style="layout-grid:15.6pt"> <!--设置或检索应用于对象文本的行网格值，15.6磅-->
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                今天姐换换胃口，去匹配4排打打突击手。一到素质广场发现队伍里竟然有小学生，
+                                而且好像是好几个小朋友玩一个手机。几个小朋友开着队伍语音在频道里叽叽喳喳让姐都没法说话了，
+                                不过姐也从来不歧视小学生，没准人家是什么天才少年呢。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image001.1527754827.773d6507931c2d7e090f30785d92e876.554x311_30383.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                               灰机起灰......有个小哥哥标了M城，但是离航线太远了也不好发展，
+                                于是姐决定带领大家在P城大干一场。小哥哥小弟弟们都跟我走吧！
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image002.1527754829.0ebea25b567be1628593208748e89aa3.554x311_31460.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                              哎小学生你怎么跳海边高速了，标M城的小哥哥你怎么也跳了？说好的团结呢？算了，姐一个人去P城发展了再来养你们。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image003.1527754831.4884d631cc37c672bf17d68b15fe808a.554x311_33336.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image004.1527754834.1e8b6985908be63d40c05ed183d1bfe8.554x311_26029.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                              P城果然地大物博，刚落地就已经满城枪响了。姐虽然技术好，但乱棍打死牛魔王，所以也得适当地苟一苟躲一躲。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image005.1527754836.10d9f306c3fc6d0c616c553ce2f3ae0a.554x311_33742.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                              P城战况越来越激烈，单枪匹马的姐子弹都打见底了，分分钟撑不住的节奏。
+                                千钧一发之际一名小哥哥及时开车赶来，标M城的小哥哥也“浪子回头”了。姐爱死你们了~
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image006.1527754838.eb8455d74aa7e01fa0a1b1de278f2a3d.554x311_28673.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                              姐在P城激战正酣之际，小学生竟然一声不响的被毒倒了，而且还在最西边没动过！？
+                                这神坑啊~算了姐就当是出bug少一个队友了。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image007.1527754840.e63dfbe3806aab9a2f5ee43724e3f9b3.554x311_27897.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                              经过一番激战，P城的敌人基本被肃清，此时蓝圈快到了，西北边还传来了枪声，
+                                得赶紧开车跑毒了。但是哪个智障队友把车停在人家交战地啊，为了车姐跟你们拼了！
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image008.1527754843.d61d98256756a82907b99570a50e3f05.554x311_31783.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image009.1527754845.274557f6971c011557e7681d734b5471.554x311_31801.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                             姐的枪法有如神助，成功将交战双方灭队。可此时毒圈也早就缩了过来，
+                                小哥哥们没时间了快上车！漏了一个小哥哥？撑住，姐送完队友马上就回来！
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image010.1527754849.18695c95e406d43be444727d52a4ce17.554x311_33742.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                             哎小哥哥你别刚进圈就急着跳车啊，这扶你一把又耽误了不少时间，
+                                还好被落下的那位也在一边打药一边往圈内跑，姐也顾不得打包直接驱车去接，然后赶紧回头进圈补个血。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image011.1527754852.8ccb7f81e1919843932f6ab9ade09983.554x311_32526.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                             呼~幸好上天眷顾颜值高的人，还能给姐点时间补补血，不然要被小学生笑死了。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image012.1527754854.e2288fbeffec9dac104e3072f563f413.554x311_30944.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                            正想喘口气，姐就从墙边探头看到三个人鬼鬼祟祟地在平地上梦游，
+                                姐赶紧招呼队友把他们偷袭了，估计他们被打死的时候还是一脸懵逼。
+                                此时敌人仅剩两名，看着手里仅有的全息镜，姐觉得自己是个假的P城霸主。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image013.1527754858.bd0e75dac501729ecf7b8de66ca1c205.554x311_28522.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image014.1527754862.cef1ddb2f4b74bfbc81557d19d4a3517.554x311_28545.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                             然而这并不影响姐搜索敌人时那5.0的视力，藏在树荫里的两个敌人被我尽收眼底，咔咔几枪送他们上路，成功带领路人小哥哥吃鸡。
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-align:center">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                <img src="CJ-GLZX-newsest/tmp.image015.1527754864.d4dee66e56536d0058d31bd05119e062.554x311_28075.jpg"style="width:554px;height:311px;"/>
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                                &nbsp
+                            </span>
+                        </p>
+                        <p class="normal" style="text-indent:21.0pt">
+                            <span style="font-family:微软雅黑;font-size:medium;">
+                             虽然没能带着小学生一起满编吃鸡，还因为太仗义差点被毒死，好在最后还是赢了。姐毋庸置疑地拿到了MVP，两名小哥哥的表现也不错。你能找到小学生是谁吗？
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-botoom">
+        <div class="bot_cont">
+            <div class="foot-cpright">
+                <div class="foot-logos">
+                    <a href="http://ieg.tencent.com/"class="foot-logos-game"></a>
+                    <a href=""class="foot-logos-company">
+                        <img src="CJ-GLZX-newsest/footer-logo-gz.png"/>
+                    </a>
+                </div>
+                <ul class="foot-links">
+                    <li>
+                        <a href="http://ieg.tencent.com/">腾讯互动娱乐</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://www.qq.com/contract.shtml">服务条款</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="https://e.tencent.com/">广告服务</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/hr/">腾讯游戏招聘</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://service.qq.com/">腾讯游戏客服</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://tgact.qq.com/">游戏活动</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/gnav/">游戏地图</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/portal2010/business.htm">商务合作</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://www.qq.com/">腾讯网</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://www.qq.com/map/">网站导航</a>
+                    </li>
+                    <li><a href="http://www.tencent.com/law/mo_law.shtml?/law/copyright.htm">腾讯公司版权所有</a></li>
+                    <li>COPYRIGHT © 1998 - 2018 TENCENT. ALL RIGHTS RESERVED.</li>
+                    <li>
+                        <a href="http://www.qq.com/culture.shtml">粤网文[2017]6138-1456号</a>
+                        <span class="foot-sprt">|</span>
+                        <a href="http://game.qq.com/culture2.htm">新出网证：（粤）字010号</a>
+                    </li>
+                    <li>本网络游戏适合年满16周岁以上的用户使用；为了您的健康，请合理控制游戏时间。</li>
+                    <li>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="GLZX.js"></script>
+</body>
+</html>

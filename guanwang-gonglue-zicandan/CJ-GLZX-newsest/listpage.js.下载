@@ -1,0 +1,20 @@
+$(function () {
+    $("#tipsPlayer li").mouseover(function () {
+        var idx = $(this).index();
+        $("#tipsPlayer li").removeClass("on").eq(idx).addClass("on")
+        $("#tipsPlayer p").hide().eq(idx).show();
+    }); 
+    var cid = 0;
+    $("#tipsPlayer").mouseover(function () {
+        $("#tipsPlayer").show();
+    });
+    $("#tipsPlayer").mouseleave(function () {
+        $("#tipsPlayer").hide();
+    });
+    $("#playerLink").mouseover(function () {
+        $("#tipsPlayer").show();
+    });
+    $("#playerLink").mouseout(function () {
+        $("#tipsPlayer").hide();
+    });
+})
